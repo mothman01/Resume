@@ -26,7 +26,7 @@ body {
 .container {
     max-width: 1050px;
     width: 100%;
-    background: #ffffff;
+    background: #36454F;
     display: flex;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     border-radius: 8px;
