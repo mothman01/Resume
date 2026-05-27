@@ -74,6 +74,7 @@ body {
 .contact-info a {
     color: #cbd5e1;
     text-decoration: none;
+    transition: color 0.2s;
 }
 
 .contact-info a:hover {
@@ -120,7 +121,7 @@ body {
 }
 
 .item {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .item-header {
@@ -147,6 +148,16 @@ body {
     margin-bottom: 6px;
 }
 
+.item .institution a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.item .institution a:hover {
+    text-decoration: underline;
+}
+
 .item p {
     font-size: 0.95rem;
     color: var(--text-main);
@@ -170,10 +181,8 @@ body {
     .sidebar, .main-content {
         width: 100%;
     }
-    .sidebar {
-        padding: 30px;
-    }
-    .main-content {
+    .sidebar, .main-content {
         padding: 30px;
     }
 }
+
