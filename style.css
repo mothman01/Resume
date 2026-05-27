@@ -162,6 +162,41 @@ body {
     margin-bottom: 4px;
 }
 
+/* Project Action Buttons Layout */
+.project-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.project-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-download {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+.btn-download:hover {
+    background-color: #2563eb;
+}
+
+.btn-code {
+    background-color: #475569;
+    color: #ffffff;
+}
+.btn-code:hover {
+    background-color: #334155;
+}
+
 /* Responsive Scaling */
 @media (max-width: 850px) {
     .container {
