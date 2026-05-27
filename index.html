@@ -177,150 +177,167 @@
         </main>
     </div>
 
+
     <!-- JavaScript Game Engine Simulation Script -->
     <script>
-function runSnakeGame() {
-    document.getElementById('start-game-btn').style.display = 'none';
-    const term = new Terminal({
-        cols: 92,
-        rows: 25,
-        cursorBlink: false,
-        theme: { background: '#0f172a', foreground: '#f8fafc' }
-    });
-    term.open(document.getElementById('terminal-container'));
-    
-    // Global Variable state allocations matching main.cpp configurations
-    let width = 90, height = 20;
-    let x = Math.floor(width / 2);
-    let y = Math.floor(height / 2);
-    let fruitCordx = Math.floor(Math.random() * (width - 1)) + 1;
-    let fruitCordy = Math.floor(Math.random() * height);
-    let playerScore = 0;
-    let snakeTailX = [], snakeTailY = [], snakeTailLength = 0;
-    let sDir = 'STOP';
-    let isGameOver = false;
-    let playerName = "";
-    let gameIntervalId = null;
-
-    term.write('Enter your name: ');
-    let inputBuffer = "";
-
-    term.onData(e => {
-        if (isGameOver) return;
+        // Global variables initialized outside to keep scope safe
+        let term, gameIntervalId;
         
-        // Name Input Buffer Handler
-        if (playerName === "") {
-            if (e === '\r' || e === '\n') {
-                playerName = inputBuffer.trim() || "Player";
-                term.write('\r\nSelect Difficulty (1: Easy, 2: Med, 3: Hard): ');
-                inputBuffer = "";
-            } else if (e === '\x7F') { // Backspace handling
-                if (inputBuffer.length > 0) {
-                    inputBuffer = inputBuffer.slice(0, -1);
-                    term.write('\b \b');
-                }
-            } else {
-                inputBuffer += e;
-                term.write(e);
+        function runSnakeGame() {
+            // Hide the activation button immediately
+            document.getElementById('start-game-btn').style.display = 'none';
+            
+            // Build and configure the terminal instance
+            term = new Terminal({
+                cols: 92,
+                rows: 25,
+                cursorBlink: false,
+                theme: { background: '#0f172a', foreground: '#f8fafc' }
+            });
+            
+            // CRITICAL FIX: Ensure container exists in DOM before opening
+            const container = document.getElementById('terminal-container');
+            if (!container) {
+                console.error("Terminal container element not found!");
+                return;
             }
-            return;
-        }
+            
+            term.open(container);
+            
+            // Global Variable state allocations matching main.cpp configurations
+            let width = 90, height = 20;
+            let x = Math.floor(width / 2);
+            let y = Math.floor(height / 2);
+            let fruitCordx = Math.floor(Math.random() * (width - 1)) + 1;
+            let fruitCordy = Math.floor(Math.random() * height);
+            let playerScore = 0;
+            let snakeTailX = [], snakeTailY = [], snakeTailLength = 0;
+            let sDir = 'STOP';
+            let isGameOver = false;
+            let playerName = "";
 
-        // Difficulty Engine selector logic - NOW FIXED TO START INSTANTLY
-        if (sDir === 'STOP' && (e === '1' || e === '2' || e === '3')) {
-            let difficultySpeed = (e === '1') ? 100 : (e === '3') ? 25 : 60;
-            term.write('\r\nStarting game... Use WASD keys to move.\r\n');
-            setTimeout(() => {
-                sDir = 'RIGHT';
-                gameIntervalId = setInterval(gameLoop, difficultySpeed);
-            }, 500); // 500ms setup delay execution
-            return;
-        }
+            term.write('Enter your name: ');
+            let inputBuffer = "";
 
-        // Standard WASD directional controls parsing 
-        if (e === 'a' && sDir !== 'RIGHT') sDir = 'LEFT';
-        if (e === 'd' && sDir !== 'LEFT') sDir = 'RIGHT';
-        if (e === 'w' && sDir !== 'DOWN') sDir = 'UP';
-        if (e === 's' && sDir !== 'UP') sDir = 'DOWN';
-        if (e === 'x') isGameOver = true;
-    });
-
-    function gameLoop() {
-        if (isGameOver) return;
-
-        // Dynamic Tail Vector shift computations matching main.cpp
-        let prevX = snakeTailX[0];
-        let prevY = snakeTailY[0];
-        let prev2X, prev2Y;
-        snakeTailX[0] = x;
-        snakeTailY[0] = y;
-
-        for (let i = 1; i < snakeTailLength; i++) {
-            prev2X = snakeTailX[i];
-            prev2Y = snakeTailY[i];
-            snakeTailX[i] = prevX;
-            snakeTailY[i] = prevY;
-            prevX = prev2X;
-            prevY = prev2Y;
-        }
-
-        switch (sDir) {
-            case 'LEFT':  x--; break;
-            case 'RIGHT': x++; break;
-            case 'UP':    y--; break;
-            case 'DOWN':  y++; break;
-        }
-
-        // Edge bound constraints checker execution
-        if (x >= width || x <= 0 || y >= height || y < 0) isGameOver = true;
-
-        // Tail collision constraint checks 
-        for (let i = 0; i < snakeTailLength; i++) {
-            if (snakeTailX[i] === x && snakeTailY[i] === y) isGameOver = true;
-        }
-
-        // Object interception coordinate logic (Eating Food)
-        if (x === fruitCordx && y === fruitCordy) {
-            playerScore += 10;
-            fruitCordx = Math.floor(Math.random() * (width - 2)) + 1;
-            fruitCordy = Math.floor(Math.random() * height);
-            snakeTailLength++;
-        }
-
-        // Screen refresh frame drawing cycle
-        if (!isGameOver) {
-            let frame = "\x1b[H" + "-".repeat(width + 2) + "\r\n";
-            for (let i = 0; i < height; i++) {
-                let line = "|";
-                for (let j = 1; j < width; j++) {
-                    if (i === y && j === x) {
-                        line += "O";
-                    } else if (i === fruitCordy && j === fruitCordx) {
-                        line += "#";
+            term.onData(e => {
+                if (isGameOver) return;
+                
+                // Name Input Buffer Handler
+                if (playerName === "") {
+                    if (e === '\r' || e === '\n') {
+                        playerName = inputBuffer.trim() || "Player";
+                        term.write('\r\nSelect Difficulty (1: Easy, 2: Med, 3: Hard): ');
+                        inputBuffer = "";
+                    } else if (e === '\x7F') { // Backspace
+                        if (inputBuffer.length > 0) {
+                            inputBuffer = inputBuffer.slice(0, -1);
+                            term.write('\b \b');
+                        }
                     } else {
-                        let prTail = false;
-                        for (let k = 0; k < snakeTailLength; k++) {
-                            if (snakeTailX[k] === j && snakeTailY[k] === i) {
-                                line += "o";
-                                prTail = true;
-                                break;
+                        inputBuffer += e;
+                        term.write(e);
+                    }
+                    return;
+                }
+
+                // Difficulty Engine selector logic 
+                if (sDir === 'STOP' && (e === '1' || e === '2' || e === '3')) {
+                    let difficultySpeed = (e === '1') ? 100 : (e === '3') ? 25 : 60;
+                    term.write('\r\nStarting game... Use WASD keys to move.\r\n');
+                    setTimeout(() => {
+                        sDir = 'RIGHT';
+                        // Clean clear old intervals to prevent ghost snake speeds
+                        if(gameIntervalId) clearInterval(gameIntervalId);
+                        gameIntervalId = setInterval(gameLoop, difficultySpeed);
+                    }, 500);
+                    return;
+                }
+
+                // Standard WASD directional controls parsing 
+                if (e === 'a' && sDir !== 'RIGHT') sDir = 'LEFT';
+                if (e === 'd' && sDir !== 'LEFT') sDir = 'RIGHT';
+                if (e === 'w' && sDir !== 'DOWN') sDir = 'UP';
+                if (e === 's' && sDir !== 'UP') sDir = 'DOWN';
+                if (e === 'x') isGameOver = true;
+            });
+
+            function gameLoop() {
+                if (isGameOver) return;
+
+                // Dynamic Tail Vector shift computations matching main.cpp
+                let prevX = snakeTailX[0];
+                let prevY = snakeTailY[0];
+                let prev2X, prev2Y;
+                snakeTailX[0] = x;
+                snakeTailY[0] = y;
+
+                for (let i = 1; i < snakeTailLength; i++) {
+                    prev2X = snakeTailX[i];
+                    prev2Y = snakeTailY[i];
+                    snakeTailX[i] = prevX;
+                    snakeTailY[i] = prevY;
+                    prevX = prev2X;
+                    prevY = prev2Y;
+                }
+
+                switch (sDir) {
+                    case 'LEFT':  x--; break;
+                    case 'RIGHT': x++; break;
+                    case 'UP':    y--; break;
+                    case 'DOWN':  y++; break;
+                }
+
+                // Edge bound constraints checker execution
+                if (x >= width || x <= 0 || y >= height || y < 0) isGameOver = true;
+
+                // Tail collision constraint checks 
+                for (let i = 0; i < snakeTailLength; i++) {
+                    if (snakeTailX[i] === x && snakeTailY[i] === y) isGameOver = true;
+                }
+
+                // Object interception coordinate logic (Eating Food)
+                if (x === fruitCordx && y === fruitCordy) {
+                    playerScore += 10;
+                    fruitCordx = Math.floor(Math.random() * (width - 2)) + 1;
+                    fruitCordy = Math.floor(Math.random() * height);
+                    snakeTailLength++;
+                }
+
+                // Screen refresh frame drawing cycle
+                if (!isGameOver) {
+                    let frame = "\x1b[H" + "-".repeat(width + 2) + "\r\n";
+                    for (let i = 0; i < height; i++) {
+                        let line = "|";
+                        for (let j = 1; j < width; j++) {
+                            if (i === y && j === x) {
+                                line += "O";
+                            } else if (i === fruitCordy && j === fruitCordx) {
+                                line += "#";
+                            } else {
+                                let prTail = false;
+                                for (let k = 0; k < snakeTailLength; k++) {
+                                    if (snakeTailX[k] === j && snakeTailY[k] === i) {
+                                        line += "o";
+                                        prTail = true;
+                                        break;
+                                    }
+                                }
+                                if (!prTail) line += " ";
                             }
                         }
-                        if (!prTail) line += " ";
+                        frame += line + "|\r\n";
                     }
+                    frame += "-".repeat(width + 2) + "\r\n" + playerName + "'s Score: " + playerScore;
+                    term.write(frame);
+                } else {
+                    clearInterval(gameIntervalId);
+                    term.clear();
+                    term.write("\r\nGAME OVER!\r\nFinal Score: " + playerScore + "\r\n");
+                    term.write("\r\nRefresh the web page to try again!");
                 }
-                frame += line + "|\r\n";
             }
-            frame += "-".repeat(width + 2) + "\r\n" + playerName + "'s Score: " + playerScore;
-            term.write(frame);
-        } else {
-            clearInterval(gameIntervalId);
-            term.clear();
-            term.write("\r\nGAME OVER!\r\nFinal Score: " + playerScore + "\r\n");
-            term.write("\r\nRefresh the web page to try again!");
         }
-    }
-}
+
 
 
     </script>
