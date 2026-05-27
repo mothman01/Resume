@@ -6,6 +6,9 @@
     <title>Michael Cogan - Portfolio & Resume</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cloudflare.com">
+    <!-- Web Terminal Layout Scripts -->
+    <link rel="stylesheet" href="https://jsdelivr.net" />
+    <script src="https://jsdelivr.net"></script>
 </head>
 <body>
     <div class="container">
@@ -70,15 +73,24 @@
                 <div class="item">
                     <div class="item-header">
                         <h4>Terminal Snake Game (C++)</h4>
-                        <span class="date">Completed Project</span>
+                        <span class="date">Live Simulator</span>
                     </div>
                     <p class="institution">Personal Project</p>
-                    <p>Developed a classic terminal-based Snake game using C++ featuring dynamic console frame rendering, difficulty speed mechanics, custom keyboard polling handlers using <code>conio.h</code>, and a persistent top-5 high score leaderboard utilizing file I/O streams.</p>
+                    <p>Developed a classic terminal-based Snake game using C++ featuring dynamic console frame rendering, difficulty speed mechanics, custom keyboard polling handlers using <code>conio.h</code>, and standard multi-directional array grid tracking algorithms.</p>
                     
-                    <!-- Fixed Download URL Included Below -->
+                    <!-- Live Web Play Frame Layout -->
+                    <div class="terminal-card">
+                        <div class="terminal-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            <span class="terminal-title">SnakeGame.exe (Web Simulation)</span>
+                        </div>
+                        <div id="terminal-container"></div>
+                        <button id="start-game-btn" onclick="runSnakeGame()"><i class="fa-solid fa-play"></i> Click to Start Game</button>
+                    </div>
+
                     <div class="project-actions">
-                        <a href="https://github.com/mothman01/SnakeGame/raw/master/SnakeGame.exe" class="btn btn-download" download>
-                            <i class="fa-solid fa-download"></i> Download Windows .exe
+                        <a href="https://github.com/SnakeGame/raw/master/SnakeGame.exe" class="btn btn-download" download>
+                            <i class="fa-solid fa-download"></i> Download Local Windows .exe
                         </a>
                         <a href="https://github.com/SnakeGame" class="btn btn-code" target="_blank">
                             <i class="fa-brands fa-github"></i> View Source Code
@@ -162,24 +174,16 @@
                     </ul>
                 </div>
             </section>
-
-            <!-- Extracurricular Leadership -->
-            <section class="resume-block">
-                <h2><i class="fa-solid fa-users"></i> Leadership & Mentorship</h2>
-                <div class="item">
-                    <div class="item-header">
-                        <h4>Python Instructor / Guest Speaker</h4>
-                        <span class="date">Academic Year</span>
-                    </div>
-                    <p class="institution">Astronomy Club</p>
-                    <ul>
-                        <li>Instructed 40 incoming freshmen on leveraging scientific Python libraries for astronomical data analysis.</li>
-                        <li>Guided student workshops detailing data engineering tradeoffs between data windowing methods and data binning methods.</li>
-                    </ul>
-                </div>
-            </section>
         </main>
     </div>
-</body>
-</html>
 
+    <!-- JavaScript Game Engine Simulation Script -->
+    <script>
+        function runSnakeGame() {
+            document.getElementById('start-game-btn').style.display = 'none';
+            const term = new Terminal({
+                cols: 92,
+                rows: 25,
+                cursorBlink: false,
+                theme: { background: '#0f172a', foreground: '#f8fafc' }
+            });
