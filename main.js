@@ -160,7 +160,7 @@ function drawFrame(xi, vi, Fi, mode, m) {
     actx.font = '11px sans-serif';
     actx.fillStyle = '#ffffff';
     actx.textAlign = 'center';
-    actx.fillText(`m = ${m.toFixed(1)}`, centerX, massMid + 4);
+    actx.fillText(`m = ${m.toFixed(1)}kg`, centerX, massMid + 4);
 
     // Equilibrium baseline dashed grid
     actx.setLineDash([4, 4]);
