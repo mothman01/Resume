@@ -144,10 +144,10 @@ function drawFrame(xi, vi, Fi, mode, m) {
     actx.fillRect(0, 0, CW, 15);
 
     // Spring (Left side harness)
-    drawSpring(centerX - 35, 15, centerX - 35, massTop, 8, '#3b82f6');
+    drawSpring(centerX - 34, 15, centerX - 35, massTop, 8, '#3b82f6');
 
     // Damper (Right side shock)
-    drawDamper(centerX + 35, 15, centerX + 35, massTop, '#f59e0b');
+    drawDamper(centerX + 34, 15, centerX + 35, massTop, '#f59e0b');
 
     // Render Mass Block Object
     actx.fillStyle = '#1e293b'; // Matches your portfolio primary dark slate
