@@ -183,6 +183,61 @@
                     </ul>
                 </div>
             </section>
+
+            <section class="resume-block">
+    <h2><i class="fa-solid fa-wave-square"></i> Live Interactive Physics Engine</h2>
+    <div class="item">
+        <p style="margin-bottom: 15px;">A real-time mechanics simulator solving ordinary differential equations directly inside the browser via WebAssembly (Pyodide, SciPy, and NumPy).</p>
+        
+        <div id="status" style="font-size: 13px; font-weight: bold; color: #f0a500; margin-bottom: 10px;">Initializing WebAssembly Python Engine...</div>
+
+        <div class="mode-buttons" style="display: flex; gap: 8px; margin-bottom: 20px;">
+            <button class="mode-btn active" data-mode="simple">Simple Harmonic</button>
+            <button class="mode-btn" data-mode="damped">Damped</button>
+            <button class="mode-btn" data-mode="forced">Forced Cosine</button>
+            <button class="mode-btn" data-mode="rectangular">Forced Square</button>
+        </div>
+
+        <div class="controls" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; max-width: 700px;">
+            <div class="slider-group">
+                <label style="display: flex; justify-content: space-between; font-size: 13px;">Driving Force (F₀): <span id="F0-val">2.0</span></label>
+                <input type="range" id="F0" min="0" max="10" step="0.1" value="2.0">
+            </div>
+            <div class="slider-group">
+                <label style="display: flex; justify-content: space-between; font-size: 13px;">Drive Frequency (ω): <span id="wd-val">1.5</span></label>
+                <input type="range" id="wd" min="0.1" max="5" step="0.1" value="1.5">
+            </div>
+            <div class="slider-group">
+                <label style="display: flex; justify-content: space-between; font-size: 13px;">Initial Position (x₀): <span id="x0-val">1.0</span></label>
+                <input type="range" id="x0" min="-4" max="4" step="0.1" value="1.0">
+            </div>
+            <div class="slider-group">
+                <label style="display: flex; justify-content: space-between; font-size: 13px;">Mass (m): <span id="m-val">1.0</span></label>
+                <input type="range" id="mass" min="0.5" max="5" step="0.1" value="1.0">
+            </div>
+        </div>
+
+        <div class="animation-container" style="background: #2a2a2a; border-radius: 8px; padding: 12px; display: flex; align-items: center; gap: 16px;">
+            <canvas id="physics-canvas" width="300" height="300" style="background: #1a1a1a; border-radius: 6px; display: block;"></canvas>
+            <div class="animation-info" style="flex: 1; font-size: 13px; color: #aaa; font-family: monospace;">
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 3px 0;">
+                    <span>Position (x):</span> <span id="info-x">0.0000</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 3px 0;">
+                    <span>Velocity (v):</span> <span id="info-v">0.0000</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 3px 0;">
+                    <span>Time (t):</span> <span id="info-t">0.000 s</span>
+                </div>
+                <div class="animation-controls" style="display: flex; gap: 8px; margin-top: 15px;">
+                    <button id="btn-play" class="anim-btn active" style="padding: 6px 12px; cursor: pointer;"> can⏸ pause</button>
+                    <button id="btn-reset" class="anim-btn" style="padding: 6px 12px; cursor: pointer;">🔄 reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+            
         </main>
     </div>
 </body>
