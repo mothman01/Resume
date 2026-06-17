@@ -1,195 +1,204 @@
-:root {
-    --primary-color: #1e293b; /* Deep slate blue */
-    --accent-color: #3b82f6;  /* Tech blue */
-    --bg-light: #f8fafc;
-    --text-main: #334155;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Cogan - Portfolio & Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-header">
+                <h1>Michael Cogan</h1>
+                <p class="subtitle">Computational Physics Student & Developer</p>
+            </div>
+            
+            <section class="contact-info">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:michaelcogan497@gmail.com">michaelcogan497@gmail.com</a></p>
+                <p><i class="fa-solid fa-phone"></i> (612) 594-0722</p>
+                <p><i class="fa-solid fa-location-dot"></i> Orlando, FL</p>
+                <p><i class="fa-brands fa-github"></i> <a href="https://github.com/mothman01" target="_blank">
+                    <img src="github_icon.jpg" alt="GitHub Logo" style="width:30px; height:30px;">
+                </a></p>
+            </section>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-}
+            <section class="skills-section">
+                <h3>Languages</h3>
+                <div class="tags">
+                    <span>Python</span><span>C</span><span>C++</span><span>Java</span>
+                    <span>JavaScript</span><span>TypeScript</span><span>HTML/CSS</span><span>SQL</span>
+                </div>
+            </section>
 
-body {
-    background-color: var(--bg-light);
-    color: var(--text-main);
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-    line-height: 1.6;
-}
+            <section class="skills-section">
+                <h3>Software & Tools</h3>
+                <div class="tags">
+                    <span>Git</span><span>Matplotlib</span><span>Excel</span><span>Google Sheets</span>
+                    <span>MS Office</span><span>Teams</span>
+                </div>
+            </section>
 
-.container {
-    max-width: 1050px;
-    width: 100%;
-    background: #FFFFFF;
-    display: flex;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    border-radius: 8px;
-    overflow: hidden;
-}
+            <section class="skills-section">
+            <h3>Methodologies</h3>
+                <div class="tags">
+                    <span>Data Analysis</span>
+                    <span>Numerical Modeling</span>
+                    <span>OOP</span>
+                    <span>Signal Processing</span>
+                    <span>Technical Writing</span>
+                </div>
+            </section>
 
-/* Sidebar Layout */
-.sidebar {
-    width: 32%;
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 40px 30px;
-}
+            <h5>Full stack portfolio</h5>
+            <div class="links">
+                <p>
+                    <a href="https://physics-sandbox-vm7y.onrender.com" target="_blank" style="display: flex; align-items: center; gap: 10px; color: #cbd5e1; text-decoration: none;">
+                        <img src="ball_spring.png" alt="Physics Sandbox Thumbnail" style="width:60px; height:40px; border-radius: 4px;">
+                        <span>Live Physics Sandbox</span>
+                    </a>
+                </p>
+            </div>
 
-.profile-header h1 {
-    font-size: 1.8rem;
-    line-height: 1.2;
-    margin-bottom: 8px;
-}
+            <section class="skills-section">
+            <h3>Coursework</h3>
+            <div class="tags">
+                <span>Computational Physics</span>
+                <span>Differential Equations</span>
+                <span>Matrix and Linear Algebra</span>
+                <span>Classical Mechanics</span>
+                <span>Data Structures</span>
+            </div>
+            </section>
 
-.profile-header .subtitle {
-    color: #94a3b8;
-    font-size: 0.95rem;
-    margin-bottom: 35px;
-}
+            <section class="skills-section certifications">
+                <h3>Certifications</h3>
+                <div class="cert-item">
+                    <p><i class="fa-solid fa-certificate" style="color: #cbd5e1;"></i> Software Engineer Intern</p>
+                    <span class="cert-detail">HackerRank | ID: E9957F191A4E</span>
+                </div>
+                <div class="cert-item">
+                    <p><i class="fa-brands fa-python" style="color: #cbd5e1;"></i> Python (Basic)</p>
+                    <span class="cert-detail">HackerRank | ID: 16D74456FC3F</span>
+                </div>
+            </section>
 
-.sidebar h3 {
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1px solid #334155;
-    margin: 30px 0 15px;
-    padding-bottom: 5px;
-    color: #f1f5f9;
-}
-.sidebar h5 {
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1px solid #334155;
-    margin: 30px 0 15px;
-    padding-bottom: 5px;
-    color: #f1f5f9;
-}
-.contact-info p {
-    font-size: 0.9rem;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+        </aside>
 
-.contact-info a {
-    color: #cbd5e1;
-    text-decoration: none;
-    transition: color 0.2s;
-}
+        <main class="main-content">
+            <section class="resume-block">
+                <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <h4>B.S. Computational Physics (Mathematics Minor)</h4>
+                        <span class="date">In Progress</span>
+                    </div>
+                    <p class="institution">University of Central Florida (UCF) — Orlando, FL</p>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <h4>Associate in Arts, Physics</h4>
+                        <span class="date">Graduated 2025</span>
+                    </div>
+                    <p class="institution">Valencia College — Orlando, FL</p>
+                </div>
+            </section>
 
-.contact-info a:hover {
-    color: var(--accent-color);
-}
+            <section class="resume-block">
+                <h2><i class="fa-solid fa-code"></i> Technical Projects</h2>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <h4>Terminal Snake Game (C++)</h4>
+                        <span class="date">Completed</span>
+                    </div>
+                    <p class="institution">Personal Project | <a href="https://github.com/mothman01/SnakeGame" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> View Repository</a></p>
+                    <p>Developed a classic terminal-based Snake game using C++ featuring dynamic console frame rendering, difficulty speed mechanics, custom keyboard polling handlers using <code>conio.h</code>, and standard multi-directional array grid tracking algorithms.</p>
+                </div>
 
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
+                <div class="item">
+                    <div class="item-header">
+                        <h4>Stateful TCP Backend Server</h4>
+                    </div>
+                    <p class="institution">Personal Project</p>
+                    <p>Programmed a stateful, synchronous backend infrastructure that intercepts client handshakes to deliver dynamic front-end views via raw TCP connections.</p>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <h4><a href="https://physics-sandbox-vm7y.onrender.com" target="_blank" style="color: inherit; text-decoration: none;">Oscillating Systems Web Simulator</a></h4>
+                    </div>
+                    <p class="institution">Personal Project | <a href="https://physics-sandbox-vm7y.onrender.com" target="_blank" class="project-link" style="color: #3b82f6; text-decoration: none; font-weight: 600;"><i class="fa-solid fa-globe"></i> View Live App</a></p>
+                    <p>Assembled a full-stack web repository featuring a locally hosted website that simulates and visualizes complex physical oscillating systems.</p>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <h4>C Game Development Portfolio</h4>
+                    </div>
+                    <p class="institution">Personal Project</p>
+                    <p>Developed two classic video games in C to showcase foundational object-oriented programming concepts and real-time state updating systems.</p>
+                </div>
+            </section>
 
-.tags span {
-    background: #334155;
-    font-size: 0.8rem;
-    padding: 4px 10px;
-    border-radius: 4px;
-    color: #e2e8f0;
-}
+            <section class="resume-block">
+                <h2><i class="fa-solid fa-briefcase"></i> Experience</h2>
 
-/* Main Content Layout */
-.main-content {
-    width: 68%;
-    padding: 50px;
-}
+                <div class="item">
+                    <div class="item-header">
+                        <h4>Physics & Mathematics Tutor</h4>
+                        <span class="date">Continuous</span>
+                    </div>
+                    <p class="institution">Educate 2 Elevate — Orlando, FL</p>
+                    <ul>
+                        <li>Taught advanced high school physics integrated with applicable calculus concepts.</li>
+                        <li>Structured tailored learning materials and adapted communication styles to support students experiencing severe social anxiety.</li>
+                    </ul>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <h4>Assistant Researcher</h4>
+                        <span class="date">2025 - 2026</span>
+                    </div>
+                    <p class="institution">Rings Research Group — Orlando, FL</p>
+                    <ul>
+                        <li>Analyzed NASA-produced astronomical data using Python and Matplotlib libraries.</li>
+                        <li>Interpreted binary star system behavior and wrote refined code to process stellar occultation data.</li>
+                        <li>Coordinated with a collaborative research team to build functional scripts for project presentations.</li>
+                        <li>Designed a low-loss architecture for unpacking and repackaging averaged data arrays to minimize data degradation.</li>
+                    </ul>
+                </div>
 
-.resume-block {
-    margin-bottom: 35px;
-}
+                <div class="item">
+                    <div class="item-header">
+                        <h4>Infantry Section Leader</h4>
+                        <span class="date">2018 - 2024</span>
+                    </div>
+                    <p class="institution">Army National Guard — River Falls, WI</p>
+                    <ul>
+                        <li>Maintained tactical network infrastructures and managed hardware inventory for electronic assets during deployment operations.</li>
+                        <li>Led squad-level operations under tight deadlines, including high-stakes COVID-19 relief efforts.</li>
+                        <li>Conducted comprehensive technical and vehicle systems training for a 100-person group.</li>
+                        <li>Managed shifting duty schedules, billing forms, and personnel readiness logs.</li>
+                    </ul>
+                </div>
 
-.resume-block h2 {
-    color: var(--primary-color);
-    font-size: 1.4rem;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.resume-block h2 i {
-    color: var(--accent-color);
-}
-
-.item {
-    margin-bottom: 25px;
-}
-
-.item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-.item h4 {
-    color: #0f172a;
-    font-size: 1.1rem;
-}
-
-.item .date {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-weight: 600;
-}
-
-.item .institution {
-    color: var(--accent-color);
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 6px;
-}
-
-.item .institution a {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.item .institution a:hover {
-    text-decoration: underline;
-}
-
-.item p {
-    font-size: 0.95rem;
-    color: var(--text-main);
-}
-
-.item ul {
-    margin-left: 18px;
-    font-size: 0.95rem;
-    color: var(--text-main);
-}
-
-.item li {
-    margin-bottom: 4px;
-}
-
-/* Responsive Scaling */
-@media (max-width: 850px) {
-    .container {
-        flex-direction: column;
-    }
-    .sidebar, .main-content {
-        width: 100%;
-    }
-    .sidebar, .main-content {
-        padding: 30px;
-    }
-}
+                <div class="item">
+                    <div class="item-header">
+                        <h4>Assistant Store Manager</h4>
+                        <span class="date">2020 - 2022</span>
+                    </div>
+                    <p class="institution">AutoZone — Oak Park Heights, MN</p>
+                    <ul>
+                        <li>Diagnosed vehicle electrical/mechanical issues and resolved localized store network failures.</li>
+                        <li>Generated weekly labor schedules and managed employee relations to maintain high workplace morale.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
