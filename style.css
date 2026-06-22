@@ -53,7 +53,7 @@ body {
     margin-bottom: 35px;
 }
 
-.sidebar h3 {
+.sidebar h3, .sidebar h5 {
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -62,15 +62,7 @@ body {
     padding-bottom: 5px;
     color: #f1f5f9;
 }
-.sidebar h5 {
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1px solid #334155;
-    margin: 30px 0 15px;
-    padding-bottom: 5px;
-    color: #f1f5f9;
-}
+
 .contact-info p {
     font-size: 0.9rem;
     margin-bottom: 12px;
@@ -102,6 +94,42 @@ body {
     border-radius: 4px;
     color: #e2e8f0;
 }
+
+/* New: Sidebar Links Layout */
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.sidebar-links a:hover {
+    color: var(--accent-color);
+}
+
+.sidebar-links img, .sidebar-links .icon-placeholder {
+    width: 60px;
+    height: 40px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.sidebar-links .icon-placeholder {
+    background: #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-icon { color: #00adb5; }
 
 .certifications .cert-item {
     margin-bottom: 15px;
