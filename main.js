@@ -1,4 +1,36 @@
-// ── STATE MANAGEMENT ─────────────────────────────────────────────────────────
+// ── TYPEWRITER & SCROLL ANIMATIONS ───────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Terminal Typing Effect for Subtitle
+    const text = "Computational Physics Student & Developer";
+    const speed = 50; 
+    let i = 0;
+    const targetElement = document.getElementById("typewriter-text");
+    targetElement.innerHTML = '<span id="tw-text"></span><span class="cursor"></span>';
+    const textSpan = document.getElementById("tw-text");
+
+    function typeWriter() {
+        if (i < text.length) {
+            textSpan.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+    }
+    setTimeout(typeWriter, 500); // Wait half a second before starting
+
+    // 2. Intersection Observer for Scroll Reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
+});
+
+// ── STATE MANAGEMENT (PHYSICS) ───────────────────────────────────────────────
 let currentMode   = 'simple';
 let debounceTimer = null;
 let isComputing   = false;
@@ -7,9 +39,8 @@ let animPlaying   = true;
 let animSpeed     = 1;
 let animRAF       = null;
 let lastTimestamp = null;
-let animTime      = 0; // Accumulated simulation time in milliseconds
+let animTime      = 0; 
 
-// Canvas setup
 let canvas, actx, CW, CH;
 
 // ── STATUS HELPER ────────────────────────────────────────────────────────────
@@ -21,7 +52,6 @@ function setStatus(msg, color) {
     }
 }
 
-// ── UPDATE SLIDER DISPLAY LABELS ───────────────────────────────────────────
 function updateLabels() {
     document.getElementById('F0-val').textContent = parseFloat(document.getElementById('F0').value).toFixed(1);
     document.getElementById('wd-val').textContent = parseFloat(document.getElementById('wd').value).toFixed(1);
@@ -29,15 +59,12 @@ function updateLabels() {
     document.getElementById('m-val').textContent = parseFloat(document.getElementById('mass').value).toFixed(1);
 }
 
-// ── DEBOUNCED COMPUTE TRIGGER ────────────────────────────────────────────────
 function scheduleCompute() {
     updateLabels();
     clearTimeout(debounceTimer);
-    // 150ms debounce stops the WASM engine from choking while dragging sliders
     debounceTimer = setTimeout(runWasmSimulation, 150); 
 }
 
-// ── EXECUTE WASM COMPUTATION ─────────────────────────────────────────────────
 async function runWasmSimulation() {
     if (isComputing) return;
     isComputing = true;
@@ -50,42 +77,29 @@ async function runWasmSimulation() {
         m:           document.getElementById('mass').value,
     };
 
-    setStatus('Computing ODE via Python WASM...', '#3b82f6');
+    setStatus('Computing ODE via Python WASM...', '#00ffcc');
 
     try {
-        // Calls the calculation wrapper function defined in your engine.js
         const data = await calculateWasmOscillation(params);
-        
-        // Cache the raw arrays globally so the animation loop can grab them
-        lastSolution = {
-            t: data.t,
-            x: data.x,
-            v: data.v,
-        };
-        
+        lastSolution = { t: data.t, x: data.x, v: data.v };
         setStatus('System Ready', '#1D9E75');
     } catch (e) {
-        setStatus(`WASM Error: ${e.message}`, '#D85A30');
+        setStatus(`WASM Error: ${e.message}`, '#ef4444');
         console.error(e);
     } finally {
         isComputing = false;
     }
 }
 
-// ── RENDERING & DRAWING ENGINE (2D CANVAS) ──────────────────────────────────
+// ── RENDERING & DRAWING ENGINE ──────────────────────────────────────────────
 function drawSpring(x1, y1, x2, y2, coils, color) {
-    const dx = x2 - x1;
-    const dy = y2 - y1;
+    const dx = x2 - x1; const dy = y2 - y1;
     const len = Math.sqrt(dx * dx + dy * dy);
-    const ux = dx / len;
-    const uy = dy / len;
-    const px = -uy;
-    const py = ux;
-    const amp = 10;
-    const steps = coils * 2;
+    const ux = dx / len; const uy = dy / len;
+    const px = -uy; const py = ux;
+    const amp = 10; const steps = coils * 2;
 
-    actx.beginPath();
-    actx.moveTo(x1, y1);
+    actx.beginPath(); actx.moveTo(x1, y1);
     for (let i = 0; i <= steps; i++) {
         const t = i / steps;
         const mid = x1 + ux * len * t;
@@ -93,86 +107,62 @@ function drawSpring(x1, y1, x2, y2, coils, color) {
         actx.lineTo(mid + px * side, y1 + uy * len * t + py * side);
     }
     actx.lineTo(x2, y2);
-    actx.strokeStyle = color;
-    actx.lineWidth = 2;
-    actx.stroke();
+    actx.strokeStyle = color; actx.lineWidth = 2; actx.stroke();
 }
 
 function drawDamper(x1, y1, x2, y2, color) {
     const midY = (y1 + y2) / 2;
-    const halfW = 14;
-    const rodW = 5;
+    const halfW = 14; const rodW = 5;
 
-    actx.beginPath();
-    actx.rect(x1 - halfW, midY - 18, halfW * 2, 36);
-    actx.strokeStyle = color;
-    actx.lineWidth = 1.5;
-    actx.stroke();
-    actx.fillStyle = 'rgba(100,100,100,0.2)';
-    actx.fill();
+    actx.beginPath(); actx.rect(x1 - halfW, midY - 18, halfW * 2, 36);
+    actx.strokeStyle = color; actx.lineWidth = 1.5; actx.stroke();
+    actx.fillStyle = 'rgba(100,100,100,0.2)'; actx.fill();
 
-    actx.beginPath();
-    actx.moveTo(x1, y1);
-    actx.lineTo(x1, midY - 18);
-    actx.strokeStyle = color;
-    actx.lineWidth = rodW;
-    actx.stroke();
+    actx.beginPath(); actx.moveTo(x1, y1); actx.lineTo(x1, midY - 18);
+    actx.strokeStyle = color; actx.lineWidth = rodW; actx.stroke();
 
-    actx.beginPath();
-    actx.moveTo(x1, midY + 18);
-    actx.lineTo(x1, y2);
-    actx.strokeStyle = color;
-    actx.lineWidth = rodW;
-    actx.stroke();
+    actx.beginPath(); actx.moveTo(x1, midY + 18); actx.lineTo(x1, y2);
+    actx.strokeStyle = color; actx.lineWidth = rodW; actx.stroke();
 }
 
 function drawFrame(xi, vi, Fi, mode, m) {
     actx.clearRect(0, 0, CW, CH);
 
-    const EQ = CH * 0.45; // Equilibrium point position
-    const scale = 25;    // Conversion factor from physics distance to pixels
-    const massH = 40;
-    const massW = 65;
+    const EQ = CH * 0.45; 
+    const scale = 25;    
+    const massH = 40; const massW = 65;
     const centerX = CW / 2;
 
     const xClamped = Math.max(-4.5, Math.min(4.5, xi));
     const massTop = EQ + xClamped * scale;
     const massMid = massTop + massH / 2;
 
-    // Draw Anchor Roof
-    actx.fillStyle = '#475569';
+    // Roof
+    actx.fillStyle = '#334155';
     actx.fillRect(0, 0, CW, 15);
 
-    // Spring (Left side harness)
-    drawSpring(centerX - 34, 15, centerX - 35, massTop, 8, '#3b82f6');
+    // Spring & Damper (Updated colors for dark mode)
+    drawSpring(centerX - 34, 15, centerX - 35, massTop, 8, '#94a3b8');
+    drawDamper(centerX + 34, 15, centerX + 35, massTop, '#00ffcc');
 
-    // Damper (Right side shock)
-    drawDamper(centerX + 34, 15, centerX + 35, massTop, '#f59e0b');
-
-    // Render Mass Block Object
-    actx.fillStyle = '#1e293b'; // Matches your portfolio primary dark slate
+    // Mass
+    actx.fillStyle = '#1e293b'; 
     actx.fillRect(centerX - massW / 2, massTop, massW, massH);
-    actx.strokeStyle = '#3b82f6';
+    actx.strokeStyle = '#00ffcc';
     actx.lineWidth = 2;
     actx.strokeRect(centerX - massW / 2, massTop, massW, massH);
 
-    // Display Text value inside mass
-    actx.font = '11px sans-serif';
-    actx.fillStyle = '#ffffff';
+    actx.font = '11px monospace';
+    actx.fillStyle = '#e2e8f0';
     actx.textAlign = 'center';
     actx.fillText(`m = ${m.toFixed(1)}kg`, centerX, massMid + 4);
 
-    // Equilibrium baseline dashed grid
     actx.setLineDash([4, 4]);
-    actx.beginPath();
-    actx.moveTo(10, EQ + massH / 2);
-    actx.lineTo(CW - 10, EQ + massH / 2);
-    actx.strokeStyle = 'rgba(0,0,0,0.1)';
-    actx.stroke();
+    actx.beginPath(); actx.moveTo(10, EQ + massH / 2); actx.lineTo(CW - 10, EQ + massH / 2);
+    actx.strokeStyle = 'rgba(255,255,255,0.1)'; actx.stroke();
     actx.setLineDash([]);
 }
 
-// ── REAL-TIME PLAYBACK ANIMATION LOOP ────────────────────────────────────────
 function animLoop(timestamp) {
     if (!lastSolution) {
         animRAF = requestAnimationFrame(animLoop);
@@ -186,7 +176,7 @@ function animLoop(timestamp) {
     if (animPlaying) animTime += dt;
 
     const { t, x, v } = lastSolution;
-    const tMax = t[t.length - 1] * 1000; // Physics arrays converted to ms
+    const tMax = t[t.length - 1] * 1000; 
 
     if (animTime > tMax) animTime = animTime % tMax;
 
@@ -210,7 +200,6 @@ function animLoop(timestamp) {
 
     drawFrame(xi, vi, Fi, currentMode, m);
 
-    // Write metric text streams back to view panel
     document.getElementById('info-x').textContent = xi.toFixed(4);
     document.getElementById('info-v').textContent = vi.toFixed(4);
     document.getElementById('info-t').textContent = tSec.toFixed(3) + ' s';
@@ -218,14 +207,11 @@ function animLoop(timestamp) {
     animRAF = requestAnimationFrame(animLoop);
 }
 
-// ── WIRE UP INTERACTION CONTROLLERS ─────────────────────────────────────────
 function setupEventListeners() {
-    // Sliders
     document.querySelectorAll('input[type=range]').forEach(el => {
         el.addEventListener('input', scheduleCompute);
     });
 
-    // Toggle Equation Model Selection Buttons
     document.querySelectorAll('.mode-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
@@ -235,7 +221,6 @@ function setupEventListeners() {
         });
     });
 
-    // Playback Controller Buttons
     document.getElementById('btn-play').addEventListener('click', function() {
         animPlaying = !animPlaying;
         this.textContent = animPlaying ? '⏸ pause' : '▶ play';
@@ -247,9 +232,7 @@ function setupEventListeners() {
     });
 }
 
-// ── ORCHESTRATE WARMUP ROUTINE ON INITIAL LAUNCH ──────────────────────────────
 window.addEventListener('DOMContentLoaded', async () => {
-    // Map script rendering elements
     canvas = document.getElementById('physics-canvas');
     actx = canvas.getContext('2d');
     CW = canvas.width;
@@ -260,12 +243,12 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     setStatus('Spinning up Python WebAssembly environment...', '#f59e0b');
     try {
-        await initPythonEngine(); // Function sits inside engine.js
-        setStatus('WASM Engine Ready', '#1D9E75');
+        await initPythonEngine(); 
+        setStatus('WASM Engine Ready', '#00ffcc');
         scheduleCompute();
         requestAnimationFrame(animLoop);
     } catch (err) {
-        setStatus('Initialization vector broke.', '#D85A30');
+        setStatus('Initialization vector broke.', '#ef4444');
         console.error(err);
     }
 });
