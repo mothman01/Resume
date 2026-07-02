@@ -252,3 +252,28 @@ window.addEventListener('DOMContentLoaded', async () => {
         console.error(err);
     }
 });
+
+window.addEventListener('load', () => {
+    
+    const isBot = navigator.webdriver || /bot|googlebot|crawler|spider|crawling/i.test(navigator.userAgent);
+    
+    if (!isBot) {
+        
+        const webhookUrl = 'https://hook.us2.make.com/mdqtn4ujjndc5a3uc34pnm3jfkko765x';
+        
+        
+        const visitTime = new Date().toLocaleString();
+
+        
+        fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                page: "Resume",
+                time: visitTime
+            }) 
+        }).catch(e => console.log("Tracker blocked silently.")); 
+    }
+});
