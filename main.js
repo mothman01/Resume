@@ -253,27 +253,42 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+// ── TRACKING SCRIPT ──────────────────────────────────────────────────────────
 window.addEventListener('load', () => {
-    
-    const isBot = navigator.webdriver || /bot|googlebot|crawler|spider|crawling/i.test(navigator.userAgent);
+    // 1. Check for basic bots
+    const isBot = navigator.webdriver || /bot|googlebot|crawler|spider|crawling|discordbot/i.test(navigator.userAgent);
     
     if (!isBot) {
-        
-        const webhookUrl = 'https://hook.us2.make.com/mdqtn4ujjndc5a3uc34pnm3jfkko765x';
-        
-        
-        const visitTime = new Date().toLocaleString();
+        // 2. Wait 3 seconds to filter out rapid link-preview bots
+        setTimeout(() => {
+            // 3. Fetch location data silently
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(geoData => {
+                    
+                    const webhookUrl = 'https://hook.us2.make.com/mdqtn4ujjndc5a3uc34pnm3jfkko765x';
+                    const visitTime = new Date().toLocaleString();
 
-        
-        fetch(webhookUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ 
-                page: "Resume",
-                time: visitTime
-            }) 
-        }).catch(e => console.log("Tracker blocked silently.")); 
+                    // 4. Build payload with State/City but NO IP address
+                    const payload = { 
+                        page: "Resume",
+                        time: visitTime,
+                        city: geoData.city || "Unknown",
+                        state: geoData.region || "Unknown",
+                        country: geoData.country_name || "Unknown",
+                        isp: geoData.org || "Unknown"
+                    };
+
+                    // 5. Send to Make.com
+                    fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    }).catch(e => console.log("Tracker blocked silently.")); 
+                })
+                .catch(error => console.error("Error fetching geo data:", error));
+        }, 3000); // 3000ms delay
     }
 });
