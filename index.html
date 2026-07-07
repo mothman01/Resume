@@ -3,35 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Cogan - Portfolio & Resume</title>
+    <title>Michael Cogan | Computational Physics Student & Developer</title>
+    <meta
+        name="description"
+        content="Portfolio and resume for Michael Cogan, a computational physics student building full-stack apps, simulations, and data-driven tools."
+    >
+    <meta name="theme-color" content="#0b0f19">
+    <meta property="og:title" content="Michael Cogan | Computational Physics Student & Developer">
+    <meta
+        property="og:description"
+        content="Computational physics student building full-stack apps, simulations, and data-driven tools."
+    >
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Primary">
         <ul>
-            <li><a href="#profile">Profile</a></li>
-            <li><a href="#education">Education</a></li>
+            <li><a href="#profile">Overview</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#opensource">Open Source</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#opensource">Code</a></li>
+            <li><a href="oscillator-demo.html">Demo</a></li>
         </ul>
     </nav>
 
     <div class="container" id="profile">
         <aside class="sidebar">
             <div class="profile-header">
+                <p class="eyebrow">Available for internships and software roles</p>
                 <h1>Michael Cogan</h1>
-                <p class="subtitle" id="typewriter-text"></p>
+                <p
+                    class="subtitle"
+                    id="typewriter-text"
+                    data-typewriter-text="Computational Physics Student & Developer"
+                ></p>
+                <p class="sidebar-summary">
+                    Computational physics student focused on full-stack apps, simulations, and
+                    practical data tools.
+                </p>
             </div>
-            
+
             <section class="contact-info hidden">
                 <h3>Contact</h3>
                 <p><i class="fa-solid fa-envelope"></i> <a href="mailto:michaelcogan497@gmail.com">michaelcogan497@gmail.com</a></p>
                 <p><i class="fa-solid fa-phone"></i> (612) 594-0722</p>
                 <p><i class="fa-solid fa-location-dot"></i> Orlando, FL</p>
-                <p><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/michael-cogan-a852091b8" target="_blank">LinkedIn Profile</a></p>
-                <p><i class="fa-brands fa-github"></i> <a href="https://github.com/mothman01" target="_blank">github.com/mothman01</a></p>
+                <p>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a
+                        href="https://www.linkedin.com/in/michael-cogan-a852091b8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >LinkedIn Profile</a>
+                </p>
+                <p>
+                    <i class="fa-brands fa-github"></i>
+                    <a
+                        href="https://github.com/mothman01"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >github.com/mothman01</a>
+                </p>
             </section>
 
             <section class="skills-section hidden">
@@ -43,7 +80,7 @@
             </section>
 
             <section class="skills-section hidden">
-                <h3>Software & Tools</h3>
+                <h3>Tools</h3>
                 <div class="tags">
                     <span>Git</span><span>PostgreSQL</span><span>Flask</span><span>Neon</span>
                     <span>Render</span><span>Pandas</span><span>Matplotlib</span><span>Scikit-Learn</span><span>Ollama</span>
@@ -51,7 +88,7 @@
             </section>
 
             <section class="skills-section hidden">
-            <h3>Methodologies</h3>
+                <h3>Focus Areas</h3>
                 <div class="tags">
                     <span>Machine Learning</span>
                     <span>Data Analysis</span>
@@ -61,27 +98,50 @@
                 </div>
             </section>
 
-            <h5 class="hidden">Full Stack Portfolio</h5>
+            <h3 class="hidden">Live Projects</h3>
             <div class="links sidebar-links hidden">
                 <p>
-                    <a href="https://physics-sandbox-vm7y.onrender.com" target="_blank">
-                        <div class="icon-placeholder movie-icon" style="color: #00ffcc;">
-                            <i class="fa-solid fa-atom fa-lg"></i>
+                    <a
+                        href="oscillator-demo.html"
+                        class="internal-link"
+                    >
+                        <div class="icon-placeholder" aria-hidden="true">
+                            <i class="fa-solid fa-wave-square fa-lg"></i>
                         </div>
-                        <span>Live Physics Sandbox</span>
+                        <span>Local Oscillator Demo</span>
                     </a>
                 </p>
                 <p>
-                    <a href="https://movie-rec-4ryv.onrender.com" target="_blank">
-                        <div class="icon-placeholder movie-icon">
+                    <a
+                        href="https://physics-sandbox-vm7y.onrender.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="icon-placeholder" aria-hidden="true">
+                            <i class="fa-solid fa-atom fa-lg"></i>
+                        </div>
+                        <span>Hosted Physics Sandbox</span>
+                    </a>
+                </p>
+                <p>
+                    <a
+                        href="https://movie-rec-4ryv.onrender.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="icon-placeholder" aria-hidden="true">
                             <i class="fa-solid fa-film fa-lg"></i>
                         </div>
                         <span>Movie Recommender</span>
                     </a>
                 </p>
                 <p>
-                    <a href="https://threed-printing-website-ej38.onrender.com/" target="_blank">
-                        <div class="icon-placeholder movie-icon">
+                    <a
+                        href="https://threed-printing-website-ej38.onrender.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="icon-placeholder" aria-hidden="true">
                             <i class="fa-solid fa-cube fa-lg"></i>
                         </div>
                         <span>3D Printing Platform</span>
@@ -90,43 +150,106 @@
             </div>
 
             <section class="skills-section hidden">
-            <h3>Coursework</h3>
-            <div class="tags">
-                <span>Computational Physics</span>
-                <span>Differential Equations</span>
-                <span>Matrix and Linear Algebra</span>
-                <span>Classical Mechanics</span>
-                <span>Data Structures</span>
-            </div>
+                <h3>Coursework</h3>
+                <div class="tags">
+                    <span>Computational Physics</span>
+                    <span>Differential Equations</span>
+                    <span>Linear Algebra</span>
+                    <span>Classical Mechanics</span>
+                    <span>Data Structures</span>
+                </div>
             </section>
 
             <section class="skills-section certifications hidden">
                 <h3>Certifications</h3>
-                
+
                 <div class="cert-item">
-                    <p><i class="fa-solid fa-certificate" style="color: #00ffcc;"></i> <a href="https://coursera.org/share/a73e8ba24c40abe161b0653544181059" target="_blank" style="color: inherit; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#00ffcc'" onmouseout="this.style.color='inherit'">Intro to Software Engineering</a></p>
+                    <p>
+                        <i class="fa-solid fa-certificate accent-icon"></i>
+                        <a
+                            class="cert-link"
+                            href="https://coursera.org/share/a73e8ba24c40abe161b0653544181059"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >Intro to Software Engineering</a>
+                    </p>
                     <span class="cert-detail">IBM / Coursera | ID: GQFZQ443TK3X</span>
                 </div>
 
                 <div class="cert-item">
-                    <p><i class="fa-solid fa-certificate" style="color: #00ffcc;"></i> <a href="https://coursera.org/share/4881fcc499ebf91f9b8b87249e6b7a0a" target="_blank" style="color: inherit; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#00ffcc'" onmouseout="this.style.color='inherit'">CI/CD for Software Developers</a></p>
+                    <p>
+                        <i class="fa-solid fa-certificate accent-icon"></i>
+                        <a
+                            class="cert-link"
+                            href="https://coursera.org/share/4881fcc499ebf91f9b8b87249e6b7a0a"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >CI/CD for Software Developers</a>
+                    </p>
                     <span class="cert-detail">Codio / Coursera | ID: PM32F40ROH3B</span>
                 </div>
 
                 <div class="cert-item">
-                    <p><i class="fa-solid fa-certificate" style="color: #00ffcc;"></i> Software Engineer</p>
+                    <p><i class="fa-solid fa-certificate accent-icon"></i> Software Engineer</p>
                     <span class="cert-detail">HackerRank | ID: 7B96F29A8F9B</span>
                 </div>
-                
+
                 <div class="cert-item">
-                    <p><i class="fa-brands fa-python" style="color: #00ffcc;"></i> Python (Basic)</p>
+                    <p><i class="fa-brands fa-python accent-icon"></i> Python (Basic)</p>
                     <span class="cert-detail">HackerRank | ID: 16D74456FC3F</span>
                 </div>
             </section>
-
         </aside>
 
         <main class="main-content">
+            <section class="hero-card">
+                <p class="eyebrow">Portfolio and Resume</p>
+                <h2>Building full-stack apps, scientific simulations, and practical data tools.</h2>
+                <p class="hero-copy">
+                    I combine applied math, physics, and software engineering to build interactive
+                    web apps, recommendation systems, and browser-based simulations that are easy to
+                    use and easy to explain.
+                </p>
+                <div class="hero-actions">
+                    <button class="cta-btn cta-btn-primary" id="print-resume-btn" type="button">
+                        <i class="fa-solid fa-file-arrow-down"></i> Print / Save PDF
+                    </button>
+                    <a
+                        class="cta-btn"
+                        href="https://github.com/mothman01"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a
+                        class="cta-btn"
+                        href="https://www.linkedin.com/in/michael-cogan-a852091b8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a class="cta-btn" href="oscillator-demo.html">
+                        <i class="fa-solid fa-wave-square"></i> Launch Physics Demo
+                    </a>
+                </div>
+                <div class="hero-highlights">
+                    <div>
+                        <strong>Full-stack deployment</strong>
+                        <span>Flask apps deployed with Render and Neon-backed data layers</span>
+                    </div>
+                    <div>
+                        <strong>Scientific computing</strong>
+                        <span>Python, numerical modeling, and simulation-driven interfaces</span>
+                    </div>
+                    <div>
+                        <strong>Technical leadership</strong>
+                        <span>Research, tutoring, and team leadership under real constraints</span>
+                    </div>
+                </div>
+            </section>
+
             <section class="resume-block" id="education">
                 <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
                 <div class="item hidden">
@@ -146,107 +269,173 @@
             </section>
 
             <section class="resume-block" id="projects">
-                <h2><i class="fa-solid fa-code"></i> Technical Projects</h2>
-
-                <div class="item hidden">
-                    <div class="item-header">
-                        <h4><a href="https://threed-printing-website-ej38.onrender.com/" target="_blank" style="color: inherit; text-decoration: none;">3D Printing Web Platform</a></h4>
-                        <span class="date">Completed</span>
-                    </div>
-                    <p class="institution">Freelance Project | <a href="https://threed-printing-website-ej38.onrender.com/" target="_blank" class="project-link"><i class="fa-solid fa-globe"></i> View Live App</a></p>
-                    <p>Developed a dynamic website for a company leveraging a Flask backend and a Neon SQL database to host, search, and efficiently organize 3D printing products by type. Deployed the application via Render for reliable web hosting and configured product catalogs to seamlessly link directly to external Etsy URLs for customer transactions.</p>
-                </div>
-                
-                <div class="item hidden">
-                    <div class="item-header">
-                        <h4><a href="https://movie-rec-4ryv.onrender.com" target="_blank" style="color: inherit; text-decoration: none;">Machine Learning Movie Recommender</a></h4>
-                        <span class="date">Completed</span>
-                    </div>
-                    <p class="institution">Personal Project | <a href="https://movie-rec-4ryv.onrender.com" target="_blank" class="project-link"><i class="fa-solid fa-globe"></i> View Live App</a></p>
-                    <p>Engineered a full-stack collaborative filtering recommendation engine using Python, Flask, Pandas, and Scikit-Learn. Deployed a live cloud environment connected to a Neon PostgreSQL database processing over 100k+ ratings to generate highly personalized, mathematically optimized movie lists using cosine similarity matrixing.</p>
-                </div>
-
-                <div class="item hidden">
-                    <div class="item-header">
-                        <h4>Local AI Chatbot Interface</h4>
-                        <span class="date">Completed</span>
-                    </div>
-                    <p class="institution">Personal Project</p>
-                    <p>Built a custom web-based chat interface utilizing Python and Flask to interact seamlessly with a locally hosted Ollama language model. Programmed real-time text streaming over HTTP and engineered persistent JSON-based conversation history memory for the AI.</p>
-                </div>
-
-                <div class="item hidden">
-                    <div class="item-header">
-                        <h4>Terminal Snake Game (C++)</h4>
-                    </div>
-                    <p class="institution">Personal Project | <a href="https://github.com/mothman01/SnakeGame" target="_blank" class="project-link"><i class="fa-brands fa-github"></i> View Repository</a></p>
-                    <p>Developed a classic terminal-based Snake game using C++ featuring dynamic console frame rendering, difficulty speed mechanics, custom keyboard polling handlers using <code>conio.h</code>, and standard multi-directional array grid tracking algorithms.</p>
-                </div>
-                
-                <div class="item hidden">
-                    <div class="item-header">
-                        <h4><a href="https://physics-sandbox-vm7y.onrender.com" target="_blank" style="color: inherit; text-decoration: none;">Oscillating Systems Web Simulator</a></h4>
-                    </div>
-                    <p class="institution">Personal Project | <a href="https://physics-sandbox-vm7y.onrender.com" target="_blank" class="project-link"><i class="fa-solid fa-globe"></i> View Live App</a></p>
-                    <p>Assembled a full-stack web repository featuring a locally hosted website that simulates and visualizes complex physical oscillating systems. <strong>Try the embedded WebAssembly Python engine below:</strong></p>
-                    
-                    <div class="oscillator-widget">
-                        <div class="widget-status">
-                            Engine Status: <span id="status" style="color: #f59e0b;">Initializing...</span>
+                <h2><i class="fa-solid fa-code"></i> Selected Projects</h2>
+                <div class="projects-grid">
+                    <article class="project-card hidden">
+                        <div class="project-card-header">
+                            <div>
+                                <h4>3D Printing Web Platform</h4>
+                                <p class="institution">Freelance Project</p>
+                            </div>
+                            <span class="stack-label">Flask · Neon · Render</span>
                         </div>
-                        
-                        <div class="mode-buttons">
-                            <button class="mode-btn active" data-mode="simple">Simple Harmonic</button>
-                            <button class="mode-btn" data-mode="damped">Damped</button>
-                            <button class="mode-btn" data-mode="forced">Forced</button>
-                            <button class="mode-btn" data-mode="rectangular">Rectangular Drive</button>
+                        <p class="project-summary">
+                            Built a searchable product platform for a 3D printing business and
+                            deployed it as a live client-facing web app.
+                        </p>
+                        <ul class="project-points">
+                            <li>Structured product browsing by type and linked listings directly to Etsy checkout flows.</li>
+                            <li>Used a Flask backend with a Neon SQL database to keep the catalog organized and easy to maintain.</li>
+                        </ul>
+                        <div class="project-actions">
+                            <a
+                                class="project-link"
+                                href="https://threed-printing-website-ej38.onrender.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            ><i class="fa-solid fa-globe"></i> Live App</a>
                         </div>
+                    </article>
 
-                        <div class="controls">
-                            <div class="slider-group">
-                                <label>Force Amplitude (F0) <span id="F0-val">0.0</span></label>
-                                <input type="range" id="F0" min="0" max="10" step="0.1" value="5">
+                    <article class="project-card hidden">
+                        <div class="project-card-header">
+                            <div>
+                                <h4>Machine Learning Movie Recommender</h4>
+                                <p class="institution">Personal Project</p>
                             </div>
-                            <div class="slider-group">
-                                <label>Drive Freq (ω_d) <span id="wd-val">0.0</span></label>
-                                <input type="range" id="wd" min="0" max="5" step="0.1" value="2">
-                            </div>
-                            <div class="slider-group">
-                                <label>Initial Position (x0) <span id="x0-val">2.0</span></label>
-                                <input type="range" id="x0" min="-4" max="4" step="0.1" value="3">
-                            </div>
-                            <div class="slider-group">
-                                <label>Mass (m) <span id="m-val">1.0</span></label>
-                                <input type="range" id="mass" min="0.5" max="5" step="0.1" value="1.0">
-                            </div>
+                            <span class="stack-label">Python · Flask · Scikit-Learn</span>
                         </div>
+                        <p class="project-summary">
+                            Created a recommendation app that processes 100k+ ratings to generate
+                            personalized movie suggestions.
+                        </p>
+                        <ul class="project-points">
+                            <li>Implemented collaborative filtering with cosine similarity for tailored recommendations.</li>
+                            <li>Deployed the app with a Neon PostgreSQL data layer and a live hosted frontend.</li>
+                        </ul>
+                        <div class="project-actions">
+                            <a
+                                class="project-link"
+                                href="https://movie-rec-4ryv.onrender.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            ><i class="fa-solid fa-globe"></i> Live App</a>
+                        </div>
+                    </article>
 
-                        <div class="animation-container">
-                            <canvas id="physics-canvas" width="400" height="250"></canvas>
-                            <div class="animation-info">
-                                <div class="data-readout">
-                                    <div class="readout-row">Position (x): <strong><span id="info-x">0.000</span> m</strong></div>
-                                    <div class="readout-row">Velocity (v): <strong><span id="info-v">0.000</span> m/s</strong></div>
-                                    <div class="readout-row">Time (t): <strong style="color: var(--accent-color);"><span id="info-t">0.000 s</span></strong></div>
-                                </div>
-                                <div class="btn-group">
-                                    <button id="btn-play" class="anim-btn">⏸ pause</button>
-                                    <button id="btn-reset" class="anim-btn">⏮ reset</button>
-                                </div>
+                    <article class="project-card hidden">
+                        <div class="project-card-header">
+                            <div>
+                                <h4>Local AI Chatbot Interface</h4>
+                                <p class="institution">Personal Project</p>
+                            </div>
+                            <span class="stack-label">Python · Flask · Ollama</span>
+                        </div>
+                        <p class="project-summary">
+                            Built a browser-based interface for a locally hosted language model with
+                            real-time responses and persistent history.
+                        </p>
+                        <ul class="project-points">
+                            <li>Streamed model output over HTTP for a more interactive chat experience.</li>
+                            <li>Stored conversation state in JSON so sessions remained reusable between runs.</li>
+                        </ul>
+                    </article>
+
+                    <article class="project-card hidden">
+                        <div class="project-card-header">
+                            <div>
+                                <h4>Terminal Snake Game</h4>
+                                <p class="institution">Personal Project</p>
+                            </div>
+                            <span class="stack-label">C++ · Console Rendering</span>
+                        </div>
+                        <p class="project-summary">
+                            Implemented a classic terminal snake game with custom input handling and
+                            difficulty scaling.
+                        </p>
+                        <ul class="project-points">
+                            <li>Handled movement, collisions, and speed changes with array-based grid logic.</li>
+                            <li>Built the game loop around direct console updates for a responsive terminal UI.</li>
+                        </ul>
+                        <div class="project-actions">
+                            <a
+                                class="project-link"
+                                href="https://github.com/mothman01/SnakeGame"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            ><i class="fa-brands fa-github"></i> Repository</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card hidden">
+                        <div class="project-card-header">
+                            <div>
+                                <h4>Oscillating Systems Web Simulator</h4>
+                                <p class="institution">Personal Project</p>
+                            </div>
+                            <span class="stack-label">Pyodide · SciPy · JavaScript</span>
+                        </div>
+                        <p class="project-summary">
+                            Built a browser-based oscillator simulator and moved the heavy interactive
+                            demo onto its own page so this resume stays fast and easy to scan.
+                        </p>
+                        <div class="demo-preview">
+                            <div class="demo-preview-icon" aria-hidden="true">
+                                <i class="fa-solid fa-atom"></i>
+                            </div>
+                            <div>
+                                <strong>Interactive demo available locally</strong>
+                                <p>
+                                    Launch the separate demo page to try the WebAssembly-powered
+                                    oscillator without slowing down the main resume page.
+                                </p>
                             </div>
                         </div>
-                    </div>
+                        <div class="project-actions">
+                            <a class="project-link" href="oscillator-demo.html"><i class="fa-solid fa-wave-square"></i> Launch Demo</a>
+                            <a
+                                class="project-link"
+                                href="https://physics-sandbox-vm7y.onrender.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            ><i class="fa-solid fa-globe"></i> Hosted App</a>
+                        </div>
+                    </article>
                 </div>
             </section>
 
             <section class="resume-block" id="opensource">
-                <h2><i class="fa-brands fa-osi"></i> Open Source Code & Contributions</h2>
+                <h2><i class="fa-brands fa-osi"></i> Open Source & Public Code</h2>
                 <div class="item hidden">
-                    <p>Actively contributing to open-source repositories and sharing custom development environments. All public scripts, tools, and technical sandbox projects are available for review.</p>
-                    <ul style="margin-top: 10px;">
-                        <li><strong><a href="https://github.com/mothman01" target="_blank" class="project-link">GitHub Profile</a>:</strong> Primary host for full-stack applications, Python research scripts, and C++ learning repositories.</li>
-                        <li><strong>Environment Configurations:</strong> Maintaining and iterating on personal dotfiles for custom tiling window managers and terminal emulators.</li>
-                    </ul>
+                    <p>
+                        My GitHub is the public record of how I build: full-stack experiments,
+                        scientific software, and smaller terminal-first projects that show how I
+                        approach problem solving.
+                    </p>
+                    <div class="resource-grid">
+                        <a
+                            class="resource-card"
+                            href="https://github.com/mothman01"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <strong>GitHub Profile</strong>
+                            <span>Full-stack apps, Python research scripts, and C++ learning projects.</span>
+                        </a>
+                        <a
+                            class="resource-card"
+                            href="https://github.com/mothman01/SnakeGame"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <strong>SnakeGame Repository</strong>
+                            <span>Terminal game mechanics, input handling, and real-time rendering in C++.</span>
+                        </a>
+                        <a class="resource-card" href="oscillator-demo.html">
+                            <strong>Oscillator Demo Page</strong>
+                            <span>Interactive browser simulation powered by Python running in WebAssembly.</span>
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -260,11 +449,11 @@
                     </div>
                     <p class="institution">Educate 2 Elevate — Orlando, FL</p>
                     <ul>
-                        <li>Taught advanced high school physics integrated with applicable calculus concepts.</li>
-                        <li>Structured tailored learning materials and adapted communication styles to support students experiencing severe social anxiety.</li>
+                        <li>Delivered advanced physics tutoring with calculus support tailored to each student’s pace.</li>
+                        <li>Built custom learning material and adapted sessions for students managing severe social anxiety.</li>
                     </ul>
                 </div>
-                
+
                 <div class="item hidden">
                     <div class="item-header">
                         <h4>Assistant Researcher</h4>
@@ -272,10 +461,9 @@
                     </div>
                     <p class="institution">Rings Research Group — Orlando, FL</p>
                     <ul>
-                        <li>Analyzed NASA-produced astronomical data using Python and Matplotlib libraries.</li>
-                        <li>Interpreted binary star system behavior and wrote refined code to process stellar occultation data.</li>
-                        <li>Coordinated with a collaborative research team to build functional scripts for project presentations.</li>
-                        <li>Designed a low-loss architecture for unpacking and repackaging averaged data arrays to minimize data degradation.</li>
+                        <li>Analyzed NASA-produced astronomical datasets with Python and Matplotlib.</li>
+                        <li>Processed stellar occultation data to support binary star analysis and presentation-ready results.</li>
+                        <li>Designed a low-loss workflow for unpacking and repackaging averaged data arrays.</li>
                     </ul>
                 </div>
 
@@ -286,18 +474,15 @@
                     </div>
                     <p class="institution">Army National Guard — River Falls, WI</p>
                     <ul>
-                        <li>Maintained tactical network infrastructures and managed hardware inventory for electronic assets during deployment operations.</li>
-                        <li>Led squad-level operations under tight deadlines, including high-stakes COVID-19 relief efforts.</li>
-                        <li>Conducted comprehensive technical and vehicle systems training for a 100-person group.</li>
-                        <li>Managed shifting duty schedules, billing forms, and personnel readiness logs.</li>
+                        <li>Managed tactical network equipment and electronic asset readiness during deployment operations.</li>
+                        <li>Led section-level operations under tight deadlines, including COVID-19 relief missions.</li>
+                        <li>Delivered technical and vehicle systems training for groups of up to 100 personnel.</li>
                     </ul>
                 </div>
             </section>
         </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
-    <script src="engine.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

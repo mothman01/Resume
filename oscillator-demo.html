@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscillator Demo | Michael Cogan</title>
+    <meta
+        name="description"
+        content="Interactive oscillator demo by Michael Cogan using Python in WebAssembly with Pyodide and SciPy."
+    >
+    <meta name="theme-color" content="#0b0f19">
+    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+</head>
+<body class="demo-page">
+    <nav class="navbar" aria-label="Primary">
+        <ul>
+            <li><a href="index.html">Resume</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="#about-demo">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-header">
+                <p class="eyebrow">Interactive Physics Demo</p>
+                <h1>Oscillating Systems Simulator</h1>
+                <p
+                    class="subtitle"
+                    id="typewriter-text"
+                    data-typewriter-text="Python + SciPy running in WebAssembly"
+                ></p>
+                <p class="sidebar-summary">
+                    Python runs directly in the browser through WebAssembly so the simulation stays
+                    interactive without a separate backend.
+                </p>
+            </div>
+
+            <section class="skills-section hidden" id="about-demo">
+                <h3>What it shows</h3>
+                <div class="tags">
+                    <span>Pyodide</span>
+                    <span>SciPy</span>
+                    <span>Numerical ODEs</span>
+                    <span>Browser Rendering</span>
+                </div>
+            </section>
+
+            <section class="skills-section hidden">
+                <h3>Why it is separate</h3>
+                <p class="sidebar-summary">
+                    This demo is intentionally off the homepage so the resume stays lightweight for
+                    recruiters while the interactive work still gets its own space.
+                </p>
+            </section>
+
+            <section class="contact-info hidden">
+                <h3>Links</h3>
+                <p><i class="fa-solid fa-arrow-left"></i> <a href="index.html">Back to resume</a></p>
+                <p>
+                    <i class="fa-brands fa-github"></i>
+                    <a
+                        href="https://github.com/mothman01"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >GitHub Profile</a>
+                </p>
+                <p>
+                    <i class="fa-solid fa-globe"></i>
+                    <a
+                        href="https://physics-sandbox-vm7y.onrender.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >Hosted Physics Sandbox</a>
+                </p>
+            </section>
+        </aside>
+
+        <main class="main-content" id="demo">
+            <section class="demo-intro">
+                <p class="eyebrow">WebAssembly Demo</p>
+                <h2>Explore simple, damped, and driven oscillators in the browser.</h2>
+                <p>
+                    Adjust the system parameters, switch between forcing modes, and watch the motion
+                    update from a Python-based numerical solution.
+                </p>
+            </section>
+
+            <div class="oscillator-widget">
+                <div class="widget-status">
+                    Engine Status: <span id="status" style="color: #f59e0b;">Initializing...</span>
+                </div>
+
+                <div class="mode-buttons">
+                    <button class="mode-btn active" data-mode="simple" type="button">Simple Harmonic</button>
+                    <button class="mode-btn" data-mode="damped" type="button">Damped</button>
+                    <button class="mode-btn" data-mode="forced" type="button">Forced</button>
+                    <button class="mode-btn" data-mode="rectangular" type="button">Rectangular Drive</button>
+                </div>
+
+                <div class="controls">
+                    <div class="slider-group">
+                        <label for="F0">Force Amplitude (F0) <span id="F0-val">0.0</span></label>
+                        <input type="range" id="F0" min="0" max="10" step="0.1" value="5">
+                    </div>
+                    <div class="slider-group">
+                        <label for="wd">Drive Freq (ω_d) <span id="wd-val">0.0</span></label>
+                        <input type="range" id="wd" min="0" max="5" step="0.1" value="2">
+                    </div>
+                    <div class="slider-group">
+                        <label for="x0">Initial Position (x0) <span id="x0-val">2.0</span></label>
+                        <input type="range" id="x0" min="-4" max="4" step="0.1" value="3">
+                    </div>
+                    <div class="slider-group">
+                        <label for="mass">Mass (m) <span id="m-val">1.0</span></label>
+                        <input type="range" id="mass" min="0.5" max="5" step="0.1" value="1.0">
+                    </div>
+                </div>
+
+                <div class="animation-container">
+                    <canvas id="physics-canvas" width="400" height="250"></canvas>
+                    <div class="animation-info">
+                        <div class="data-readout">
+                            <div class="readout-row">Position (x): <strong><span id="info-x">0.000</span> m</strong></div>
+                            <div class="readout-row">Velocity (v): <strong><span id="info-v">0.000</span> m/s</strong></div>
+                            <div class="readout-row">Time (t): <strong style="color: var(--accent-color);"><span id="info-t">0.000 s</span></strong></div>
+                        </div>
+                        <div class="btn-group">
+                            <button id="btn-play" class="anim-btn" type="button">⏸ pause</button>
+                            <button id="btn-reset" class="anim-btn" type="button">⏮ reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <script src="engine.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
