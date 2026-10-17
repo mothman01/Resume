@@ -391,15 +391,20 @@
                     <article class="project-card hidden">
                         <div class="project-card-header">
                             <div>
-                                <h4>Oscillating Systems Web Simulator</h4>
-                                <p class="institution">Personal Project</p>
+                                <h4>Lagrangian Oscillating Systems Simulator</h4>
+                                <p class="institution">Classical Mechanics Project</p>
                             </div>
-                            <span class="stack-label">Pyodide · SciPy · JavaScript</span>
+                            <span class="stack-label">Python · Lagrangian Mechanics · Pyodide · SciPy</span>
                         </div>
                         <p class="project-summary">
-                            Built a browser-based oscillator simulator and moved the heavy interactive
-                            demo onto its own page so this resume stays fast and easy to scan.
+                            Modeled oscillating systems from a Classical Mechanics course using
+                            Lagrangian methods, then packaged the solver into an interactive
+                            browser demo.
                         </p>
+                        <ul class="project-points">
+                            <li>Derived equations of motion via the Lagrangian formalism for damped, forced, and driven oscillators.</li>
+                            <li>Compiled the Python solver to WebAssembly with Pyodide so it runs fully client-side with no backend.</li>
+                        </ul>
                         <div class="demo-preview">
                             <div class="demo-preview-icon" aria-hidden="true">
                                 <i class="fa-solid fa-atom"></i>
@@ -416,7 +421,7 @@
                             <a class="project-link" href="oscillator-demo.html"><i class="fa-solid fa-wave-square"></i> Launch Demo</a>
                             <a
                                 class="project-link"
-                                href="https://github.com/mothman01/physics_sandbox.git"
+                                href="https://github.com/mothman01/oscilations.git"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             ><i class="fa-brands fa-github"></i> Repository</a>
