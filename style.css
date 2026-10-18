@@ -10,6 +10,10 @@
     --border-color: #334155;
     --nav-bg: rgba(11, 15, 25, 0.9);
     --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.35);
+    /* Translucent panel fills used inside cards/tags (swap in light mode). */
+    --panel-fill: rgba(15, 23, 42, 0.85);
+    --panel-fill-soft: rgba(15, 23, 42, 0.6);
+    --accent-glow: rgba(0, 255, 204, 0.35);
 }
 
 /* Light theme (corporate-friendly) — overrides via data-theme="light" */
@@ -25,6 +29,10 @@
     --border-color: #d1d5db;
     --nav-bg: rgba(244, 246, 249, 0.95);
     --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.10);
+    /* Light-mode panel fills (white / light gray). */
+    --panel-fill: #ffffff;
+    --panel-fill-soft: #eef1f5;
+    --accent-glow: rgba(15, 95, 168, 0.18);
 }
 
 * {
@@ -115,7 +123,7 @@ a {
 .container {
     max-width: 1180px;
     width: min(100%, 1180px);
-    background: linear-gradient(180deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.98));
+    background: var(--surface-color);
     display: flex;
     box-shadow: var(--shadow-lg);
     border-radius: 18px;
@@ -166,7 +174,7 @@ a {
     box-shadow:
         0 0 0 4px var(--surface-color-alt),
         0 0 0 6px var(--border-color),
-        0 0 24px rgba(0, 255, 204, 0.35);
+        0 0 24px var(--accent-glow);
     background: var(--surface-color-alt);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -176,7 +184,7 @@ a {
     box-shadow:
         0 0 0 4px var(--surface-color-alt),
         0 0 0 6px var(--accent-color),
-        0 0 32px rgba(0, 255, 204, 0.5);
+        0 0 32px var(--accent-glow);
 }
 
 .profile-header .subtitle {
@@ -252,7 +260,7 @@ a {
 
 .tags span,
 .stack-label {
-    background: rgba(15, 23, 42, 0.95);
+    background: var(--panel-fill);
     border: 1px solid var(--border-color);
     font-size: 0.8rem;
     padding: 5px 10px;
@@ -282,7 +290,7 @@ a {
     width: 42px;
     height: 42px;
     border-radius: 10px;
-    background: rgba(15, 23, 42, 0.98);
+    background: var(--panel-fill);
     border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
@@ -339,7 +347,7 @@ a {
     align-items: center;
     gap: 10px;
     border: 1px solid var(--border-color);
-    background: rgba(15, 23, 42, 0.85);
+    background: var(--panel-fill);
     color: var(--text-main);
     text-decoration: none;
     padding: 11px 16px;
@@ -358,7 +366,7 @@ a {
 
 .cta-btn-primary {
     background: var(--accent-color);
-    color: #04130f;
+    color: #ffffff;
     border-color: var(--accent-color);
 }
 
@@ -369,7 +377,7 @@ a {
 }
 
 .hero-highlights div {
-    background: rgba(15, 23, 42, 0.6);
+    background: var(--panel-fill-soft);
     border: 1px solid var(--border-color);
     border-radius: 14px;
     padding: 16px;
@@ -465,7 +473,7 @@ a {
 
 .project-card,
 .resource-card {
-    background: rgba(15, 23, 42, 0.66);
+    background: var(--panel-fill-soft);
     border: 1px solid var(--border-color);
     border-radius: 18px;
     padding: 22px;
@@ -498,7 +506,7 @@ a {
     gap: 14px;
     align-items: flex-start;
     background: var(--accent-soft);
-    border: 1px solid rgba(0, 255, 204, 0.16);
+    border: 1px solid var(--border-color);
     border-radius: 14px;
     padding: 15px;
     margin-top: 10px;
@@ -508,7 +516,7 @@ a {
     width: 44px;
     height: 44px;
     border-radius: 12px;
-    background: rgba(0, 255, 204, 0.12);
+    background: var(--accent-soft);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -599,7 +607,7 @@ a {
 
 .mode-btn:hover:not(.active),
 .mode-btn:focus-visible:not(.active) {
-    background: #334155;
+    background: var(--border-color);
 }
 
 .controls {
