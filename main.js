@@ -1,5 +1,37 @@
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const prefersReducedMotion = reducedMotionQuery.matches;
+
+function initThemeToggle() {
+    const button = document.getElementById("theme-toggle");
+    if (!button) {
+        return;
+    }
+
+    // Remember the user's choice across pages via localStorage.
+    const stored = localStorage.getItem("resume_theme");
+    if (stored === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    function syncLabel() {
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+        button.textContent = isLight ? "Dark" : "Light";
+    }
+    syncLabel();
+
+    button.addEventListener("click", () => {
+        const isLight = document.documentElement.getAttribute("data-theme") === "light";
+        if (isLight) {
+            document.documentElement.removeAttribute("data-theme");
+            localStorage.setItem("resume_theme", "dark");
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+            localStorage.setItem("resume_theme", "light");
+        }
+        syncLabel();
+    });
+}
+
 function initTypewriter() {
     const targetElement = document.getElementById("typewriter-text");
     if (!targetElement) {
@@ -399,6 +431,7 @@ async function initPhysicsExperience() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    initThemeToggle();
     initTypewriter();
     initRevealAnimations();
     initPrintButton();

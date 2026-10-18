@@ -12,6 +12,21 @@
     --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.35);
 }
 
+/* Light theme (corporate-friendly) — overrides via data-theme="light" */
+:root[data-theme="light"] {
+    --bg-color: #f4f6f9;
+    --surface-color: #ffffff;
+    --surface-color-alt: #eef1f5;
+    --primary-color: #1f2937;
+    --accent-color: #0f5fa8;         /* conservative navy-blue accent */
+    --accent-soft: rgba(15, 95, 168, 0.10);
+    --text-main: #1a2333;
+    --text-muted: #4b5563;
+    --border-color: #d1d5db;
+    --nav-bg: rgba(244, 246, 249, 0.95);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.10);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -25,7 +40,7 @@ html {
 
 body {
     background:
-        radial-gradient(circle at top, rgba(0, 255, 204, 0.08), transparent 28%),
+        radial-gradient(circle at top, var(--accent-soft), transparent 28%),
         var(--bg-color);
     color: var(--text-main);
     display: flex;
@@ -55,8 +70,31 @@ a {
     list-style: none;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     gap: 14px 28px;
+}
+
+.theme-toggle {
+    margin-left: 8px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 .navbar a {
@@ -88,9 +126,8 @@ a {
 
 .sidebar {
     width: 31%;
-    background:
-        linear-gradient(180deg, rgba(30, 41, 59, 0.98), rgba(15, 23, 42, 0.98));
-    color: #ffffff;
+    background: var(--surface-color-alt);
+    color: var(--text-main);
     padding: 38px 30px;
     border-right: 1px solid var(--border-color);
 }
@@ -178,7 +215,7 @@ a {
     border-bottom: 1px solid var(--border-color);
     margin: 28px 0 15px;
     padding-bottom: 6px;
-    color: #f1f5f9;
+    color: var(--text-main);
 }
 
 .contact-info p,
@@ -271,8 +308,8 @@ a {
 
 .hero-card {
     background:
-        linear-gradient(135deg, rgba(0, 255, 204, 0.08), rgba(30, 41, 59, 0.6));
-    border: 1px solid rgba(0, 255, 204, 0.2);
+        linear-gradient(135deg, var(--accent-soft), var(--surface-color-alt));
+    border: 1px solid var(--border-color);
     border-radius: 18px;
     padding: 28px;
     margin-bottom: 38px;
@@ -692,6 +729,12 @@ input[type="range"] {
 }
 
 @media (max-width: 720px) {
+    /* Improve mobile readability: larger base text + looser leading. */
+    body {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
     .navbar {
         padding: 12px 14px;
     }
@@ -717,6 +760,22 @@ input[type="range"] {
 
     .hero-card h2 {
         font-size: 1.6rem;
+    }
+
+    /* Bump technical bullet/text sizes a touch for phone reading. */
+    .item p,
+    .item ul,
+    .item li,
+    .project-summary,
+    .project-points,
+    .project-points li,
+    .hero-copy {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .project-points li {
+        margin-bottom: 8px;
     }
 
     .item-header,
