@@ -121,7 +121,8 @@ a {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center;
+    /* Shift focal point right and slightly up to center the face in the circle. */
+    object-position: 85% 20%;
     display: block;
     margin: 0 auto 22px;
     border: 2px solid var(--accent-color);
