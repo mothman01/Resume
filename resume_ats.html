@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Cogan — Embedded Software Engineer Resume</title>
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+        font-family: "Calibri", "Helvetica Neue", Arial, sans-serif;
+        font-size: 13px;
+        line-height: 1.4;
+        color: #1a1a1a;
+        background: #ffffff;
+        max-width: 8.5in;
+        margin: 0 auto;
+        padding: 0.5in 0.6in;
+    }
+    .name {
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 2px;
+    }
+    .title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #2b4a6f;
+        margin-bottom: 7px;
+    }
+    .contact {
+        font-size: 12px;
+        color: #2a2a2a;
+        margin-bottom: 16px;
+    }
+    .contact a { color: #2a2a2a; text-decoration: none; }
+    h2 {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #1f3a5a;
+        border-bottom: 1px solid #1f3a5a;
+        padding-bottom: 2px;
+        margin: 15px 0 7px;
+    }
+    .entry { margin-bottom: 10px; }
+    .entry-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+    .entry-head .role { font-weight: 700; font-size: 13px; }
+    .entry-head .org { font-style: italic; font-size: 12px; color: #333; }
+    .entry-head .date { font-size: 11.5px; color: #444; white-space: nowrap; }
+    ul { margin: 4px 0 0 17px; padding: 0; }
+    li { margin-bottom: 2px; font-size: 12px; }
+    .skills-line { font-size: 12px; line-height: 1.55; }
+    .skills-line strong { color: #1f3a5a; }
+    .certs { font-size: 12px; line-height: 1.5; }
+    .proj-title { font-weight: 700; font-size: 12.5px; }
+    .proj-tech { font-size: 10.5px; color: #444; font-style: italic; }
+    .tight li { margin-bottom: 1px; }
+</style>
+</head>
+<body>
+
+    <div class="name">Michael Cogan</div>
+    <div class="title">Embedded Software Engineer</div>
+    <div class="contact">
+        Orlando, FL &nbsp;|&nbsp; (612) 594-0722 &nbsp;|&nbsp;
+        <a href="mailto:michaelcogan497@gmail.com">michaelcogan497@gmail.com</a> &nbsp;|&nbsp;
+        <a href="https://github.com/mothman01">github.com/mothman01</a> &nbsp;|&nbsp;
+        <a href="https://resume.heigen.io">resume.heigen.io</a>
+    </div>
+
+    <h2>Summary</h2>
+    <p style="font-size:12px;">Embedded software engineer with hands-on experience across firmware-level C/C++, Linux systems, and real sensor/peripheral integration. Built an autonomous AI system running locally on server hardware with a Raspberry Pi sensing node, plus production web backends. A clear communicator and collaborative team member who documents work carefully and adapts quickly to new toolchains. Seeking an embedded software engineering role.</p>
+
+    <h2>Technical Skills</h2>
+    <div class="skills-line">
+        <strong>Languages:</strong> C, C++, Python, Java, JavaScript, TypeScript, HTML/CSS, SQL<br>
+        <strong>Embedded &amp; Systems:</strong> Raspberry Pi, ARM-based SBCs, I2C, camera (CSI/OV5647), time-of-flight (VL53L7CX) sensor integration, Linux, Bash, systemd<br>
+        <strong>Tools &amp; Frameworks:</strong> Git, GCC, Flask, Node.js/Express, PostgreSQL, SQLite, ChromaDB, Ollama, OpenGL/GLSL, Pyodide, SciPy, NumPy, Pandas<br>
+        <strong>Concepts:</strong> RTOS fundamentals, device drivers, interrupts, memory management, multithreading, computer architecture, digital systems, circuit analysis<br>
+        <strong>Soft Skills:</strong> Clear written/verbal communication, cross-functional collaboration, mentoring, adaptability, attention to detail
+    </div>
+
+    <h2>Certifications</h2>
+    <div class="certs">
+        Intro to Software Engineering — IBM / Coursera &nbsp;(ID: GQFZQ443TK3X)<br>
+        CI/CD for Software Developers — Codio / Coursera &nbsp;(ID: PM32F40ROH3B)<br>
+        Software Engineer — HackerRank &nbsp;(ID: 7B96F29A8F9B)<br>
+        Python (Basic) — HackerRank &nbsp;(ID: 16D74456FC3F)
+    </div>
+
+    <h2>Education</h2>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">B.S. Electrical &amp; Computer Engineering Technology</span>
+            <span class="date">Expected 2027</span>
+        </div>
+        <div class="org">Valencia College — Orlando, FL &nbsp;·&nbsp; Concentration: Computer Systems Technology</div>
+    </div>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Associate in Arts, Physics</span>
+            <span class="date">Graduated 2025</span>
+        </div>
+        <div class="org">Valencia College — Orlando, FL</div>
+    </div>
+
+    <h2>Experience</h2>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Freelance Web Developer</span>
+            <span class="date">Sep 2026 — Present</span>
+        </div>
+        <div class="org">Front Line Refinement — remote (paid contract)</div>
+        <ul>
+            <li>Communicated directly with a non-technical client to translate business goals into clear technical requirements.</li>
+            <li>Built a production business website on Node.js/Express with a PostgreSQL (Neon) data layer and a custom content-management admin panel.</li>
+            <li>Implemented online liability-waiver collection and an appointment-booking calendar with conflict detection.</li>
+            <li>Hardened the admin surface with bcrypt password hashing, login rate-limiting, CSRF protection, HTML sanitization, and Helmet headers.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Assistant Researcher</span>
+            <span class="date">2025 — 2026</span>
+        </div>
+        <div class="org">Rings Research Group — Orlando, FL</div>
+        <ul>
+            <li>Analyzed NASA-produced astronomical datasets with Python, NumPy, and Matplotlib to produce presentation-ready results for a research team.</li>
+            <li>Processed stellar occultation data to support binary star analysis, coordinating findings with colleagues.</li>
+            <li>Designed a low-loss workflow for unpacking and repackaging averaged data arrays, documenting the process for reuse.</li>
+        </ul>
+    </div>
+
+    <h2>Projects</h2>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">Eigen — Autonomous Local AI System</span>
+            <span class="proj-tech">Python · Ollama · ChromaDB · SQLite · Raspberry Pi</span>
+        </div>
+        <ul class="tight">
+            <li>Designed an autonomous cognitive loop running on Linux server hardware with a layered memory system (episodic SQLite + semantic ChromaDB embeddings) and a sliding-window context manager to prevent VRAM contention.</li>
+            <li>Integrated a Raspberry Pi 5 sensing node with an OV5647 CSI camera and an 8×8 VL53L7CX time-of-flight presence sensor for event-driven multimodal input.</li>
+            <li>Implemented native tool-calling with a sandboxed toolset, plus output filters and strike-based IP auto-ban for safe public deployment.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">Atom Wavefunction Simulator</span>
+            <span class="proj-tech">C++ · OpenGL · GLSL</span>
+        </div>
+        <ul class="tight">
+            <li>Architected a multi-file 3D quantum-mechanics visualization with real-time GPU ray-marching of 128³ volumetric probability-density grids.</li>
+            <li>Wrote custom GLSL fragment shaders and integrated AI-assisted generation within a native Wayland/EGL Linux environment.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">Lagrangian Oscillating Systems Simulator</span>
+            <span class="proj-tech">Python · Pyodide · SciPy</span>
+        </div>
+        <ul class="tight">
+            <li>Derived equations of motion via the Lagrangian formalism for damped, forced, and driven oscillators; compiled the solver to WebAssembly (Pyodide) to run fully client-side.</li>
+        </ul>
+    </div>
+
+    <h2>Other Experience</h2>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Physics &amp; Mathematics Tutor</span>
+            <span class="date">Ongoing</span>
+        </div>
+        <div class="org">Educate 2 Elevate — Orlando, FL</div>
+        <ul>
+            <li>Delivered advanced physics tutoring with calculus support, tailoring explanations to each student's pace and learning style.</li>
+            <li>Built custom learning material and patiently adapted sessions for students managing severe social anxiety.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Infantry Section Leader</span>
+            <span class="date">2018 — 2024</span>
+        </div>
+        <div class="org">Army National Guard — River Falls, WI</div>
+        <ul>
+            <li>Managed tactical network equipment and electronic asset readiness during deployment operations.</li>
+            <li>Led section-level operations under tight deadlines, including COVID-19 relief missions.</li>
+            <li>Delivered technical and vehicle systems training for groups of up to 100 personnel, building communication and leadership skills.</li>
+        </ul>
+    </div>
+
+</body>
+</html>

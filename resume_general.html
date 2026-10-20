@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Cogan — Resume (General)</title>
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+        font-family: "Calibri", "Helvetica Neue", Arial, sans-serif;
+        font-size: 13px;
+        line-height: 1.4;
+        color: #1a1a1a;
+        background: #ffffff;
+        max-width: 8.5in;
+        margin: 0 auto;
+        padding: 0.5in 0.6in;
+    }
+    .name { font-size: 26px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 2px; }
+    .title { font-size: 15px; font-weight: 600; color: #2b4a6f; margin-bottom: 7px; }
+    .contact { font-size: 12px; color: #2a2a2a; margin-bottom: 16px; }
+    .contact a { color: #2a2a2a; text-decoration: none; }
+    h2 {
+        font-size: 14px; font-weight: 700; text-transform: uppercase;
+        letter-spacing: 1px; color: #1f3a5a; border-bottom: 1px solid #1f3a5a;
+        padding-bottom: 2px; margin: 15px 0 7px;
+    }
+    .entry { margin-bottom: 10px; }
+    .entry-head { display: flex; justify-content: space-between; align-items: baseline; }
+    .entry-head .role { font-weight: 700; font-size: 13px; }
+    .entry-head .org { font-style: italic; font-size: 12px; color: #333; }
+    .entry-head .date { font-size: 11.5px; color: #444; white-space: nowrap; }
+    ul { margin: 4px 0 0 17px; padding: 0; }
+    li { margin-bottom: 2px; font-size: 12px; }
+    .skills-line { font-size: 12px; line-height: 1.55; }
+    .skills-line strong { color: #1f3a5a; }
+    .certs { font-size: 12px; line-height: 1.5; }
+    .proj-title { font-weight: 700; font-size: 12.5px; }
+</style>
+</head>
+<body>
+
+    <div class="name">Michael Cogan</div>
+    <div class="title">Software Developer &amp; Engineering Technologist</div>
+    <div class="contact">
+        Orlando, FL &nbsp;|&nbsp; (612) 594-0722 &nbsp;|&nbsp;
+        <a href="mailto:michaelcogan497@gmail.com">michaelcogan497@gmail.com</a> &nbsp;|&nbsp;
+        <a href="https://github.com/mothman01">github.com/mothman01</a> &nbsp;|&nbsp;
+        <a href="https://resume.heigen.io">resume.heigen.io</a>
+    </div>
+
+    <h2>Summary</h2>
+    <p style="font-size:12px;">Software developer who builds working systems from the ground up — websites, data pipelines, AI assistants, and hardware that senses its environment. Comfortable across the full stack (from the browser to the server to the chip) and known for explaining complex things clearly and collaborating well with non-technical stakeholders.</p>
+
+    <h2>Skills</h2>
+    <div class="skills-line">
+        <strong>Programming:</strong> Python, C, C++, JavaScript, SQL, and web fundamentals (HTML/CSS)<br>
+        <strong>Databases &amp; hosting:</strong> PostgreSQL and SQLite (relational data), plus cloud deployment on modern platforms<br>
+        <strong>Hardware &amp; systems:</strong> Raspberry Pi and single-board computers, sensor and camera integration, Linux command line<br>
+        <strong>AI &amp; data:</strong> Local language models (Ollama), vector search (ChromaDB), NumPy/SciPy, Pandas, Matplotlib<br>
+        <strong>People skills:</strong> Clear communication, teaching and mentoring, teamwork, adaptability, careful attention to detail
+    </div>
+
+    <h2>Certifications</h2>
+    <div class="certs">
+        Intro to Software Engineering — IBM / Coursera<br>
+        CI/CD for Software Developers — Codio / Coursera<br>
+        Software Engineer — HackerRank<br>
+        Python (Basic) — HackerRank
+    </div>
+
+    <h2>Education</h2>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">B.S. Electrical &amp; Computer Engineering Technology</span>
+            <span class="date">Expected 2027</span>
+        </div>
+        <div class="org">Valencia College — Orlando, FL</div>
+    </div>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Associate in Arts, Physics</span>
+            <span class="date">Graduated 2025</span>
+        </div>
+        <div class="org">Valencia College — Orlando, FL</div>
+    </div>
+
+    <h2>Experience</h2>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Freelance Web Developer</span>
+            <span class="date">Sep 2026 — Present</span>
+        </div>
+        <div class="org">Front Line Refinement — remote (paid contract)</div>
+        <ul>
+            <li>Worked one-on-one with a non-technical business owner, translating their goals into a live website they can update themselves through a content-management system.</li>
+            <li>Built the backend in Node.js (JavaScript on the server) with a PostgreSQL database, plus online waivers and an appointment-booking calendar with scheduling conflict detection.</li>
+            <li>Secured customer data with password hashing, login rate-limiting, and cross-site request protections, then deployed it to the cloud.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Assistant Researcher</span>
+            <span class="date">2025 — 2026</span>
+        </div>
+        <div class="org">Rings Research Group — Orlando, FL</div>
+        <ul>
+            <li>Processed large NASA astronomy datasets using Python (with NumPy and Matplotlib), turning raw measurements into clear charts and summaries for the research team.</li>
+            <li>Built a repeatable, documented data-processing workflow that saved the team time on later projects.</li>
+        </ul>
+    </div>
+
+    <h2>Highlighted Projects</h2>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">Eigen — A Personal AI Assistant</span>
+        </div>
+        <ul>
+            <li>Built an AI assistant that runs entirely on a home server (no cloud), using a local language model and a vector database so it can "remember" past conversations.</li>
+            <li>Connected a Raspberry Pi with a camera and a distance sensor so the assistant can see and sense its surroundings, and made it safe to share publicly.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">Atom Wavefunction Visualizer</span>
+        </div>
+        <ul>
+            <li>Created a real-time 3D visualization of an atom's electron cloud in C++ with OpenGL shaders, rendering the shape directly on the graphics card.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">Interactive Physics Simulator</span>
+        </div>
+        <ul>
+            <li>Built an interactive webpage that simulates springs and oscillating systems using Python (compiled to run in the browser via WebAssembly) and SciPy.</li>
+        </ul>
+    </div>
+
+    <h2>Other Experience</h2>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Physics &amp; Mathematics Tutor</span>
+            <span class="date">Ongoing</span>
+        </div>
+        <div class="org">Educate 2 Elevate — Orlando, FL</div>
+        <ul>
+            <li>Explained difficult math and physics concepts in plain language, tailoring each lesson to the student's pace and learning style.</li>
+            <li>Patiently adapted sessions for students managing anxiety, helping build confidence alongside technical skill.</li>
+        </ul>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Infantry Section Leader</span>
+            <span class="date">2018 — 2024</span>
+        </div>
+        <div class="org">Army National Guard — River Falls, WI</div>
+        <ul>
+            <li>Managed electronic and network equipment to keep everything mission-ready.</li>
+            <li>Led teams under pressure, including during COVID-19 relief missions.</li>
+            <li>Trained groups of up to 100 people, developing strong communication and leadership skills.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
