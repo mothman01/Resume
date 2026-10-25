@@ -12,18 +12,22 @@
     <link rel="canonical" href="https://resume.heigen.io/oscillator-demo.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <script>
-        // Apply the saved theme before first paint (see index.html).
+        // Apply the saved or system theme before first paint (see index.html).
         (function () {
             var root = document.documentElement;
             root.classList.add("js");
+            var saved = null;
             try {
-                if (localStorage.getItem("resume_theme") === "light") {
-                    root.setAttribute("data-theme", "light");
-                }
-            } catch (error) { /* storage blocked; keep default theme */ }
+                saved = localStorage.getItem("resume_theme");
+            } catch (error) { /* storage blocked; fall back to system setting */ }
+            var systemLight = window.matchMedia
+                && window.matchMedia("(prefers-color-scheme: light)").matches;
+            if (saved === "light" || (!saved && systemLight)) {
+                root.setAttribute("data-theme", "light");
+            }
         })();
     </script>
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -148,6 +152,6 @@
 
     <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
     <script src="engine.js"></script>
-    <script src="main.js?v=3"></script>
+    <script src="main.js?v=4"></script>
 </body>
 </html>

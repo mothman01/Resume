@@ -21,19 +21,24 @@
     <link rel="canonical" href="https://resume.heigen.io/">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <script>
-        // Runs before first paint: apply the saved theme (no dark flash) and flag
+        // Runs before first paint: apply the saved theme, or the system setting if
+        // none is saved (no flash of the wrong theme), and flag
         // that JS is available so reveal animations never hide content without it.
         (function () {
             var root = document.documentElement;
             root.classList.add("js");
+            var saved = null;
             try {
-                if (localStorage.getItem("resume_theme") === "light") {
-                    root.setAttribute("data-theme", "light");
-                }
-            } catch (error) { /* storage blocked; keep default theme */ }
+                saved = localStorage.getItem("resume_theme");
+            } catch (error) { /* storage blocked; fall back to system setting */ }
+            var systemLight = window.matchMedia
+                && window.matchMedia("(prefers-color-scheme: light)").matches;
+            if (saved === "light" || (!saved && systemLight)) {
+                root.setAttribute("data-theme", "light");
+            }
         })();
     </script>
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link
         rel="stylesheet"
@@ -70,6 +75,7 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#opensource">Code</a></li>
             <li><a href="oscillator-demo.html">Demo</a></li>
+            <li><button class="theme-toggle" id="quick-view-toggle" type="button" aria-pressed="false" title="Condensed one-screen summary for recruiters">Quick view</button></li>
             <li><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light or dark mode">Light</button></li>
         </ul>
     </nav>
@@ -298,6 +304,19 @@
                 </div>
             </section>
 
+            <!-- Update this card whenever focus shifts; the date shows it's maintained. -->
+            <section class="now-card" id="now" aria-labelledby="now-heading">
+                <div class="now-header">
+                    <h2 id="now-heading"><span class="now-pulse" aria-hidden="true"></span> Currently working on</h2>
+                    <span class="date">Updated Oct 2026</span>
+                </div>
+                <ul>
+                    <li><strong>Eigen live demo</strong> — public conversation counter, visitor analytics dashboard, and light/dark theming for <a href="https://eigen.heigen.io" target="_blank" rel="noopener noreferrer">eigen.heigen.io</a>.</li>
+                    <li><strong>Eigen VRAM footprint</strong> — cutting GPU memory use so the language and vision models run more comfortably side by side on a single 12 GB RTX 3060.</li>
+                    <li><strong>Coursework</strong> — B.S. Electrical &amp; Computer Engineering Technology, Computer Systems concentration.</li>
+                </ul>
+            </section>
+
             <section class="resume-block" id="education">
                 <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
                 <div class="item hidden">
@@ -373,6 +392,15 @@
                     </article>
 
                     <article class="project-card hidden">
+                        <video
+                            class="project-media"
+                            src="atom-demo.webm"
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            aria-label="Atom Wavefunction Simulator rendering a 3D electron probability cloud"
+                        ></video>
                         <div class="project-card-header">
                             <div>
                                 <h4>Atom Wavefunction Simulator</h4>
@@ -554,6 +582,6 @@
         </main>
     </div>
 
-    <script src="main.js?v=3" defer></script>
+    <script src="main.js?v=4" defer></script>
 </body>
 </html>

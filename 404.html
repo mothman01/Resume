@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Michael Cogan</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#0b0f19">
+    <!-- GitHub Pages serves this file for any missing path, so all asset links are absolute. -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <script>
+        // Apply the saved or system theme before first paint (see index.html).
+        (function () {
+            var root = document.documentElement;
+            root.classList.add("js");
+            var saved = null;
+            try {
+                saved = localStorage.getItem("resume_theme");
+            } catch (error) { /* storage blocked; fall back to system setting */ }
+            var systemLight = window.matchMedia
+                && window.matchMedia("(prefers-color-scheme: light)").matches;
+            if (saved === "light" || (!saved && systemLight)) {
+                root.setAttribute("data-theme", "light");
+            }
+        })();
+    </script>
+    <link rel="stylesheet" href="/style.css?v=4">
+</head>
+<body>
+    <nav class="navbar" aria-label="Primary">
+        <ul>
+            <li><a href="/">Resume</a></li>
+            <li><a href="/#projects">Projects</a></li>
+            <li><a href="/oscillator-demo.html">Demo</a></li>
+        </ul>
+    </nav>
+
+    <main class="container not-found">
+        <div class="main-content">
+            <p class="eyebrow">Error 404</p>
+            <h1>Signal lost.</h1>
+            <p class="not-found-path">No page at <code id="missing-path">this address</code>.</p>
+            <p class="hero-copy">
+                The link may be outdated, or the page may have moved. Everything worth seeing is
+                one click away:
+            </p>
+            <div class="hero-actions">
+                <a class="cta-btn cta-btn-primary" href="/">Back to résumé</a>
+                <a class="cta-btn" href="/#projects">See projects</a>
+                <a class="cta-btn" href="/Michael_Cogan_Embedded_Software_Engineer.pdf" download>Download PDF</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById("missing-path").textContent = window.location.pathname;
+    </script>
+</body>
+</html>

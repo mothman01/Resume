@@ -401,8 +401,136 @@ a {
     font-size: 0.9rem;
 }
 
+.now-card {
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 14px;
+    background: var(--panel-fill-soft);
+    padding: 18px 22px;
+    margin-bottom: 38px;
+}
+
+.now-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 10px;
+}
+
+.now-card h2 {
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.now-pulse {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    box-shadow: 0 0 0 0 var(--accent-glow);
+    animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+    70% {
+        box-shadow: 0 0 0 8px transparent;
+    }
+}
+
+.now-card ul {
+    margin-left: 18px;
+    font-size: 0.93rem;
+    color: var(--text-muted);
+}
+
+.now-card li {
+    margin-bottom: 4px;
+}
+
+.now-card strong {
+    color: var(--text-main);
+}
+
+.now-card a {
+    color: var(--accent-color);
+}
+
+/* Optional demo clip/screenshot at the top of a project card. */
+.project-media {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--surface-color-alt);
+    margin-bottom: 14px;
+}
+
+#quick-view-toggle[aria-pressed="true"] {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Quick view: condensed recruiter summary — headlines, roles, and contact only. */
+.quick-view .hero-copy,
+.quick-view .hero-highlights,
+.quick-view .project-points,
+.quick-view .project-media,
+.quick-view .demo-preview,
+.quick-view .now-card,
+.quick-view #opensource,
+.quick-view .sidebar-summary,
+.quick-view .profile-photo {
+    display: none;
+}
+
+.quick-view .hero-card {
+    padding: 22px 28px;
+    margin-bottom: 28px;
+}
+
+.quick-view .hero-card h2 {
+    font-size: 1.5rem;
+}
+
+.quick-view .hero-actions {
+    margin-bottom: 0;
+}
+
+.quick-view .project-card {
+    padding: 16px 18px;
+}
+
+.quick-view .resume-block {
+    margin-bottom: 30px;
+}
+
 .resume-block {
     margin-bottom: 44px;
+}
+
+.not-found {
+    max-width: 720px;
+}
+
+.not-found .main-content {
+    width: 100%;
+}
+
+.not-found h1 {
+    font-size: 2.4rem;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+}
+
+.not-found-path {
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    word-break: break-all;
 }
 
 .resume-block h2 {
@@ -797,6 +925,7 @@ input[type="range"] {
 
     .item-header,
     .project-card-header,
+    .now-header,
     .animation-container {
         flex-direction: column;
     }
@@ -850,7 +979,9 @@ input[type="range"] {
     .navbar,
     .hero-actions,
     .project-actions,
-    .resource-card {
+    .resource-card,
+    .now-card,
+    .project-media {
         display: none !important;
     }
 

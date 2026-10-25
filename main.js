@@ -9,7 +9,15 @@ function saveTheme(theme) {
     }
 }
 
-// The saved theme itself is applied by an inline script in <head> before first paint.
+function hasSavedTheme() {
+    try {
+        return Boolean(localStorage.getItem("resume_theme"));
+    } catch (error) {
+        return false;
+    }
+}
+
+// The initial theme is applied by an inline script in <head> before first paint.
 function initThemeToggle() {
     const button = document.getElementById("theme-toggle");
     if (!button) {
@@ -22,6 +30,20 @@ function initThemeToggle() {
         button.setAttribute("aria-pressed", String(isLight));
     }
     syncLabel();
+
+    // Track the OS light/dark setting live until the visitor picks a theme.
+    const systemLightQuery = window.matchMedia("(prefers-color-scheme: light)");
+    systemLightQuery.addEventListener("change", (event) => {
+        if (hasSavedTheme()) {
+            return;
+        }
+        if (event.matches) {
+            document.documentElement.setAttribute("data-theme", "light");
+        } else {
+            document.documentElement.removeAttribute("data-theme");
+        }
+        syncLabel();
+    });
 
     button.addEventListener("click", () => {
         const isLight = document.documentElement.getAttribute("data-theme") === "light";
@@ -86,6 +108,69 @@ function initRevealAnimations() {
     }, { threshold: 0.12 });
 
     hiddenElements.forEach((element) => observer.observe(element));
+}
+
+// Project demo clips play only while on screen, and never auto-play for reduced motion.
+function initProjectMedia() {
+    const videos = document.querySelectorAll("video.project-media");
+    if (!videos.length) {
+        return;
+    }
+
+    if (prefersReducedMotion || typeof IntersectionObserver === "undefined") {
+        videos.forEach((video) => {
+            video.controls = true;
+        });
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.play().catch(() => {
+                    entry.target.controls = true;
+                });
+            } else {
+                entry.target.pause();
+            }
+        });
+    }, { threshold: 0.25 });
+
+    videos.forEach((video) => observer.observe(video));
+}
+
+// Quick view: a condensed, recruiter-friendly layout. Shareable as ?view=quick.
+function initQuickView() {
+    const button = document.getElementById("quick-view-toggle");
+    if (!button) {
+        return;
+    }
+
+    function apply(enabled) {
+        document.body.classList.toggle("quick-view", enabled);
+        button.textContent = enabled ? "Full view" : "Quick view";
+        button.setAttribute("aria-pressed", String(enabled));
+        // Reveal everything at once so the condensed page reads in one glance.
+        if (enabled) {
+            document.querySelectorAll(".hidden").forEach((element) => element.classList.add("show"));
+        }
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    apply(params.get("view") === "quick");
+
+    button.addEventListener("click", () => {
+        const enabled = !document.body.classList.contains("quick-view");
+        apply(enabled);
+        const url = new URL(window.location.href);
+        if (enabled) {
+            url.searchParams.set("view", "quick");
+        } else {
+            url.searchParams.delete("view");
+        }
+        window.history.replaceState(null, "", url);
+        window.scrollTo({ top: 0 });
+    });
 }
 
 function initPrintButton() {
@@ -444,6 +529,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initThemeToggle();
     initTypewriter();
     initRevealAnimations();
+    initQuickView();
+    initProjectMedia();
     initPrintButton();
     void initPhysicsExperience();
     initHomepageTracker();
