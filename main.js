@@ -1,21 +1,25 @@
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const prefersReducedMotion = reducedMotionQuery.matches;
 
+function saveTheme(theme) {
+    try {
+        localStorage.setItem("resume_theme", theme);
+    } catch (error) {
+        // Storage blocked (private mode); the toggle still works for this page.
+    }
+}
+
+// The saved theme itself is applied by an inline script in <head> before first paint.
 function initThemeToggle() {
     const button = document.getElementById("theme-toggle");
     if (!button) {
         return;
     }
 
-    // Remember the user's choice across pages via localStorage.
-    const stored = localStorage.getItem("resume_theme");
-    if (stored === "light") {
-        document.documentElement.setAttribute("data-theme", "light");
-    }
-
     function syncLabel() {
         const isLight = document.documentElement.getAttribute("data-theme") === "light";
         button.textContent = isLight ? "Dark" : "Light";
+        button.setAttribute("aria-pressed", String(isLight));
     }
     syncLabel();
 
@@ -23,10 +27,10 @@ function initThemeToggle() {
         const isLight = document.documentElement.getAttribute("data-theme") === "light";
         if (isLight) {
             document.documentElement.removeAttribute("data-theme");
-            localStorage.setItem("resume_theme", "dark");
+            saveTheme("dark");
         } else {
             document.documentElement.setAttribute("data-theme", "light");
-            localStorage.setItem("resume_theme", "light");
+            saveTheme("light");
         }
         syncLabel();
     });
@@ -97,6 +101,12 @@ function initPrintButton() {
 
 function initHomepageTracker() {
     if (document.body.classList.contains("demo-page")) {
+        return;
+    }
+
+    // Don't count local development previews as visits.
+    if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname)
+        || window.location.protocol === "file:") {
         return;
     }
 

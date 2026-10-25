@@ -16,12 +16,51 @@
     >
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://resume.heigen.io/">
+    <meta property="og:image" content="https://resume.heigen.io/profile.jpg">
+    <meta name="twitter:card" content="summary">
     <link rel="canonical" href="https://resume.heigen.io/">
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script>
+        // Runs before first paint: apply the saved theme (no dark flash) and flag
+        // that JS is available so reveal animations never hide content without it.
+        (function () {
+            var root = document.documentElement;
+            root.classList.add("js");
+            try {
+                if (localStorage.getItem("resume_theme") === "light") {
+                    root.setAttribute("data-theme", "light");
+                }
+            } catch (error) { /* storage blocked; keep default theme */ }
+        })();
+    </script>
+    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print"
+        onload="this.media='all'"
     >
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Michael Cogan",
+        "url": "https://resume.heigen.io/",
+        "image": "https://resume.heigen.io/profile.jpg",
+        "jobTitle": "Embedded Software Engineer",
+        "email": "mailto:michaelcogan497@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Orlando", "addressRegion": "FL" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Valencia College" },
+        "sameAs": [
+            "https://github.com/mothman01",
+            "https://www.linkedin.com/in/michael-cogan-a852091b8"
+        ]
+    }
+    </script>
 </head>
 <body>
     <nav class="navbar" aria-label="Primary">
@@ -42,8 +81,9 @@
                     class="profile-photo"
                     src="profile.jpg"
                     alt="Michael Cogan"
-                    width="140"
-                    height="140"
+                    width="150"
+                    height="150"
+                    fetchpriority="high"
                 >
                 <p class="eyebrow">Available for engineering &amp; software co-ops</p>
                 <h1>Michael Cogan</h1>
@@ -61,7 +101,7 @@
             <section class="contact-info hidden">
                 <h3>Contact</h3>
                 <p><i class="fa-solid fa-envelope"></i> <a href="mailto:michaelcogan497@gmail.com">michaelcogan497@gmail.com</a></p>
-                <p><i class="fa-solid fa-phone"></i> (612) 594-0722</p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:+16125940722">(612) 594-0722</a></p>
                 <p><i class="fa-solid fa-location-dot"></i> Orlando, FL</p>
                 <p>
                     <i class="fa-brands fa-linkedin"></i>
@@ -112,41 +152,41 @@
 
             <h3 class="hidden">Live Projects</h3>
             <div class="links sidebar-links hidden">
-                <p>
+                <div>
                     <a
                         href="https://eigen.heigen.io"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <div class="icon-placeholder" aria-hidden="true">
+                        <span class="icon-placeholder" aria-hidden="true">
                             <i class="fa-solid fa-robot fa-lg"></i>
-                        </div>
+                        </span>
                         <span>Eigen — Live AI Demo</span>
                     </a>
-                </p>
-                <p>
+                </div>
+                <div>
                     <a
                         href="oscillator-demo.html"
                         class="internal-link"
                     >
-                        <div class="icon-placeholder" aria-hidden="true">
+                        <span class="icon-placeholder" aria-hidden="true">
                             <i class="fa-solid fa-wave-square fa-lg"></i>
-                        </div>
+                        </span>
                         <span>Local Oscillator Demo</span>
                     </a>
-                </p>
-                <p>
+                </div>
+                <div>
                     <a
                         href="https://threed-printing-website-ej38.onrender.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <div class="icon-placeholder" aria-hidden="true">
+                        <span class="icon-placeholder" aria-hidden="true">
                             <i class="fa-solid fa-cube fa-lg"></i>
-                        </div>
+                        </span>
                         <span>3D Printing Platform</span>
                     </a>
-                </p>
+                </div>
             </div>
 
             <section class="skills-section hidden">
@@ -212,8 +252,15 @@
                     local AI running on real server hardware, and production web apps.
                 </p>
                 <div class="hero-actions">
-                    <button class="cta-btn cta-btn-primary" id="print-resume-btn" type="button">
-                        <i class="fa-solid fa-file-arrow-down"></i> Print / Save PDF
+                    <a
+                        class="cta-btn cta-btn-primary"
+                        href="Michael_Cogan_Embedded_Software_Engineer.pdf"
+                        download
+                    >
+                        <i class="fa-solid fa-file-arrow-down"></i> Download Résumé (PDF)
+                    </a>
+                    <button class="cta-btn" id="print-resume-btn" type="button">
+                        <i class="fa-solid fa-print"></i> Print Page
                     </button>
                     <a
                         class="cta-btn"
@@ -273,8 +320,6 @@
             <section class="resume-block" id="projects">
                 <h2><i class="fa-solid fa-code"></i> Selected Projects</h2>
                 <div class="projects-grid">
-                    
-                    <!-- NEW PROJECT ADDED HERE -->
                     <article class="project-card hidden">
                         <div class="project-card-header">
                             <div>
@@ -406,7 +451,7 @@
                                 <i class="fa-solid fa-atom"></i>
                             </div>
                             <div>
-                                <strong>Interactive demo available locally</strong>
+                                <strong>Interactive demo on this site</strong>
                                 <p>
                                     Launch the separate demo page to try the WebAssembly-powered
                                     oscillator without slowing down the main resume page.
@@ -509,6 +554,6 @@
         </main>
     </div>
 
-    <script src="main.js"></script>
+    <script src="main.js?v=3" defer></script>
 </body>
 </html>
