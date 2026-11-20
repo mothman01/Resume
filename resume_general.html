@@ -4,11 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Michael Cogan — Resume (General)</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     body {
-        font-family: "Calibri", "Helvetica Neue", Arial, sans-serif;
+        font-family: "Calibri", "Carlito", "Helvetica Neue", Arial, sans-serif;
         font-size: 13px;
         line-height: 1.4;
         color: #1a1a1a;
@@ -38,6 +40,10 @@
     .skills-line strong { color: #1f3a5a; }
     .certs { font-size: 12px; line-height: 1.5; }
     .proj-title { font-weight: 700; font-size: 12.5px; }
+    /* Keep section headings with their first entry, and entries in one piece, when printing. */
+    .entry, .keep { break-inside: avoid; }
+    /* Plain letters instead of fi/ti/fl ligatures, so ATS text extraction reads words correctly. */
+    body { font-variant-ligatures: none; font-feature-settings: "liga" 0, "clig" 0; }
 </style>
 </head>
 <body>
@@ -56,7 +62,7 @@
 
     <h2>Skills</h2>
     <div class="skills-line">
-        <strong>Programming:</strong> Python, C, C++, JavaScript, SQL, and web fundamentals (HTML/CSS)<br>
+        <strong>Programming:</strong> Python, C, C++, JavaScript, SQL, and web fundamentals (HTML/CSS); reading and generating x86-64 assembly<br>
         <strong>Databases &amp; hosting:</strong> PostgreSQL and SQLite (relational data), plus cloud deployment on modern platforms<br>
         <strong>Hardware &amp; systems:</strong> Raspberry Pi and single-board computers, sensor and camera integration, Linux command line<br>
         <strong>AI &amp; data:</strong> Local language models (Ollama), vector search (ChromaDB), NumPy/SciPy, Pandas, Matplotlib<br>
@@ -71,6 +77,7 @@
         Python (Basic) — HackerRank
     </div>
 
+    <div class="keep">
     <h2>Education</h2>
     <div class="entry">
         <div class="entry-head">
@@ -78,6 +85,7 @@
             <span class="date">Expected 2027</span>
         </div>
         <div class="org">Valencia College — Orlando, FL</div>
+    </div>
     </div>
     <div class="entry">
         <div class="entry-head">
@@ -87,6 +95,7 @@
         <div class="org">Valencia College — Orlando, FL</div>
     </div>
 
+    <div class="keep">
     <h2>Experience</h2>
 
     <div class="entry">
@@ -102,6 +111,7 @@
             <li>Hosted the site myself on a Linux server I set up and run, keeping it online around the clock and reachable securely without opening the server to direct internet traffic.</li>
         </ul>
     </div>
+    </div>
 
     <div class="entry">
         <div class="entry-head">
@@ -115,7 +125,28 @@
         </ul>
     </div>
 
+    <div class="keep">
     <h2>Highlighted Projects</h2>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">mcc — A C Compiler Built by Hand (in progress)</span>
+        </div>
+        <ul>
+            <li>Writing a compiler that turns C source code into a working program, entirely by hand with no AI-written code, to learn exactly what happens between code and the CPU.</li>
+            <li>It already reads source code, checks it for errors, builds a structured model of the program, and produces machine-level assembly that runs.</li>
+        </ul>
+    </div>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">NumPy — Open-Source Contribution</span>
+        </div>
+        <ul>
+            <li>Found and fixed a memory leak in NumPy, the core math library behind scientific Python; the fix was reviewed and merged by the project's maintainers.</li>
+        </ul>
+    </div>
 
     <div class="entry">
         <div class="entry-head">
@@ -141,10 +172,11 @@
             <span class="proj-title">Interactive Physics Simulator</span>
         </div>
         <ul>
-            <li>Built an interactive webpage that simulates springs and oscillating systems using Python (compiled to run in the browser via WebAssembly) and SciPy.</li>
+            <li>Built an interactive webpage that simulates springs and oscillating systems using Python and SciPy, running entirely in the browser through WebAssembly.</li>
         </ul>
     </div>
 
+    <div class="keep">
     <h2>Other Experience</h2>
 
     <div class="entry">
@@ -157,6 +189,7 @@
             <li>Explained difficult math and physics concepts in plain language, tailoring each lesson to the student's pace and learning style.</li>
             <li>Patiently adapted sessions for students managing anxiety, helping build confidence alongside technical skill.</li>
         </ul>
+    </div>
     </div>
 
     <div class="entry">

@@ -4,11 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Michael Cogan — Embedded Software Engineer Resume</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     body {
-        font-family: "Calibri", "Helvetica Neue", Arial, sans-serif;
+        font-family: "Calibri", "Carlito", "Helvetica Neue", Arial, sans-serif;
         font-size: 13px;
         line-height: 1.4;
         color: #1a1a1a;
@@ -63,6 +65,10 @@
     .proj-title { font-weight: 700; font-size: 12.5px; }
     .proj-tech { font-size: 10.5px; color: #444; font-style: italic; }
     .tight li { margin-bottom: 1px; }
+    /* Keep section headings with their first entry, and entries in one piece, when printing. */
+    .entry, .keep { break-inside: avoid; }
+    /* Plain letters instead of fi/ti/fl ligatures, so ATS text extraction reads words correctly. */
+    body { font-variant-ligatures: none; font-feature-settings: "liga" 0, "clig" 0; }
 </style>
 </head>
 <body>
@@ -83,7 +89,7 @@
     <div class="skills-line">
         <strong>Languages:</strong> C, C++, Python, Java, JavaScript, TypeScript, HTML/CSS, SQL<br>
         <strong>Embedded &amp; Systems:</strong> Raspberry Pi, ARM-based SBCs, I2C, camera (CSI/OV5647), time-of-flight (VL53L7CX) sensor integration, Linux, Bash, systemd<br>
-        <strong>Tools &amp; Frameworks:</strong> Git, GCC, Flask, Node.js/Express, PostgreSQL, SQLite, ChromaDB, Ollama, OpenGL/GLSL, Pyodide, SciPy, NumPy, Pandas<br>
+        <strong>Tools &amp; Frameworks:</strong> Git, GCC, CMake, AddressSanitizer/UBSan, Flask, Node.js/Express, PostgreSQL, SQLite, ChromaDB, Ollama, OpenGL/GLSL, Pyodide, SciPy, NumPy, Pandas<br>
         <strong>Concepts:</strong> RTOS fundamentals, device drivers, interrupts, memory management, multithreading, computer architecture, digital systems, circuit analysis<br>
         <strong>Soft Skills:</strong> Clear written/verbal communication, cross-functional collaboration, mentoring, adaptability, attention to detail
     </div>
@@ -96,6 +102,7 @@
         Python (Basic) — HackerRank &nbsp;(ID: 16D74456FC3F)
     </div>
 
+    <div class="keep">
     <h2>Education</h2>
     <div class="entry">
         <div class="entry-head">
@@ -103,6 +110,7 @@
             <span class="date">Expected 2027</span>
         </div>
         <div class="org">Valencia College — Orlando, FL &nbsp;·&nbsp; Concentration: Computer Systems Technology</div>
+    </div>
     </div>
     <div class="entry">
         <div class="entry-head">
@@ -112,6 +120,7 @@
         <div class="org">Valencia College — Orlando, FL</div>
     </div>
 
+    <div class="keep">
     <h2>Experience</h2>
 
     <div class="entry">
@@ -128,6 +137,7 @@
             <li>Self-hosted the site on my own Ubuntu Linux server (Dell Precision workstation), running it as a systemd service and exposing it through a Cloudflare Tunnel with no open inbound ports.</li>
         </ul>
     </div>
+    </div>
 
     <div class="entry">
         <div class="entry-head">
@@ -142,7 +152,30 @@
         </ul>
     </div>
 
+    <div class="keep">
     <h2>Projects</h2>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">mcc — C Compiler from Scratch (in progress)</span>
+            <span class="proj-tech">C++20 · CMake · x86-64 Assembly</span>
+        </div>
+        <ul class="tight">
+            <li>Hand-writing a C compiler with no AI-generated code: gcc preprocessing, lexer, recursive-descent parser, AST, x86-64 assembly generation, and linking into a native executable.</li>
+            <li>Built a unique_ptr-owned AST with nested unary expressions, clear syntax-error reporting, and driver flags to stop after any stage; compiled with -Wall -Wextra -Werror plus AddressSanitizer and UBSan.</li>
+        </ul>
+    </div>
+    </div>
+
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">NumPy — Open-Source Contribution</span>
+            <span class="proj-tech">C · CPython C API</span>
+        </div>
+        <ul class="tight">
+            <li>Fixed a memory leak in NumPy's C core (_convert_from_type for custom scalar types); merged upstream as numpy#31750.</li>
+        </ul>
+    </div>
 
     <div class="entry">
         <div class="entry-head">
@@ -173,10 +206,11 @@
             <span class="proj-tech">Python · Pyodide · SciPy</span>
         </div>
         <ul class="tight">
-            <li>Derived equations of motion via the Lagrangian formalism for damped, forced, and driven oscillators; compiled the solver to WebAssembly (Pyodide) to run fully client-side.</li>
+            <li>Derived equations of motion via the Lagrangian formalism for damped, forced, and driven oscillators; the Python solver runs fully client-side in the browser through Pyodide (WebAssembly).</li>
         </ul>
     </div>
 
+    <div class="keep">
     <h2>Other Experience</h2>
 
     <div class="entry">
@@ -189,6 +223,7 @@
             <li>Delivered advanced physics tutoring with calculus support, tailoring explanations to each student's pace and learning style.</li>
             <li>Built custom learning material and patiently adapted sessions for students managing severe social anxiety.</li>
         </ul>
+    </div>
     </div>
 
     <div class="entry">
