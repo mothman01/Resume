@@ -619,6 +619,18 @@ a {
     margin: 14px 0 12px;
 }
 
+.project-card code,
+.now-card code,
+.resource-card code {
+    font-family: "Consolas", "Menlo", monospace;
+    font-size: 0.9em;
+    color: var(--accent-color);
+    background: var(--accent-soft);
+    padding: 1px 5px;
+    border-radius: 4px;
+    overflow-wrap: anywhere;
+}
+
 .project-actions {
     display: flex;
     flex-wrap: wrap;

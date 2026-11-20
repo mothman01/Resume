@@ -6,13 +6,13 @@
     <title>Michael Cogan | Electrical & Computer Engineering Technology Student</title>
     <meta
         name="description"
-        content="Portfolio and resume for Michael Cogan, an electrical and computer engineering technology student building full-stack apps, autonomous local AI architectures, and mechatronic systems."
+        content="Portfolio and resume for Michael Cogan, an electrical and computer engineering technology student building a C compiler from scratch, autonomous local AI systems, embedded sensing, and full-stack apps."
     >
     <meta name="theme-color" content="#0b0f19">
     <meta property="og:title" content="Michael Cogan | Electrical & Computer Engineering Technology Student">
     <meta
         property="og:description"
-        content="Electrical and computer engineering technology student building full-stack apps, autonomous local AI architectures, and mechatronic systems."
+        content="Electrical and computer engineering technology student building a C compiler from scratch, autonomous local AI systems, embedded sensing, and full-stack apps."
     >
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://resume.heigen.io/">
@@ -38,7 +38,7 @@
             }
         })();
     </script>
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=5">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link
         rel="stylesheet"
@@ -99,8 +99,8 @@
                     data-typewriter-text="Electrical & Computer Engineering Technology Student"
                 ></p>
                 <p class="sidebar-summary">
-                    Engineering student focused on full-stack development, autonomous local AI
-                    architectures, and mechatronic systems.
+                    Engineering student focused on low-level C/C++, embedded systems,
+                    autonomous local AI, and full-stack development.
                 </p>
             </div>
 
@@ -139,7 +139,7 @@
                 <h3>Tools</h3>
                 <div class="tags">
                     <span>Git</span><span>PostgreSQL</span><span>Flask</span><span>Neon</span>
-                    <span>Render</span><span>Pandas</span><span>Matplotlib</span><span>Scikit-Learn</span>
+                    <span>Render</span><span>CMake</span><span>GCC</span><span>Linux</span><span>Pandas</span><span>Matplotlib</span><span>Scikit-Learn</span>
                     <span>Ollama</span><span>ChromaDB</span><span>Node.js</span><span>Express</span>
                 </div>
             </section>
@@ -148,6 +148,7 @@
                 <h3>Focus Areas</h3>
                 <div class="tags">
                     <span>Embedded Systems</span>
+                    <span>Compilers</span>
                     <span>Mechatronics</span>
                     <span>Autonomous AI</span>
                     <span>Numerical Modeling</span>
@@ -254,8 +255,10 @@
                 <p class="hero-copy">
                     I work at the boundary of hardware and software: C/C++ for low-level systems,
                     Python for tooling and ML, and web stacks for the interfaces that tie it together.
-                    My projects span embedded sensing (Raspberry Pi + ToF/camera), an autonomous
-                    local AI running on real server hardware, and production web apps.
+                    My projects span a C compiler I'm writing from scratch, embedded sensing
+                    (Raspberry Pi + ToF/camera), an autonomous local AI running on my own server
+                    hardware, and production web apps. I use AI tools where they help, and I keep
+                    core projects hand-written so the fundamentals stay mine.
                 </p>
                 <div class="hero-actions">
                     <a
@@ -291,7 +294,7 @@
                 <div class="hero-highlights">
                     <div>
                         <strong>Embedded &amp; low-level</strong>
-                        <span>C, C++, Raspberry Pi, and sensor integration across hardware and firmware</span>
+                        <span>A from-scratch C compiler in C++, plus Raspberry Pi sensor integration across hardware and firmware</span>
                     </div>
                     <div>
                         <strong>Autonomous local AI</strong>
@@ -308,10 +311,11 @@
             <section class="now-card" id="now" aria-labelledby="now-heading">
                 <div class="now-header">
                     <h2 id="now-heading"><span class="now-pulse" aria-hidden="true"></span> Currently working on</h2>
-                    <span class="date">Updated Oct 2026</span>
+                    <span class="date">Updated Nov 2026</span>
                 </div>
                 <ul>
-                    <li><strong>Eigen live demo</strong> — public conversation counter, visitor analytics dashboard, and light/dark theming for <a href="https://eigen.heigen.io" target="_blank" rel="noopener noreferrer">eigen.heigen.io</a>.</li>
+                    <li><strong>mcc C compiler</strong> — real x86-64 code generation is working; now adding assembly output for unary operators and an intermediate representation (<a href="https://github.com/mothman01/moth_comp" target="_blank" rel="noopener noreferrer">repo</a>).</li>
+                    <li><strong>NumPy</strong> — converting the <code>matmul</code> kernels from C templates to C++ (<a href="https://github.com/numpy/numpy/issues/29528" target="_blank" rel="noopener noreferrer">numpy#29528</a>).</li>
                     <li><strong>Eigen VRAM footprint</strong> — cutting GPU memory use so the language and vision models run more comfortably side by side on a single 12 GB RTX 3060.</li>
                     <li><strong>Coursework</strong> — B.S. Electrical &amp; Computer Engineering Technology, Computer Systems concentration.</li>
                 </ul>
@@ -368,6 +372,53 @@
                     <article class="project-card hidden">
                         <div class="project-card-header">
                             <div>
+                                <h4>mcc — C Compiler from Scratch</h4>
+                                <p class="institution">Personal Project · In progress · No AI-written code</p>
+                            </div>
+                            <span class="stack-label">C++20 · CMake · x86-64 Assembly</span>
+                        </div>
+                        <p class="project-summary">
+                            Writing a C compiler by hand to learn what actually happens between
+                            <code>int main</code> and the CPU, from the lexer down to the assembly it emits.
+                        </p>
+                        <ul class="project-points">
+                            <li>Built the full pipeline end to end: gcc preprocessing, a hand-written lexer, a recursive-descent parser, an AST, x86-64 assembly generation, and linking into a native executable.</li>
+                            <li>Parser builds a <code>unique_ptr</code>-owned AST with nested unary expressions (<code>-</code>, <code>~</code>) and reports clear errors for missing tokens, early end of file, and trailing junk.</li>
+                            <li>Driver flags stop after any stage (<code>--lex</code>, <code>--parse</code>, <code>--codegen</code>, <code>-S</code>) to inspect tokens, the AST, or the generated assembly.</li>
+                            <li>Compiles with <code>-Wall</code> <code>-Wextra</code> <code>-Werror</code> plus AddressSanitizer and UBSan, with a negative test suite of malformed programs that must be rejected.</li>
+                        </ul>
+                        <div class="project-actions">
+                            <a
+                                class="project-link"
+                                href="https://github.com/mothman01/moth_comp"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            ><i class="fa-brands fa-github"></i> Repository</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card hidden">
+                        <div class="project-card-header">
+                            <div>
+                                <h4>Hand-Written C++ Data Structures</h4>
+                                <p class="institution">Personal Project · In progress · No AI-written code</p>
+                            </div>
+                            <span class="stack-label">C++20 · Unit Testing</span>
+                        </div>
+                        <p class="project-summary">
+                            I use AI tools for much of my day-to-day coding, so I implement the classic
+                            data structures myself to keep the fundamentals sharp.
+                        </p>
+                        <ul class="project-points">
+                            <li>Implemented a fixed-capacity array stack, a singly linked list with merge sort, and a B-tree with insert, search, and remove.</li>
+                            <li>Wrote a small <code>TEST</code>/<code>CHECK</code> harness and about 1,900 lines of tests: capacity edges, overflow and underflow, sort stability, random stress, copies, and B-tree structure checks after every change.</li>
+                        </ul>
+                        <!-- Add a Repository link here once mothman01/data-structures-practice is public. -->
+                    </article>
+
+                    <article class="project-card hidden">
+                        <div class="project-card-header">
+                            <div>
                                 <h4>Front Line Refinement</h4>
                                 <p class="institution">Freelance Project</p>
                             </div>
@@ -379,8 +430,7 @@
                         <ul class="project-points">
                             <li>Engineered a Node.js/Express backend backed by a Neon PostgreSQL database with schema auto-creation and production-gated environment configuration.</li>
                             <li>Secured state-changing routes with a double-submit-cookie CSRF guard and hardened rich-text inputs with allowlist HTML sanitization against stored XSS.</li>
-                            <li>Implemented bcrypt password hashing, login rate-limiting, and Helmet security headers for a defense-in-depth admin surface.</li>
-                            <li>Self-hosted the site on my own Ubuntu Linux server (Dell Precision workstation), running it as a systemd service and exposing it through a Cloudflare Tunnel with no open inbound ports.</li>
+                            <li>Self-hosted on my own Ubuntu server as a systemd service behind a Cloudflare Tunnel, with no open inbound ports.</li>
                         </ul>
                         <div class="project-actions">
                             <a
@@ -416,11 +466,12 @@
                             <span class="stack-label">C++ · OpenGL · GLSL · AI-Assisted</span>
                         </div>
                         <p class="project-summary">
-                            Architected a multi-file 3D quantum mechanics visualization engine, heavily leveraging Generative AI to accelerate prototyping and generate complex mathematical logic.
+                            A multi-file 3D quantum mechanics visualization engine that renders hydrogen electron orbitals in real time. Built AI-assisted: I owned the architecture, review, debugging, and integration.
                         </p>
                         <ul class="project-points">
-                            <li>Directed AI agents through advanced prompt engineering to construct custom GLSL fragment shaders for real-time GPU ray-marching of 128³ volumetric probability density grids.</li>
-                            <li>Reviewed, debugged, and integrated AI-generated code to ensure accurate physics calculations within a native Wayland/EGL Linux environment.</li>
+                            <li>Real-time GPU ray-marching of 128³ volumetric probability-density grids in custom GLSL fragment shaders.</li>
+                            <li>Reviewed, debugged, and integrated AI-generated code to keep the physics correct, running natively on Wayland/EGL Linux.</li>
+                            <li>Shipped one-click builds for Windows, macOS, and Linux through GitHub Actions CI.</li>
                         </ul>
                         <div class="project-actions">
                             <a
@@ -479,7 +530,7 @@
                         </p>
                         <ul class="project-points">
                             <li>Derived equations of motion via the Lagrangian formalism for damped, forced, and driven oscillators.</li>
-                            <li>Compiled the Python solver to WebAssembly with Pyodide so it runs fully client-side with no backend.</li>
+                            <li>Runs the Python solver in the browser through Pyodide (CPython compiled to WebAssembly), fully client-side with no backend.</li>
                         </ul>
                         <div class="demo-preview">
                             <div class="demo-preview-icon" aria-hidden="true">
@@ -510,11 +561,29 @@
                 <h2><i class="fa-brands fa-osi"></i> Open Source & Public Code</h2>
                 <div class="item hidden">
                     <p>
-                        My GitHub is the public record of how I build: full-stack experiments,
-                        scientific software, and smaller terminal-first projects that show how I
-                        approach problem solving.
+                        My GitHub is the public record of how I build: a hand-written compiler,
+                        scientific software, full-stack apps, and contributions to the Python
+                        scientific stack.
                     </p>
                     <div class="resource-grid">
+                        <a
+                            class="resource-card"
+                            href="https://github.com/numpy/numpy/pull/31750"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <strong>NumPy — merged fix</strong>
+                            <span>Fixed a memory leak in <code>_convert_from_type</code> for custom scalar types in NumPy's C core (numpy#31750).</span>
+                        </a>
+                        <a
+                            class="resource-card"
+                            href="https://github.com/mothman01/moth_comp"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <strong>mcc C Compiler</strong>
+                            <span>A C compiler written by hand in C++, built in small, readable commits.</span>
+                        </a>
                         <a
                             class="resource-card"
                             href="https://github.com/mothman01"
@@ -538,7 +607,7 @@
                 <div class="item hidden">
                     <div class="item-header">
                         <h4>Freelance Web Developer</h4>
-                        <span class="date">2026 — Present</span>
+                        <span class="date">Sep 2026 — Present</span>
                     </div>
                     <p class="institution"><a href="https://frontlinerefinement.com" target="_blank" rel="noopener noreferrer">Front Line Refinement</a> — remote (paid contract)</p>
                     <ul>
@@ -552,11 +621,11 @@
                 <div class="item hidden">
                     <div class="item-header">
                         <h4>Physics & Mathematics Tutor</h4>
-                        <span class="date">Continuous</span>
+                        <span class="date">Ongoing</span>
                     </div>
                     <p class="institution">Educate 2 Elevate — Orlando, FL</p>
                     <ul>
-                        <li>Delivered advanced physics tutoring with calculus support tailored to each student’s pace.</li>
+                        <li>Delivered advanced physics tutoring with calculus support, tailored to each student’s pace.</li>
                         <li>Built custom learning material and adapted sessions for students managing severe social anxiety.</li>
                     </ul>
                 </div>
@@ -564,7 +633,7 @@
                 <div class="item hidden">
                     <div class="item-header">
                         <h4>Assistant Researcher</h4>
-                        <span class="date">2025 - 2026</span>
+                        <span class="date">2025 — 2026</span>
                     </div>
                     <p class="institution">Rings Research Group — Orlando, FL</p>
                     <ul>
@@ -577,7 +646,7 @@
                 <div class="item hidden">
                     <div class="item-header">
                         <h4>Infantry Section Leader</h4>
-                        <span class="date">2018 - 2024</span>
+                        <span class="date">2018 — 2024</span>
                     </div>
                     <p class="institution">Army National Guard — River Falls, WI</p>
                     <ul>
@@ -590,6 +659,6 @@
         </main>
     </div>
 
-    <script src="main.js?v=4" defer></script>
+    <script src="main.js?v=5" defer></script>
 </body>
 </html>
