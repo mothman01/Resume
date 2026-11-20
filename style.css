@@ -153,6 +153,53 @@ a {
     padding: 44px;
 }
 
+/* Resume page: profile header and the rest of the sidebar share the left column on
+   desktop; on narrow screens the main content moves up between them, so visitors
+   reach projects right after the name instead of scrolling past every skill tag. */
+.resume-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 31%) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "profile main"
+        "rest main";
+}
+
+.resume-layout .sidebar,
+.resume-layout .main-content {
+    width: auto;
+}
+
+.resume-layout .profile-block {
+    grid-area: profile;
+    padding-bottom: 0;
+}
+
+.resume-layout .main-content {
+    grid-area: main;
+}
+
+.resume-layout .sidebar-rest {
+    grid-area: rest;
+    padding-top: 0;
+}
+
+.link-note {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.link-note i {
+    color: var(--accent-color);
+    margin-right: 4px;
+}
+
+.sidebar-links small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
 .eyebrow {
     color: var(--accent-color);
     font-size: 0.8rem;
@@ -224,7 +271,7 @@ a {
     }
 }
 
-.sidebar h3 {
+.sidebar h2 {
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -561,8 +608,8 @@ a {
     gap: 14px;
 }
 
-.item h4,
-.project-card h4 {
+.item h3,
+.project-card h3 {
     color: var(--text-main);
     font-size: 1.08rem;
 }
@@ -883,6 +930,29 @@ input[type="range"] {
     .resource-grid {
         grid-template-columns: 1fr;
     }
+
+    .resume-layout {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            "profile"
+            "main"
+            "rest";
+    }
+
+    .resume-layout .profile-block {
+        padding-bottom: 8px;
+    }
+
+    /* The hero headline says the same thing right below on narrow screens. */
+    .resume-layout .sidebar-summary {
+        display: none;
+    }
+
+    .resume-layout .sidebar-rest {
+        padding-top: 8px;
+        border-top: 1px solid var(--border-color);
+    }
 }
 
 @media (max-width: 720px) {
@@ -896,9 +966,33 @@ input[type="range"] {
         padding: 12px 14px;
     }
 
+    /* One scrollable row instead of a two-line navbar eating the top of the screen. */
     .navbar ul {
         justify-content: flex-start;
-        gap: 10px 18px;
+        flex-wrap: nowrap;
+        gap: 18px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        white-space: nowrap;
+    }
+
+    .navbar ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    .theme-toggle {
+        margin-left: 0;
+    }
+
+    /* Compact profile header so the headline and projects show up sooner. */
+    .profile-photo {
+        width: 96px;
+        height: 96px;
+        margin-bottom: 14px;
+    }
+
+    .profile-header h1 {
+        font-size: 1.7rem;
     }
 
     .container {
@@ -947,9 +1041,26 @@ input[type="range"] {
     }
 
     .btn-group,
-    .hero-actions,
     .project-actions {
         flex-direction: column;
+    }
+
+    /* Two buttons per row; the résumé download keeps the full width. */
+    .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-actions .cta-btn {
+        justify-content: center;
+        text-align: center;
+        padding: 10px 8px;
+        gap: 8px;
+        font-size: 0.85rem;
+    }
+
+    .hero-actions .cta-btn-primary {
+        grid-column: 1 / -1;
     }
 }
 
@@ -995,10 +1106,11 @@ input[type="range"] {
     .hero-actions,
     .project-actions,
     .now-card,
+    .hero-highlights,
     .project-media,
     .demo-preview,
     .sidebar-links,
-    .sidebar > h3.hidden,
+    .sidebar-rest > h2.hidden,
     #opensource > .item > p {
         display: none !important;
     }
@@ -1038,11 +1150,24 @@ input[type="range"] {
         transform: none !important;
     }
 
-    .hero-card,
     .project-card,
     .resource-card,
     .item,
     .oscillator-widget {
         break-inside: avoid;
+    }
+
+    /* Firefox ignores break-after: avoid. An invisible 260px spacer that can't be split
+       from the heading pushes it to the next page when there's no room below it. */
+    .resume-block h2 {
+        display: block;
+        break-inside: avoid;
+    }
+
+    .resume-block h2::after {
+        content: "";
+        display: block;
+        height: 260px;
+        margin-bottom: -260px;
     }
 }

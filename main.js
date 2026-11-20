@@ -203,6 +203,18 @@ function initHomepageTracker() {
         return;
     }
 
+    // Count each browser at most once a day, so reloads and tab hopping don't use up
+    // Make.com operations. (The webhook URL is public; this can't stop deliberate spam.)
+    const today = new Date().toISOString().slice(0, 10);
+    try {
+        if (localStorage.getItem("resume_last_visit") === today) {
+            return;
+        }
+        localStorage.setItem("resume_last_visit", today);
+    } catch (error) {
+        // Storage blocked; fall through and count the visit.
+    }
+
     const webhookUrl = "https://hook.us2.make.com/mdqtn4ujjndc5a3uc34pnm3jfkko765x";
     const visitTime = new Date().toLocaleString();
 

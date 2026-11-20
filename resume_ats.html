@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Michael Cogan — Embedded Software Engineer Resume</title>
+<title>Michael Cogan — Resume (Embedded Systems)</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -61,6 +61,7 @@
     li { margin-bottom: 2px; font-size: 12px; }
     .skills-line { font-size: 12px; line-height: 1.55; }
     .skills-line strong { color: #1f3a5a; }
+    .summary { font-size: 12px; }
     .certs { font-size: 12px; line-height: 1.5; }
     .proj-title { font-weight: 700; font-size: 12.5px; }
     .proj-tech { font-size: 10.5px; color: #444; font-style: italic; }
@@ -69,12 +70,24 @@
     .entry, .keep { break-inside: avoid; }
     /* Plain letters instead of fi/ti/fl ligatures, so ATS text extraction reads words correctly. */
     body { font-variant-ligatures: none; font-feature-settings: "liga" 0, "clig" 0; }
+    /* One-page layout: tighter spacing than the original two-page version. */
+    body { padding: 0.15in 0.45in 0; line-height: 1.3; }
+    .name { font-size: 24px; }
+    .title { font-size: 14px; margin-bottom: 4px; }
+    .contact { margin-bottom: 6px; font-size: 11.5px; }
+    h2 { font-size: 13px; margin: 9px 0 4px; }
+    .entry { margin-bottom: 5px; }
+    ul { margin-top: 2px; }
+    li, .summary, .skills-line, .certs { font-size: 11.5px; }
+    li { margin-bottom: 1px; }
+    .skills-line { line-height: 1.4; }
+    .org { font-size: 11.5px; }
 </style>
 </head>
 <body>
 
     <div class="name">Michael Cogan</div>
-    <div class="title">Embedded Software Engineer</div>
+    <div class="title">Electrical &amp; Computer Engineering Technology Student · Embedded Systems &amp; C/C++</div>
     <div class="contact">
         Orlando, FL &nbsp;|&nbsp; (612) 594-0722 &nbsp;|&nbsp;
         <a href="mailto:michaelcogan497@gmail.com">michaelcogan497@gmail.com</a> &nbsp;|&nbsp;
@@ -83,96 +96,75 @@
     </div>
 
     <h2>Summary</h2>
-    <p style="font-size:12px;">Embedded software engineer with hands-on experience across firmware-level C/C++, Linux systems, and real sensor/peripheral integration. Built an autonomous AI system running locally on server hardware with a Raspberry Pi sensing node, plus production web backends. A clear communicator and collaborative team member who documents work carefully and adapts quickly to new toolchains. Seeking an embedded software engineering role.</p>
-
-    <h2>Technical Skills</h2>
-    <div class="skills-line">
-        <strong>Languages:</strong> C, C++, Python, Java, JavaScript, TypeScript, HTML/CSS, SQL<br>
-        <strong>Embedded &amp; Systems:</strong> Raspberry Pi, ARM-based SBCs, I2C, camera (CSI/OV5647), time-of-flight (VL53L7CX) sensor integration, Linux, Bash, systemd<br>
-        <strong>Tools &amp; Frameworks:</strong> Git, GCC, CMake, AddressSanitizer/UBSan, Flask, Node.js/Express, PostgreSQL, SQLite, ChromaDB, Ollama, OpenGL/GLSL, Pyodide, SciPy, NumPy, Pandas<br>
-        <strong>Concepts:</strong> RTOS fundamentals, device drivers, interrupts, memory management, multithreading, computer architecture, digital systems, circuit analysis<br>
-        <strong>Soft Skills:</strong> Clear written/verbal communication, cross-functional collaboration, mentoring, adaptability, attention to detail
-    </div>
+    <p class="summary">Engineering technology student focused on embedded and systems software. Writing a C compiler from scratch in C++, contributed a merged memory-leak fix to NumPy's C core, and built an autonomous local AI system with a Raspberry Pi sensing node. Seeking an embedded or systems software co-op or internship.</p>
 
     <div class="keep">
     <h2>Education</h2>
     <div class="entry">
         <div class="entry-head">
-            <span class="role">B.S. Electrical &amp; Computer Engineering Technology</span>
+            <span><span class="role">B.S. Electrical &amp; Computer Engineering Technology</span> — Valencia College, Orlando, FL</span>
             <span class="date">Expected 2027</span>
         </div>
-        <div class="org">Valencia College — Orlando, FL &nbsp;·&nbsp; Concentration: Computer Systems Technology</div>
-    </div>
-    </div>
-    <div class="entry">
+        <div class="org">Concentration: Computer Systems Technology</div>
         <div class="entry-head">
-            <span class="role">Associate in Arts, Physics</span>
-            <span class="date">Graduated 2025</span>
+            <span><span class="role">Associate in Arts, Physics</span> — Valencia College, Orlando, FL</span>
+            <span class="date">2025</span>
         </div>
-        <div class="org">Valencia College — Orlando, FL</div>
+    </div>
+    </div>
+
+    <h2>Technical Skills</h2>
+    <div class="skills-line">
+        <strong>Languages:</strong> C, C++, Python, Java, JavaScript/TypeScript, SQL, x86-64 assembly (reading and generating)<br>
+        <strong>Embedded &amp; Systems:</strong> Raspberry Pi 5, I2C, CSI camera (OV5647), time-of-flight sensor (VL53L7CX), Linux, Bash, systemd<br>
+        <strong>Tools:</strong> Git, GCC, CMake, AddressSanitizer/UBSan, OpenGL/GLSL, Node.js/Express, Flask, PostgreSQL, SQLite, NumPy/SciPy<br>
+        <strong>Coursework:</strong> Digital Systems, Circuit Analysis, Data Structures, Differential Equations, Linear Algebra
     </div>
 
     <div class="keep">
     <h2>Projects</h2>
-
     <div class="entry">
         <div class="entry-head">
             <span class="proj-title">mcc — C Compiler from Scratch (in progress)</span>
-            <span class="proj-tech">C++20 · CMake · x86-64 Assembly</span>
+            <span class="proj-tech">C++20 · CMake · x86-64</span>
         </div>
-        <ul class="tight">
+        <ul>
             <li>Hand-writing a C compiler with no AI-generated code: gcc preprocessing, lexer, recursive-descent parser, AST, x86-64 assembly generation, and linking into a native executable.</li>
-            <li>Built a unique_ptr-owned AST with nested unary expressions, clear syntax-error reporting, and driver flags to stop after any stage; compiled with -Wall -Wextra -Werror plus AddressSanitizer and UBSan.</li>
+            <li>unique_ptr AST with nested unary expressions and clear syntax errors; built with -Wall -Wextra -Werror, ASan, and UBSan.</li>
         </ul>
     </div>
     </div>
-
     <div class="entry">
         <div class="entry-head">
             <span class="proj-title">NumPy — Open-Source Contribution</span>
             <span class="proj-tech">C · CPython C API</span>
         </div>
-        <ul class="tight">
-            <li>Fixed a memory leak in NumPy's C core (_convert_from_type for custom scalar types); merged upstream as numpy#31750.</li>
+        <ul>
+            <li>Fixed a memory leak in NumPy's C core (_convert_from_type); reviewed and merged upstream as numpy#31750.</li>
         </ul>
     </div>
-
     <div class="entry">
         <div class="entry-head">
             <span class="proj-title">Eigen — Autonomous Local AI System</span>
-            <span class="proj-tech">Python · Ollama · ChromaDB · SQLite · Raspberry Pi</span>
+            <span class="proj-tech">Python · Ollama · ChromaDB · Raspberry Pi</span>
         </div>
-        <ul class="tight">
-            <li>Designed an autonomous cognitive loop running on Linux server hardware with a layered memory system (episodic SQLite + semantic ChromaDB embeddings) and a sliding-window context manager to prevent VRAM contention.</li>
-            <li>Integrated a Raspberry Pi 5 sensing node with an OV5647 CSI camera and an 8×8 VL53L7CX time-of-flight presence sensor for event-driven multimodal input.</li>
-            <li>Implemented native tool-calling with a sandboxed toolset, plus output filters and strike-based IP auto-ban for safe public deployment.</li>
+        <ul>
+            <li>Continuous inference loop on my own Linux server with layered memory (SQLite episodic log + ChromaDB embeddings) and sliding-window context to avoid VRAM contention on a 12 GB GPU.</li>
+            <li>Integrated a Raspberry Pi 5 node with an OV5647 camera and an 8×8 VL53L7CX time-of-flight sensor for event-driven presence detection; sandboxed tool calling for a public demo.</li>
         </ul>
     </div>
-
     <div class="entry">
         <div class="entry-head">
             <span class="proj-title">Atom Wavefunction Simulator</span>
             <span class="proj-tech">C++ · OpenGL · GLSL</span>
         </div>
-        <ul class="tight">
-            <li>Architected a multi-file 3D quantum-mechanics visualization with real-time GPU ray-marching of 128³ volumetric probability-density grids.</li>
-            <li>Built AI-assisted: owned the architecture, review, and debugging of custom GLSL shaders on native Wayland/EGL Linux; shipped Windows, macOS, and Linux builds through GitHub Actions.</li>
-        </ul>
-    </div>
-
-    <div class="entry">
-        <div class="entry-head">
-            <span class="proj-title">Lagrangian Oscillating Systems Simulator</span>
-            <span class="proj-tech">Python · Pyodide · SciPy</span>
-        </div>
-        <ul class="tight">
-            <li>Derived equations of motion via the Lagrangian formalism for damped, forced, and driven oscillators; the Python solver runs fully client-side in the browser through Pyodide (WebAssembly).</li>
+        <ul>
+            <li>Real-time GPU ray-marching of 128³ orbital probability grids in GLSL (AI-assisted); CI builds for Windows, macOS, and Linux.</li>
         </ul>
     </div>
 
     <div class="keep">
     <h2>Experience</h2>
-
     <div class="entry">
         <div class="entry-head">
             <span class="role">Freelance Web Developer</span>
@@ -180,44 +172,33 @@
         </div>
         <div class="org">Front Line Refinement — remote (paid contract) &nbsp;|&nbsp; <a href="https://frontlinerefinement.com">frontlinerefinement.com</a></div>
         <ul>
-            <li>Communicated directly with a non-technical client to translate business goals into clear technical requirements.</li>
-            <li>Built a production business website on Node.js/Express with a PostgreSQL (Neon) data layer and a custom content-management admin panel.</li>
-            <li>Implemented online liability-waiver collection and an appointment-booking calendar with conflict detection.</li>
-            <li>Hardened the admin surface with bcrypt password hashing, login rate-limiting, CSRF protection, HTML sanitization, and Helmet headers.</li>
-            <li>Self-hosted the site on my own Ubuntu Linux server (Dell Precision workstation), running it as a systemd service and exposing it through a Cloudflare Tunnel with no open inbound ports.</li>
+            <li>Turned a non-technical client's goals into a production site: Node.js/Express, PostgreSQL (Neon), a custom admin CMS, online waivers, and a booking calendar with conflict detection.</li>
+            <li>Secured the admin surface with bcrypt hashing, login rate-limiting, CSRF protection, HTML sanitization, and Helmet headers.</li>
+            <li>Self-hosted on my own Ubuntu server as a systemd service behind a Cloudflare Tunnel, with no open inbound ports.</li>
         </ul>
     </div>
     </div>
-
     <div class="entry">
         <div class="entry-head">
             <span class="role">Assistant Researcher</span>
-            <span class="date">2025 — 2026</span>
+            <span class="date">May 2025 — Jul 2026</span>
         </div>
         <div class="org">Rings Research Group — Orlando, FL</div>
         <ul>
-            <li>Analyzed NASA-produced astronomical datasets with Python, NumPy, and Matplotlib to produce presentation-ready results for a research team.</li>
-            <li>Processed stellar occultation data to support binary star analysis, coordinating findings with colleagues.</li>
-            <li>Designed a low-loss workflow for unpacking and repackaging averaged data arrays, documenting the process for reuse.</li>
+            <li>Analyzed NASA stellar occultation datasets with Python, NumPy, and Matplotlib to support binary star analysis.</li>
+            <li>Designed and documented a low-loss workflow for unpacking and repackaging averaged data arrays.</li>
         </ul>
     </div>
-
-    <div class="keep">
-    <h2>Other Experience</h2>
-
     <div class="entry">
         <div class="entry-head">
             <span class="role">Physics &amp; Mathematics Tutor</span>
-            <span class="date">Ongoing</span>
+            <span class="date">Jan 2026 — Jun 2026</span>
         </div>
         <div class="org">Educate 2 Elevate — Orlando, FL</div>
         <ul>
-            <li>Delivered advanced physics tutoring with calculus support, tailoring explanations to each student's pace and learning style.</li>
-            <li>Built custom learning material and patiently adapted sessions for students managing severe social anxiety.</li>
+            <li>Tutored calculus-based physics, building custom material and adapting sessions for students with severe social anxiety.</li>
         </ul>
     </div>
-    </div>
-
     <div class="entry">
         <div class="entry-head">
             <span class="role">Infantry Section Leader</span>
@@ -225,19 +206,12 @@
         </div>
         <div class="org">Army National Guard — River Falls, WI</div>
         <ul>
-            <li>Managed tactical network equipment and electronic asset readiness during deployment operations.</li>
-            <li>Led section-level operations under tight deadlines, including COVID-19 relief missions.</li>
-            <li>Delivered technical and vehicle systems training for groups of up to 100 personnel, building communication and leadership skills.</li>
+            <li>Managed tactical network and electronic equipment readiness, led section operations including COVID-19 relief missions, and trained groups of up to 100.</li>
         </ul>
     </div>
 
     <h2>Certifications</h2>
-    <div class="certs">
-        Intro to Software Engineering — IBM / Coursera &nbsp;(ID: GQFZQ443TK3X)<br>
-        CI/CD for Software Developers — Codio / Coursera &nbsp;(ID: PM32F40ROH3B)<br>
-        Software Engineer — HackerRank &nbsp;(ID: 7B96F29A8F9B)<br>
-        Python (Basic) — HackerRank &nbsp;(ID: 16D74456FC3F)
-    </div>
+    <div class="certs">Intro to Software Engineering (IBM) &nbsp;·&nbsp; CI/CD for Software Developers (Codio) &nbsp;·&nbsp; HackerRank: Software Engineer, Python (Basic)</div>
 
 </body>
 </html>

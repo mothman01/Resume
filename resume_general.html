@@ -38,18 +38,31 @@
     li { margin-bottom: 2px; font-size: 12px; }
     .skills-line { font-size: 12px; line-height: 1.55; }
     .skills-line strong { color: #1f3a5a; }
+    .summary { font-size: 12px; }
     .certs { font-size: 12px; line-height: 1.5; }
     .proj-title { font-weight: 700; font-size: 12.5px; }
     /* Keep section headings with their first entry, and entries in one piece, when printing. */
     .entry, .keep { break-inside: avoid; }
     /* Plain letters instead of fi/ti/fl ligatures, so ATS text extraction reads words correctly. */
     body { font-variant-ligatures: none; font-feature-settings: "liga" 0, "clig" 0; }
+    /* One-page layout: tighter spacing than the original two-page version. */
+    body { padding: 0.15in 0.45in 0; line-height: 1.3; }
+    .name { font-size: 24px; }
+    .title { font-size: 14px; margin-bottom: 4px; }
+    .contact { margin-bottom: 6px; font-size: 11.5px; }
+    h2 { font-size: 13px; margin: 9px 0 4px; }
+    .entry { margin-bottom: 5px; }
+    ul { margin-top: 2px; }
+    li, .summary, .skills-line, .certs { font-size: 11.5px; }
+    li { margin-bottom: 1px; }
+    .skills-line { line-height: 1.4; }
+    .org { font-size: 11.5px; }
 </style>
 </head>
 <body>
 
     <div class="name">Michael Cogan</div>
-    <div class="title">Software Developer &amp; Engineering Technologist</div>
+    <div class="title">Software Developer &amp; Engineering Technology Student</div>
     <div class="contact">
         Orlando, FL &nbsp;|&nbsp; (612) 594-0722 &nbsp;|&nbsp;
         <a href="mailto:michaelcogan497@gmail.com">michaelcogan497@gmail.com</a> &nbsp;|&nbsp;
@@ -58,38 +71,32 @@
     </div>
 
     <h2>Summary</h2>
-    <p style="font-size:12px;">Software developer who builds working systems from the ground up — websites, data pipelines, AI assistants, and hardware that senses its environment. Comfortable across the full stack (from the browser to the server to the chip) and known for explaining complex things clearly and collaborating well with non-technical stakeholders.</p>
-
-    <h2>Skills</h2>
-    <div class="skills-line">
-        <strong>Programming:</strong> Python, C, C++, JavaScript, SQL, and web fundamentals (HTML/CSS); reading and generating x86-64 assembly<br>
-        <strong>Databases &amp; hosting:</strong> PostgreSQL and SQLite (relational data), plus cloud deployment on modern platforms<br>
-        <strong>Hardware &amp; systems:</strong> Raspberry Pi and single-board computers, sensor and camera integration, Linux command line<br>
-        <strong>AI &amp; data:</strong> Local language models (Ollama), vector search (ChromaDB), NumPy/SciPy, Pandas, Matplotlib<br>
-        <strong>People skills:</strong> Clear communication, teaching and mentoring, teamwork, adaptability, careful attention to detail
-    </div>
+    <p class="summary">Software developer who builds working systems from the ground up: a paid production website, a C compiler written by hand, a fix merged into NumPy, and an AI assistant that runs on my own hardware. Comfortable from the browser down to the chip, and known for explaining technical work clearly to non-technical people.</p>
 
     <div class="keep">
     <h2>Education</h2>
     <div class="entry">
         <div class="entry-head">
-            <span class="role">B.S. Electrical &amp; Computer Engineering Technology</span>
+            <span><span class="role">B.S. Electrical &amp; Computer Engineering Technology</span> — Valencia College, Orlando, FL</span>
             <span class="date">Expected 2027</span>
         </div>
-        <div class="org">Valencia College — Orlando, FL</div>
-    </div>
-    </div>
-    <div class="entry">
+        <div class="org">Concentration: Computer Systems Technology</div>
         <div class="entry-head">
-            <span class="role">Associate in Arts, Physics</span>
-            <span class="date">Graduated 2025</span>
+            <span><span class="role">Associate in Arts, Physics</span> — Valencia College, Orlando, FL</span>
+            <span class="date">2025</span>
         </div>
-        <div class="org">Valencia College — Orlando, FL</div>
+    </div>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="skills-line">
+        <strong>Programming:</strong> Python, C, C++, JavaScript, SQL, HTML/CSS<br>
+        <strong>Web &amp; data:</strong> Node.js/Express, Flask, PostgreSQL, SQLite, NumPy/SciPy, Pandas, Matplotlib<br>
+        <strong>Systems &amp; hardware:</strong> Linux servers, Git, Raspberry Pi with camera and distance sensors, local AI models (Ollama)
     </div>
 
     <div class="keep">
     <h2>Experience</h2>
-
     <div class="entry">
         <div class="entry-head">
             <span class="role">Freelance Web Developer</span>
@@ -97,93 +104,33 @@
         </div>
         <div class="org">Front Line Refinement — remote (paid contract) &nbsp;|&nbsp; <a href="https://frontlinerefinement.com">frontlinerefinement.com</a></div>
         <ul>
-            <li>Worked one-on-one with a non-technical business owner, translating their goals into a live website they can update themselves through a content-management system.</li>
-            <li>Built the backend in Node.js (JavaScript on the server) with a PostgreSQL database, plus online waivers and an appointment-booking calendar with scheduling conflict detection.</li>
-            <li>Secured customer data with password hashing, login rate-limiting, and cross-site request protections.</li>
-            <li>Hosted the site myself on a Linux server I set up and run, keeping it online around the clock and reachable securely without opening the server to direct internet traffic.</li>
+            <li>Worked one-on-one with a non-technical business owner to deliver a live website they update themselves through a content-management system.</li>
+            <li>Built online waivers and an appointment-booking calendar with conflict detection on a Node.js and PostgreSQL backend.</li>
+            <li>Protected customer data with password hashing, login rate-limiting, and cross-site request protections, and host the site on a Linux server I run.</li>
         </ul>
     </div>
     </div>
-
     <div class="entry">
         <div class="entry-head">
             <span class="role">Assistant Researcher</span>
-            <span class="date">2025 — 2026</span>
+            <span class="date">May 2025 — Jul 2026</span>
         </div>
         <div class="org">Rings Research Group — Orlando, FL</div>
         <ul>
-            <li>Processed large NASA astronomy datasets using Python (with NumPy and Matplotlib), turning raw measurements into clear charts and summaries for the research team.</li>
-            <li>Built a repeatable, documented data-processing workflow that saved the team time on later projects.</li>
+            <li>Turned large NASA astronomy datasets into clear charts and summaries for the research team using Python.</li>
+            <li>Built a documented, repeatable data-processing workflow that the team reused on later work.</li>
         </ul>
     </div>
-
-    <div class="keep">
-    <h2>Highlighted Projects</h2>
-
-    <div class="entry">
-        <div class="entry-head">
-            <span class="proj-title">mcc — A C Compiler Built by Hand (in progress)</span>
-        </div>
-        <ul>
-            <li>Writing a compiler that turns C source code into a working program, entirely by hand with no AI-written code, to learn exactly what happens between code and the CPU.</li>
-            <li>It already reads source code, checks it for errors, builds a structured model of the program, and produces machine-level assembly that runs.</li>
-        </ul>
-    </div>
-    </div>
-
-    <div class="entry">
-        <div class="entry-head">
-            <span class="proj-title">NumPy — Open-Source Contribution</span>
-        </div>
-        <ul>
-            <li>Found and fixed a memory leak in NumPy, the core math library behind scientific Python; the fix was reviewed and merged by the project's maintainers.</li>
-        </ul>
-    </div>
-
-    <div class="entry">
-        <div class="entry-head">
-            <span class="proj-title">Eigen — A Personal AI Assistant</span>
-        </div>
-        <ul>
-            <li>Built an AI assistant that runs entirely on a home server (no cloud), using a local language model and a vector database so it can "remember" past conversations.</li>
-            <li>Connected a Raspberry Pi with a camera and a distance sensor so the assistant can see and sense its surroundings, and made it safe to share publicly.</li>
-        </ul>
-    </div>
-
-    <div class="entry">
-        <div class="entry-head">
-            <span class="proj-title">Atom Wavefunction Visualizer</span>
-        </div>
-        <ul>
-            <li>Created a real-time 3D visualization of an atom's electron cloud in C++ with OpenGL shaders, rendering the shape directly on the graphics card.</li>
-        </ul>
-    </div>
-
-    <div class="entry">
-        <div class="entry-head">
-            <span class="proj-title">Interactive Physics Simulator</span>
-        </div>
-        <ul>
-            <li>Built an interactive webpage that simulates springs and oscillating systems using Python and SciPy, running entirely in the browser through WebAssembly.</li>
-        </ul>
-    </div>
-
-    <div class="keep">
-    <h2>Other Experience</h2>
-
     <div class="entry">
         <div class="entry-head">
             <span class="role">Physics &amp; Mathematics Tutor</span>
-            <span class="date">Ongoing</span>
+            <span class="date">Jan 2026 — Jun 2026</span>
         </div>
         <div class="org">Educate 2 Elevate — Orlando, FL</div>
         <ul>
-            <li>Explained difficult math and physics concepts in plain language, tailoring each lesson to the student's pace and learning style.</li>
-            <li>Patiently adapted sessions for students managing anxiety, helping build confidence alongside technical skill.</li>
+            <li>Explained physics and calculus in plain language, adapting each lesson to the student, including students managing anxiety.</li>
         </ul>
     </div>
-    </div>
-
     <div class="entry">
         <div class="entry-head">
             <span class="role">Infantry Section Leader</span>
@@ -191,19 +138,44 @@
         </div>
         <div class="org">Army National Guard — River Falls, WI</div>
         <ul>
-            <li>Managed electronic and network equipment to keep everything mission-ready.</li>
-            <li>Led teams under pressure, including during COVID-19 relief missions.</li>
-            <li>Trained groups of up to 100 people, developing strong communication and leadership skills.</li>
+            <li>Led teams under pressure, including COVID-19 relief missions, and kept electronic and network equipment mission-ready.</li>
+            <li>Trained groups of up to 100 people.</li>
+        </ul>
+    </div>
+
+    <div class="keep">
+    <h2>Projects</h2>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">mcc — A C Compiler Built by Hand (in progress)</span>
+            <span class="proj-tech"></span>
+        </div>
+        <ul>
+            <li>Writing a compiler that turns C code into a working program, by hand with no AI-written code; it already checks code for errors and produces assembly that runs.</li>
+        </ul>
+    </div>
+    </div>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">NumPy — Open-Source Contribution</span>
+            <span class="proj-tech"></span>
+        </div>
+        <ul>
+            <li>Found and fixed a memory leak in NumPy, the core math library of scientific Python; reviewed and merged by its maintainers.</li>
+        </ul>
+    </div>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">Eigen — A Personal AI Assistant</span>
+            <span class="proj-tech"></span>
+        </div>
+        <ul>
+            <li>An AI assistant that runs entirely on my own server, remembers past conversations, and senses the room through a Raspberry Pi camera and distance sensor.</li>
         </ul>
     </div>
 
     <h2>Certifications</h2>
-    <div class="certs">
-        Intro to Software Engineering — IBM / Coursera<br>
-        CI/CD for Software Developers — Codio / Coursera<br>
-        Software Engineer — HackerRank<br>
-        Python (Basic) — HackerRank
-    </div>
+    <div class="certs">Intro to Software Engineering (IBM) &nbsp;·&nbsp; CI/CD for Software Developers (Codio) &nbsp;·&nbsp; HackerRank: Software Engineer, Python (Basic)</div>
 
 </body>
 </html>
