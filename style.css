@@ -3,8 +3,8 @@
     --surface-color: #111827;
     --surface-color-alt: #0f172a;
     --primary-color: #1e293b;
-    --accent-color: #00ffcc;
-    --accent-soft: rgba(0, 255, 204, 0.12);
+    --accent-color: #2dd4bf;
+    --accent-soft: rgba(45, 212, 191, 0.12);
     --text-main: #e2e8f0;
     --text-muted: #94a3b8;
     --border-color: #334155;
@@ -13,7 +13,7 @@
     /* Translucent panel fills used inside cards/tags (swap in light mode). */
     --panel-fill: rgba(15, 23, 42, 0.85);
     --panel-fill-soft: rgba(15, 23, 42, 0.6);
-    --accent-glow: rgba(0, 255, 204, 0.35);
+    --accent-glow: rgba(45, 212, 191, 0.32);
     /* Text color for content sitting on a solid accent background. */
     --accent-contrast: #04140f;
 }
@@ -52,6 +52,120 @@ html {
 /* Keep anchor targets clear of the sticky navbar. */
 [id] {
     scroll-margin-top: 80px;
+}
+
+/* Inline SVG icons (Font Awesome Free paths from icons.svg) sized like the old icon font. */
+.icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentColor;
+    vertical-align: -0.125em;
+    flex-shrink: 0;
+}
+
+.icon-lg {
+    width: 1.33em;
+    height: 1.33em;
+    vertical-align: -0.25em;
+}
+
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    z-index: 2000;
+    background: var(--accent-color);
+    color: var(--accent-contrast);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 12px;
+}
+
+/* Current section in the navbar while scrolling. */
+.navbar a.active {
+    color: var(--accent-color);
+    box-shadow: inset 0 -2px 0 var(--accent-color);
+}
+
+/* Citizenship / clearance / service badges in the hero. */
+.cred-badges {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 16px;
+}
+
+.cred-badges li {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--accent-color);
+    background: var(--accent-soft);
+    color: var(--text-main);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.cred-badges .icon {
+    color: var(--accent-color);
+}
+
+/* Featured project spans the grid and gets an accent edge. */
+/* Half-width cards: tech stack goes under the title so titles don't wrap to 3 lines. */
+.project-card:not(.project-featured) .project-card-header {
+    flex-direction: column;
+    gap: 8px;
+}
+
+.project-featured {
+    grid-column: 1 / -1;
+    border-left: 3px solid var(--accent-color);
+}
+
+/* Compiler pipeline: stages as chips joined by arrows. */
+.pipeline {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 4px;
+    margin: 4px 0 14px;
+    font-family: "Consolas", "Menlo", monospace;
+    font-size: 0.8rem;
+}
+
+.pipeline li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.pipeline span {
+    padding: 4px 9px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--panel-fill);
+    color: var(--text-main);
+}
+
+.pipeline li:first-child span,
+.pipeline li:last-child span {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.pipeline li + li::before {
+    content: "→";
+    margin-right: 4px;
+    color: var(--text-muted);
 }
 
 body {
@@ -190,7 +304,7 @@ a {
     color: var(--text-muted);
 }
 
-.link-note i {
+.link-note .icon {
     color: var(--accent-color);
     margin-right: 4px;
 }
@@ -214,6 +328,10 @@ a {
     line-height: 1.1;
     margin-bottom: 10px;
     color: var(--accent-color);
+}
+
+.profile-header picture {
+    display: block;
 }
 
 .profile-photo {
@@ -591,7 +709,7 @@ a {
     gap: 10px;
 }
 
-.resume-block h2 i {
+.resume-block h2 .icon {
     color: var(--accent-color);
 }
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Michael Cogan — Resume (Embedded Systems)</title>
+<title>Michael Cogan — Resume (Embedded Software)</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -82,21 +82,23 @@
     li { margin-bottom: 1px; }
     .skills-line { line-height: 1.4; }
     .org { font-size: 11.5px; }
+    .creds { font-size: 11.5px; font-weight: 700; color: #1f3a5a; margin: -2px 0 6px; }
 </style>
 </head>
 <body>
 
     <div class="name">Michael Cogan</div>
-    <div class="title">Electrical &amp; Computer Engineering Technology Student · Embedded Systems &amp; C/C++</div>
+    <div class="title">Embedded &amp; Systems Software · C/C++ · Linux</div>
     <div class="contact">
         Orlando, FL &nbsp;|&nbsp; (612) 594-0722 &nbsp;|&nbsp;
         <a href="mailto:michaelcogan497@gmail.com">michaelcogan497@gmail.com</a> &nbsp;|&nbsp;
         <a href="https://github.com/mothman01">github.com/mothman01</a> &nbsp;|&nbsp;
         <a href="https://resume.heigen.io">resume.heigen.io</a>
     </div>
+    <div class="creds">U.S. Citizen &nbsp;·&nbsp; Previously held Secret clearance &nbsp;·&nbsp; 6 years U.S. Army National Guard (2018–2024)</div>
 
     <h2>Summary</h2>
-    <p class="summary">Engineering technology student focused on embedded and systems software. Writing a C compiler from scratch in C++, contributed a merged memory-leak fix to NumPy's C core, and built an autonomous local AI system with a Raspberry Pi sensing node. Seeking an embedded or systems software co-op or internship.</p>
+    <p class="summary">Electrical &amp; computer engineering technology student seeking an entry-level embedded or systems software role in aerospace and defense. I write C and C++ close to the hardware: a hand-built C compiler that emits x86-64 assembly, a memory-leak fix merged into NumPy's C core, and Linux sensor integration on Raspberry Pi. Six years of Army National Guard service leading an infantry section.</p>
 
     <div class="keep">
     <h2>Education</h2>
@@ -105,20 +107,16 @@
             <span><span class="role">B.S. Electrical &amp; Computer Engineering Technology</span> — Valencia College, Orlando, FL</span>
             <span class="date">Expected 2027</span>
         </div>
-        <div class="org">Concentration: Computer Systems Technology</div>
-        <div class="entry-head">
-            <span><span class="role">Associate in Arts, Physics</span> — Valencia College, Orlando, FL</span>
-            <span class="date">2025</span>
-        </div>
+        <div class="org">Concentration: Computer Systems Technology &nbsp;·&nbsp; A.A. Physics, Valencia College (2025)</div>
     </div>
     </div>
 
     <h2>Technical Skills</h2>
     <div class="skills-line">
-        <strong>Languages:</strong> C, C++, Python, Java, JavaScript/TypeScript, SQL, x86-64 assembly (reading and generating)<br>
-        <strong>Embedded &amp; Systems:</strong> Raspberry Pi 5, I2C, CSI camera (OV5647), time-of-flight sensor (VL53L7CX), Linux, Bash, systemd<br>
-        <strong>Tools:</strong> Git, GCC, CMake, AddressSanitizer/UBSan, OpenGL/GLSL, Node.js/Express, Flask, PostgreSQL, SQLite, NumPy/SciPy<br>
-        <strong>Coursework:</strong> Digital Systems, Circuit Analysis, Data Structures, Differential Equations, Linear Algebra
+        <strong>Languages:</strong> C, C++ (C++20), Python, Java, JavaScript, SQL, x86-64 assembly<br>
+        <strong>Embedded &amp; Linux:</strong> Raspberry Pi 5, I2C time-of-flight sensor (VL53L7CX), CSI camera (OV5647), Ubuntu Linux, Bash, systemd<br>
+        <strong>Practices &amp; tools:</strong> Git, GCC, CMake, AddressSanitizer/UBSan, -Werror builds, unit and negative tests, upstream code review (NumPy)<br>
+        <strong>Coursework:</strong> Digital Systems, Circuit Analysis, Data Structures, Differential Equations, Linear Algebra, Classical Mechanics
     </div>
 
     <div class="keep">
@@ -129,8 +127,8 @@
             <span class="proj-tech">C++20 · CMake · x86-64</span>
         </div>
         <ul>
-            <li>Hand-writing a C compiler with no AI-generated code: gcc preprocessing, lexer, recursive-descent parser, AST, x86-64 assembly generation, and linking into a native executable.</li>
-            <li>unique_ptr AST with nested unary expressions and clear syntax errors; built with -Wall -Wextra -Werror, ASan, and UBSan.</li>
+            <li>Hand-writing a C compiler with no AI-generated code: preprocessing, lexer, recursive-descent parser, AST, x86-64 assembly generation, and linking into a native executable.</li>
+            <li>unique_ptr-owned AST, precise syntax errors, a negative test suite of malformed programs, and builds with -Wall -Wextra -Werror, ASan, and UBSan.</li>
         </ul>
     </div>
     </div>
@@ -140,26 +138,35 @@
             <span class="proj-tech">C · CPython C API</span>
         </div>
         <ul>
-            <li>Fixed a memory leak in NumPy's C core (_convert_from_type); reviewed and merged upstream as numpy#31750.</li>
+            <li>Found and fixed a memory leak in NumPy's C core (_convert_from_type); passed maintainer review and merged as numpy#31750.</li>
         </ul>
     </div>
     <div class="entry">
         <div class="entry-head">
-            <span class="proj-title">Eigen — Autonomous Local AI System</span>
-            <span class="proj-tech">Python · Ollama · ChromaDB · Raspberry Pi</span>
+            <span class="proj-title">Eigen — Raspberry Pi Sensing Node + Local AI</span>
+            <span class="proj-tech">Python · Linux · Raspberry Pi</span>
         </div>
         <ul>
-            <li>Continuous inference loop on my own Linux server with layered memory (SQLite episodic log + ChromaDB embeddings) and sliding-window context to avoid VRAM contention on a 12 GB GPU.</li>
-            <li>Integrated a Raspberry Pi 5 node with an OV5647 camera and an 8×8 VL53L7CX time-of-flight sensor for event-driven presence detection; sandboxed tool calling for a public demo.</li>
+            <li>Integrated a Raspberry Pi 5 with an OV5647 camera and an 8×8 VL53L7CX time-of-flight sensor for event-driven presence detection, feeding a local AI on my own Linux server.</li>
+            <li>Managed a 12 GB GPU memory budget with sliding-window context; sandboxed tool calls and filtered output for a public demo.</li>
         </ul>
     </div>
     <div class="entry">
         <div class="entry-head">
-            <span class="proj-title">Atom Wavefunction Simulator</span>
-            <span class="proj-tech">C++ · OpenGL · GLSL</span>
+            <span class="proj-title">Hand-Written C++ Data Structures</span>
+            <span class="proj-tech">C++20</span>
         </div>
         <ul>
-            <li>Real-time GPU ray-marching of 128³ orbital probability grids in GLSL (AI-assisted); CI builds for Windows, macOS, and Linux.</li>
+            <li>Stack, linked list with merge sort, and B-tree written without AI, with about 1,900 lines of unit, stress, and structural-invariant tests.</li>
+        </ul>
+    </div>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">Oscillating Systems Simulator (team project)</span>
+            <span class="proj-tech">Python · SciPy · WebAssembly</span>
+        </div>
+        <ul>
+            <li>Derived equations of motion for damped and driven oscillators with Lagrangian mechanics and solved them with SciPy ODE integrators, running in the browser via Pyodide.</li>
         </ul>
     </div>
 
@@ -172,11 +179,21 @@
         </div>
         <div class="org">Front Line Refinement — remote (paid contract) &nbsp;|&nbsp; <a href="https://frontlinerefinement.com">frontlinerefinement.com</a></div>
         <ul>
-            <li>Turned a non-technical client's goals into a production site: Node.js/Express, PostgreSQL (Neon), a custom admin CMS, online waivers, and a booking calendar with conflict detection.</li>
-            <li>Secured the admin surface with bcrypt hashing, login rate-limiting, CSRF protection, HTML sanitization, and Helmet headers.</li>
-            <li>Self-hosted on my own Ubuntu server as a systemd service behind a Cloudflare Tunnel, with no open inbound ports.</li>
+            <li>Turned a non-technical client's requirements into a production system: Node.js/Express, PostgreSQL, admin CMS, online waivers, and booking with conflict detection.</li>
+            <li>Applied secure-coding controls: bcrypt hashing, rate-limiting, CSRF protection, input sanitization, and Helmet headers; self-hosted on Linux behind a Cloudflare Tunnel.</li>
         </ul>
     </div>
+    </div>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Infantry Section Leader</span>
+            <span class="date">2018 — 2024</span>
+        </div>
+        <div class="org">U.S. Army National Guard — River Falls, WI</div>
+        <ul>
+            <li>Held a Secret clearance; led an infantry section through training and deployment operations, including COVID-19 relief missions.</li>
+            <li>Kept tactical network and electronic equipment mission-ready, and trained groups of up to 100 soldiers on technical and vehicle systems.</li>
+        </ul>
     </div>
     <div class="entry">
         <div class="entry-head">
@@ -185,33 +202,9 @@
         </div>
         <div class="org">Rings Research Group — Orlando, FL</div>
         <ul>
-            <li>Analyzed NASA stellar occultation datasets with Python, NumPy, and Matplotlib to support binary star analysis.</li>
-            <li>Designed and documented a low-loss workflow for unpacking and repackaging averaged data arrays.</li>
+            <li>Processed NASA stellar occultation datasets in Python (NumPy, Matplotlib) and documented a low-loss workflow for repackaging averaged data arrays.</li>
         </ul>
     </div>
-    <div class="entry">
-        <div class="entry-head">
-            <span class="role">Physics &amp; Mathematics Tutor</span>
-            <span class="date">Jan 2026 — Jun 2026</span>
-        </div>
-        <div class="org">Educate 2 Elevate — Orlando, FL</div>
-        <ul>
-            <li>Tutored calculus-based physics, building custom material and adapting sessions for students with severe social anxiety.</li>
-        </ul>
-    </div>
-    <div class="entry">
-        <div class="entry-head">
-            <span class="role">Infantry Section Leader</span>
-            <span class="date">2018 — 2024</span>
-        </div>
-        <div class="org">Army National Guard — River Falls, WI</div>
-        <ul>
-            <li>Managed tactical network and electronic equipment readiness, led section operations including COVID-19 relief missions, and trained groups of up to 100.</li>
-        </ul>
-    </div>
-
-    <h2>Certifications</h2>
-    <div class="certs">Intro to Software Engineering (IBM) &nbsp;·&nbsp; CI/CD for Software Developers (Codio) &nbsp;·&nbsp; HackerRank: Software Engineer, Python (Basic)</div>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Michael Cogan — Resume (General)</title>
+<title>Michael Cogan — Resume (Software Engineering)</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -40,6 +40,7 @@
     .skills-line strong { color: #1f3a5a; }
     .summary { font-size: 12px; }
     .certs { font-size: 12px; line-height: 1.5; }
+    .proj-tech { font-size: 10.5px; color: #444; font-style: italic; }
     .proj-title { font-weight: 700; font-size: 12.5px; }
     /* Keep section headings with their first entry, and entries in one piece, when printing. */
     .entry, .keep { break-inside: avoid; }
@@ -57,21 +58,23 @@
     li { margin-bottom: 1px; }
     .skills-line { line-height: 1.4; }
     .org { font-size: 11.5px; }
+    .creds { font-size: 11.5px; font-weight: 700; color: #1f3a5a; margin: -2px 0 6px; }
 </style>
 </head>
 <body>
 
     <div class="name">Michael Cogan</div>
-    <div class="title">Software Developer &amp; Engineering Technology Student</div>
+    <div class="title">Software Engineering · Full-Stack, Tools &amp; Systems · Python, C/C++, JavaScript</div>
     <div class="contact">
         Orlando, FL &nbsp;|&nbsp; (612) 594-0722 &nbsp;|&nbsp;
         <a href="mailto:michaelcogan497@gmail.com">michaelcogan497@gmail.com</a> &nbsp;|&nbsp;
         <a href="https://github.com/mothman01">github.com/mothman01</a> &nbsp;|&nbsp;
         <a href="https://resume.heigen.io">resume.heigen.io</a>
     </div>
+    <div class="creds">U.S. Citizen &nbsp;·&nbsp; Previously held Secret clearance &nbsp;·&nbsp; 6 years U.S. Army National Guard (2018–2024)</div>
 
     <h2>Summary</h2>
-    <p class="summary">Software developer who builds working systems from the ground up: a paid production website, a C compiler written by hand, a fix merged into NumPy, and an AI assistant that runs on my own hardware. Comfortable from the browser down to the chip, and known for explaining technical work clearly to non-technical people.</p>
+    <p class="summary">Engineering technology student seeking an entry-level software engineering role in aerospace and defense, building GUIs, back-end services, and engineering tools. Delivered a paid, security-hardened production web application end to end, and write systems code in C and C++, including a C compiler built by hand. Six years of Army National Guard service.</p>
 
     <div class="keep">
     <h2>Education</h2>
@@ -80,19 +83,16 @@
             <span><span class="role">B.S. Electrical &amp; Computer Engineering Technology</span> — Valencia College, Orlando, FL</span>
             <span class="date">Expected 2027</span>
         </div>
-        <div class="org">Concentration: Computer Systems Technology</div>
-        <div class="entry-head">
-            <span><span class="role">Associate in Arts, Physics</span> — Valencia College, Orlando, FL</span>
-            <span class="date">2025</span>
-        </div>
+        <div class="org">Concentration: Computer Systems Technology &nbsp;·&nbsp; A.A. Physics, Valencia College (2025)</div>
     </div>
     </div>
 
-    <h2>Skills</h2>
+    <h2>Technical Skills</h2>
     <div class="skills-line">
-        <strong>Programming:</strong> Python, C, C++, JavaScript, SQL, HTML/CSS<br>
-        <strong>Web &amp; data:</strong> Node.js/Express, Flask, PostgreSQL, SQLite, NumPy/SciPy, Pandas, Matplotlib<br>
-        <strong>Systems &amp; hardware:</strong> Linux servers, Git, Raspberry Pi with camera and distance sensors, local AI models (Ollama)
+        <strong>Languages:</strong> Python, JavaScript, C, C++, Java, SQL, HTML/CSS<br>
+        <strong>Web &amp; data:</strong> Node.js/Express, Flask, PostgreSQL, SQLite, NumPy/SciPy, Pandas, Matplotlib, Plotly<br>
+        <strong>Security:</strong> bcrypt password hashing, CSRF protection, input sanitization, rate-limiting, Helmet security headers<br>
+        <strong>Systems &amp; tools:</strong> Linux server administration, systemd, Cloudflare Tunnel, Git, GCC, CMake, Raspberry Pi
     </div>
 
     <div class="keep">
@@ -104,11 +104,23 @@
         </div>
         <div class="org">Front Line Refinement — remote (paid contract) &nbsp;|&nbsp; <a href="https://frontlinerefinement.com">frontlinerefinement.com</a></div>
         <ul>
-            <li>Worked one-on-one with a non-technical business owner to deliver a live website they update themselves through a content-management system.</li>
-            <li>Built online waivers and an appointment-booking calendar with conflict detection on a Node.js and PostgreSQL backend.</li>
-            <li>Protected customer data with password hashing, login rate-limiting, and cross-site request protections, and host the site on a Linux server I run.</li>
+            <li>Gathered requirements from a non-technical business owner and delivered a production site they run themselves through a custom content-management admin panel.</li>
+            <li>Built the Node.js/Express back end on PostgreSQL (Neon), with online liability waivers and an appointment calendar that detects booking conflicts.</li>
+            <li>Secured the admin surface with bcrypt, login rate-limiting, double-submit-cookie CSRF protection, allowlist HTML sanitization, and Helmet headers.</li>
+            <li>Self-hosted on my own Ubuntu server as a systemd service behind a Cloudflare Tunnel, with no open inbound ports.</li>
         </ul>
     </div>
+    </div>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="role">Infantry Section Leader</span>
+            <span class="date">2018 — 2024</span>
+        </div>
+        <div class="org">U.S. Army National Guard — River Falls, WI</div>
+        <ul>
+            <li>Held a Secret clearance; led an infantry section through training and deployment operations, including COVID-19 relief missions.</li>
+            <li>Kept tactical network and electronic equipment mission-ready, and trained groups of up to 100 soldiers on technical and vehicle systems.</li>
+        </ul>
     </div>
     <div class="entry">
         <div class="entry-head">
@@ -117,8 +129,8 @@
         </div>
         <div class="org">Rings Research Group — Orlando, FL</div>
         <ul>
-            <li>Turned large NASA astronomy datasets into clear charts and summaries for the research team using Python.</li>
-            <li>Built a documented, repeatable data-processing workflow that the team reused on later work.</li>
+            <li>Built Python (NumPy, Matplotlib) processing for NASA stellar occultation data, turning raw measurements into charts and summaries for the team.</li>
+            <li>Designed and documented a low-loss workflow for repackaging averaged data arrays that the team reused.</li>
         </ul>
     </div>
     <div class="entry">
@@ -128,18 +140,7 @@
         </div>
         <div class="org">Educate 2 Elevate — Orlando, FL</div>
         <ul>
-            <li>Explained physics and calculus in plain language, adapting each lesson to the student, including students managing anxiety.</li>
-        </ul>
-    </div>
-    <div class="entry">
-        <div class="entry-head">
-            <span class="role">Infantry Section Leader</span>
-            <span class="date">2018 — 2024</span>
-        </div>
-        <div class="org">Army National Guard — River Falls, WI</div>
-        <ul>
-            <li>Led teams under pressure, including COVID-19 relief missions, and kept electronic and network equipment mission-ready.</li>
-            <li>Trained groups of up to 100 people.</li>
+            <li>Tutored calculus-based physics, writing custom material and adapting sessions for students with severe social anxiety.</li>
         </ul>
     </div>
 
@@ -147,30 +148,39 @@
     <h2>Projects</h2>
     <div class="entry">
         <div class="entry-head">
-            <span class="proj-title">mcc — A C Compiler Built by Hand (in progress)</span>
-            <span class="proj-tech"></span>
+            <span class="proj-title">mcc — C Compiler from Scratch (in progress)</span>
+            <span class="proj-tech">C++20 · x86-64</span>
         </div>
         <ul>
-            <li>Writing a compiler that turns C code into a working program, by hand with no AI-written code; it already checks code for errors and produces assembly that runs.</li>
+            <li>Hand-written lexer, recursive-descent parser, AST, and x86-64 code generation, with no AI-written code.</li>
         </ul>
     </div>
+    </div>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">Oscillating Systems Simulator (team project)</span>
+            <span class="proj-tech">Flask · SciPy · Plotly · WebAssembly</span>
+        </div>
+        <ul>
+            <li>Interactive simulation of damped and driven oscillators: a Flask/Plotly app, plus a client-side version running SciPy through Pyodide.</li>
+        </ul>
+    </div>
+    <div class="entry">
+        <div class="entry-head">
+            <span class="proj-title">3D Printing Product Platform</span>
+            <span class="proj-tech">Flask · PostgreSQL · Render</span>
+        </div>
+        <ul>
+            <li>Searchable product catalog for a small business, organized by type and linked to Etsy checkout.</li>
+        </ul>
     </div>
     <div class="entry">
         <div class="entry-head">
             <span class="proj-title">NumPy — Open-Source Contribution</span>
-            <span class="proj-tech"></span>
+            <span class="proj-tech">C</span>
         </div>
         <ul>
-            <li>Found and fixed a memory leak in NumPy, the core math library of scientific Python; reviewed and merged by its maintainers.</li>
-        </ul>
-    </div>
-    <div class="entry">
-        <div class="entry-head">
-            <span class="proj-title">Eigen — A Personal AI Assistant</span>
-            <span class="proj-tech"></span>
-        </div>
-        <ul>
-            <li>An AI assistant that runs entirely on my own server, remembers past conversations, and senses the room through a Raspberry Pi camera and distance sensor.</li>
+            <li>Fixed a memory leak in NumPy's C core; passed maintainer review and merged as numpy#31750.</li>
         </ul>
     </div>
 

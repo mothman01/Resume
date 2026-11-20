@@ -6,13 +6,13 @@
     <title>Michael Cogan | Electrical & Computer Engineering Technology Student</title>
     <meta
         name="description"
-        content="Michael Cogan: engineering technology student building a C compiler from scratch, autonomous local AI, embedded sensing, and full-stack web apps."
+        content="Michael Cogan: U.S. citizen, former Secret clearance holder, and engineering student writing C/C++ for embedded and systems software. Open to aerospace and defense roles."
     >
     <meta name="theme-color" content="#0b0f19">
     <meta property="og:title" content="Michael Cogan | Electrical & Computer Engineering Technology Student">
     <meta
         property="og:description"
-        content="Electrical and computer engineering technology student building a C compiler from scratch, autonomous local AI systems, embedded sensing, and full-stack apps."
+        content="Engineering student and Army National Guard veteran writing C/C++ for embedded and systems software: a C compiler from scratch, a merged NumPy fix, and Raspberry Pi sensing."
     >
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://resume.heigen.io/">
@@ -38,17 +38,7 @@
             }
         })();
     </script>
-    <link rel="stylesheet" href="style.css?v=7">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        media="print"
-        onload="this.media='all'"
-    >
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </noscript>
+    <link rel="stylesheet" href="style.css?v=8">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -68,6 +58,7 @@
     </script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <nav class="navbar" aria-label="Primary">
         <ul>
             <li><a href="#profile">Overview</a></li>
@@ -83,15 +74,18 @@
     <div class="container resume-layout" id="profile">
         <header class="sidebar profile-block">
             <div class="profile-header">
-                <img
+                <picture>
+                    <source srcset="profile.webp" type="image/webp">
+                    <img
                     class="profile-photo"
                     src="profile.jpg"
                     alt="Michael Cogan"
                     width="150"
                     height="150"
                     fetchpriority="high"
-                >
-                <p class="eyebrow">Available for engineering &amp; software co-ops</p>
+                    >
+                </picture>
+                <p class="eyebrow">Open to aerospace &amp; defense software roles</p>
                 <h1>Michael Cogan</h1>
                 <p
                     class="subtitle"
@@ -99,23 +93,27 @@
                     data-typewriter-text="Electrical & Computer Engineering Technology Student"
                 >Electrical &amp; Computer Engineering Technology Student</p>
                 <p class="sidebar-summary">
-                    Engineering student focused on low-level C/C++, embedded systems,
-                    autonomous local AI, and full-stack development.
+                    Engineering student writing C and C++ for embedded and systems software,
+                    with production web experience on the side.
                 </p>
             </div>
         </header>
 
-        <main class="main-content">
+        <main class="main-content" id="main">
             <section class="hero-card">
                 <p class="eyebrow">Michael Cogan — Aspiring Embedded Software Engineer</p>
-                <h2>Engineering student building low-level software: a C compiler, embedded sensing, local AI, and production web apps.</h2>
+                <h2>I write C and C++ close to the hardware, and I ship software people rely on.</h2>
+                <ul class="cred-badges" aria-label="Eligibility">
+                    <li><svg class="icon" aria-hidden="true"><use href="icons.svg#flag-usa"></use></svg> U.S. Citizen</li>
+                    <li><svg class="icon" aria-hidden="true"><use href="icons.svg#shield-halved"></use></svg> Previously held Secret clearance</li>
+                    <li><svg class="icon" aria-hidden="true"><use href="icons.svg#medal"></use></svg> 6 years, Army National Guard</li>
+                </ul>
                 <p class="hero-copy">
-                    I work at the boundary of hardware and software: C/C++ for low-level systems,
-                    Python for tooling and ML, and web stacks for the interfaces that tie it together.
-                    My projects span a C compiler I'm writing from scratch, embedded sensing
-                    (Raspberry Pi + ToF/camera), an autonomous local AI running on my own server
-                    hardware, and production web apps. I use AI tools where they help, and I keep
-                    core projects hand-written so the fundamentals stay mine.
+                    I'm finishing a B.S. in Electrical &amp; Computer Engineering Technology (2027) and
+                    looking for entry-level embedded, systems, or full-stack software work in aerospace
+                    and defense. I'm writing a C compiler from scratch that emits x86-64 assembly, had a
+                    memory-leak fix merged into NumPy's C core, wire sensors into Raspberry Pi on Linux,
+                    and built and run a paid, security-hardened production website on my own server.
                 </p>
                 <div class="hero-actions">
                     <a
@@ -123,16 +121,16 @@
                         href="Michael_Cogan_Embedded_Software_Engineer.pdf"
                         download
                     >
-                        <i class="fa-solid fa-file-arrow-down"></i> Download Résumé (PDF, 1 page)
+                        <svg class="icon" aria-hidden="true"><use href="icons.svg#file-arrow-down"></use></svg> Embedded Résumé (PDF)
                     </a>
                     <a
                         class="cta-btn"
                         href="Michael_Cogan_Resume_General.pdf"
                         target="_blank"
                         rel="noopener"
-                        title="One-page résumé written for a general (non-specialist) audience"
+                        title="One-page résumé for full-stack, tools, and test software roles"
                     >
-                        <i class="fa-solid fa-file-lines"></i> General Résumé
+                        <svg class="icon" aria-hidden="true"><use href="icons.svg#file-lines"></use></svg> Full-Stack Résumé
                     </a>
                     <a
                         class="cta-btn"
@@ -140,7 +138,7 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <i class="fa-brands fa-github"></i> GitHub
+                        <svg class="icon" aria-hidden="true"><use href="icons.svg#github"></use></svg> GitHub
                     </a>
                     <a
                         class="cta-btn"
@@ -148,24 +146,24 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        <svg class="icon" aria-hidden="true"><use href="icons.svg#linkedin"></use></svg> LinkedIn
                     </a>
                     <a class="cta-btn" href="oscillator-demo.html">
-                        <i class="fa-solid fa-wave-square"></i> Physics Demo
+                        <svg class="icon" aria-hidden="true"><use href="icons.svg#wave-square"></use></svg> Physics Demo
                     </a>
                 </div>
                 <div class="hero-highlights">
                     <div>
-                        <strong>Embedded &amp; low-level</strong>
-                        <span>A from-scratch C compiler in C++, plus Raspberry Pi sensor integration across hardware and firmware</span>
+                        <strong>Low-level C/C++</strong>
+                        <span>A hand-written C compiler targeting x86-64, and a merged fix in NumPy's C core</span>
                     </div>
                     <div>
-                        <strong>Autonomous local AI</strong>
-                        <span>Python, Ollama, and ChromaDB running a continuous local cognitive loop</span>
+                        <strong>Embedded &amp; Linux</strong>
+                        <span>Raspberry Pi 5 with I2C time-of-flight and camera sensors, systemd services on Ubuntu</span>
                     </div>
                     <div>
-                        <strong>Full-stack engineering</strong>
-                        <span>Node.js/Express and Flask apps deployed with Render and Neon-backed data layers</span>
+                        <strong>Secure web systems</strong>
+                        <span>A paid production site with CSRF, rate-limiting, and sanitization, self-hosted behind a Cloudflare Tunnel</span>
                     </div>
                 </div>
             </section>
@@ -179,47 +177,15 @@
                 <ul>
                     <li><strong>mcc C compiler</strong> — real x86-64 code generation is working; now adding assembly output for unary operators and an intermediate representation (<a href="https://github.com/mothman01/moth_comp" target="_blank" rel="noopener noreferrer">repo</a>).</li>
                     <li><strong>NumPy</strong> — converting the <code>matmul</code> kernels from C templates to C++ (<a href="https://github.com/numpy/numpy/issues/29528" target="_blank" rel="noopener noreferrer">numpy#29528</a>).</li>
-                    <li><strong>Eigen VRAM footprint</strong> — cutting GPU memory use so the language and vision models run more comfortably side by side on a single 12 GB RTX 3060.</li>
+                    <li><strong>Job search</strong> — applying for entry-level embedded and software roles in aerospace and defense, including co-ops.</li>
                     <li><strong>Coursework</strong> — B.S. Electrical &amp; Computer Engineering Technology, Computer Systems concentration.</li>
                 </ul>
             </section>
 
             <section class="resume-block" id="projects">
-                <h2><i class="fa-solid fa-code"></i> Selected Projects</h2>
+                <h2><svg class="icon" aria-hidden="true"><use href="icons.svg#code"></use></svg> Selected Projects</h2>
                 <div class="projects-grid">
-                    <article class="project-card hidden">
-                        <div class="project-card-header">
-                            <div>
-                                <h3>"Eigen" Autonomous AI System</h3>
-                                <p class="institution">Personal Project</p>
-                            </div>
-                            <span class="stack-label">Python · Ollama · ChromaDB · SQLite</span>
-                        </div>
-                        <p class="project-summary">
-                            Architected an autonomous, self-directed AI "family member" running a continuous cognitive loop on a Linux server with layered memory and multimodal senses.
-                        </p>
-                        <ul class="project-points">
-                            <li>Designed a multi-tiered memory system combining episodic SQLite logging with ChromaDB vector embeddings for contextual semantic recall.</li>
-                            <li>Implemented a continuous local inference loop with sliding-window context management to avoid VRAM contention while keeping the GPU free for Qwen and Moondream models.</li>
-                            <li>Extended the system with a module-swapping personality layer, a curriculum-gated knowledge pipeline, and a Raspberry Pi vision/presence node.</li>
-                        </ul>
-                        <div class="project-actions">
-                            <a
-                                class="project-link"
-                                href="https://eigen.heigen.io"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            ><i class="fa-solid fa-globe"></i> Live Demo</a>
-                            <a
-                                class="project-link"
-                                href="https://github.com/mothman01/Eigen"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            ><i class="fa-brands fa-github"></i> Repository</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card hidden">
+                    <article class="project-card project-featured hidden">
                         <div class="project-card-header">
                             <div>
                                 <h3>mcc — C Compiler from Scratch</h3>
@@ -231,6 +197,9 @@
                             Writing a C compiler by hand to learn what actually happens between
                             <code>int main</code> and the CPU, from the lexer down to the assembly it emits.
                         </p>
+                        <ol class="pipeline" aria-label="mcc compiler pipeline">
+                            <li><span>source.c</span></li><li><span>preprocess</span></li><li><span>lexer</span></li><li><span>parser</span></li><li><span>AST</span></li><li><span>codegen</span></li><li><span>x86-64 .s</span></li><li><span>executable</span></li>
+                        </ol>
                         <ul class="project-points">
                             <li>Built the full pipeline end to end: gcc preprocessing, a hand-written lexer, a recursive-descent parser, an AST, x86-64 assembly generation, and linking into a native executable.</li>
                             <li>Parser builds a <code>unique_ptr</code>-owned AST with nested unary expressions (<code>-</code>, <code>~</code>) and reports clear errors for missing tokens, early end of file, and trailing junk.</li>
@@ -243,29 +212,9 @@
                                 href="https://github.com/mothman01/moth_comp"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            ><i class="fa-brands fa-github"></i> Repository</a>
+                            ><svg class="icon" aria-hidden="true"><use href="icons.svg#github"></use></svg> Repository</a>
                         </div>
                     </article>
-
-                    <article class="project-card hidden">
-                        <div class="project-card-header">
-                            <div>
-                                <h3>Hand-Written C++ Data Structures</h3>
-                                <p class="institution">Personal Project · In progress · No AI-written code</p>
-                            </div>
-                            <span class="stack-label">C++20 · Unit Testing</span>
-                        </div>
-                        <p class="project-summary">
-                            I use AI tools for much of my day-to-day coding, so I implement the classic
-                            data structures myself to keep the fundamentals sharp.
-                        </p>
-                        <ul class="project-points">
-                            <li>Implemented a fixed-capacity array stack, a singly linked list with merge sort, and a B-tree with insert, search, and remove.</li>
-                            <li>Wrote a small <code>TEST</code>/<code>CHECK</code> harness and about 1,900 lines of tests: capacity edges, overflow and underflow, sort stability, random stress, copies, and B-tree structure checks after every change.</li>
-                        </ul>
-                        <!-- Add a Repository link here once mothman01/data-structures-practice is public. -->
-                    </article>
-
                     <article class="project-card hidden">
                         <div class="project-card-header">
                             <div>
@@ -288,51 +237,103 @@
                                 href="https://frontlinerefinement.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            ><i class="fa-solid fa-globe"></i> Live Site</a>
+                            ><svg class="icon" aria-hidden="true"><use href="icons.svg#globe"></use></svg> Live Site</a>
                             <a
                                 class="project-link"
                                 href="https://github.com/mothman01/Front_Line_ref"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            ><i class="fa-brands fa-github"></i> Repository</a>
+                            ><svg class="icon" aria-hidden="true"><use href="icons.svg#github"></use></svg> Repository</a>
                         </div>
                     </article>
-
                     <article class="project-card hidden">
-                        <video
-                            class="project-media"
-                            src="atom-demo.webm"
-                            muted
-                            loop
-                            playsinline
-                            preload="metadata"
-                            aria-label="Atom Wavefunction Simulator rendering a 3D electron probability cloud"
-                        ></video>
                         <div class="project-card-header">
                             <div>
-                                <h3>Atom Wavefunction Simulator</h3>
+                                <h3>Eigen: Raspberry Pi Sensing Node + Local AI</h3>
                                 <p class="institution">Personal Project</p>
                             </div>
-                            <span class="stack-label">C++ · OpenGL · GLSL · AI-Assisted</span>
+                            <span class="stack-label">Python · Linux · Raspberry Pi · Ollama</span>
                         </div>
                         <p class="project-summary">
-                            A multi-file 3D quantum mechanics visualization engine that renders hydrogen electron orbitals in real time. Built AI-assisted: I owned the architecture, review, debugging, and integration.
+                            An autonomous AI that runs on my own Linux server and senses the room through a Raspberry Pi 5 node with a camera and a time-of-flight sensor.
                         </p>
                         <ul class="project-points">
-                            <li>Real-time GPU ray-marching of 128³ volumetric probability-density grids in custom GLSL fragment shaders.</li>
-                            <li>Reviewed, debugged, and integrated AI-generated code to keep the physics correct, running natively on Wayland/EGL Linux.</li>
-                            <li>Shipped one-click builds for Windows, macOS, and Linux through GitHub Actions CI.</li>
+                            <li>Integrated an OV5647 CSI camera and an 8×8 VL53L7CX time-of-flight sensor (I2C) on a Raspberry Pi 5 for event-driven presence detection.</li>
+                            <li>Kept language and vision models inside a 12 GB GPU memory budget with sliding-window context management on the server.</li>
+                            <li>Layered memory (SQLite episodic log + ChromaDB embeddings), and sandboxed tool calls with output filtering for the public demo.</li>
                         </ul>
                         <div class="project-actions">
                             <a
                                 class="project-link"
-                                href="https://github.com/mothman01/hydrogen-atom-simulation"
+                                href="https://eigen.heigen.io"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            ><i class="fa-brands fa-github"></i> Repository</a>
+                            ><svg class="icon" aria-hidden="true"><use href="icons.svg#globe"></use></svg> Live Demo</a>
+                            <a
+                                class="project-link"
+                                href="https://github.com/mothman01/Eigen"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            ><svg class="icon" aria-hidden="true"><use href="icons.svg#github"></use></svg> Repository</a>
                         </div>
                     </article>
-
+                    <article class="project-card hidden">
+                        <div class="project-card-header">
+                            <div>
+                                <h3>Oscillating Systems Simulator</h3>
+                                <p class="institution">Classical Mechanics · Group Project</p>
+                            </div>
+                            <span class="stack-label">Python · Lagrangian Mechanics · Pyodide · SciPy</span>
+                        </div>
+                        <p class="project-summary">
+                            Modeled oscillating systems from a Classical Mechanics course using
+                            Lagrangian methods, then packaged the solver into an interactive
+                            browser demo.
+                        </p>
+                        <ul class="project-points">
+                            <li>Derived equations of motion via the Lagrangian formalism for damped, forced, and driven oscillators.</li>
+                            <li>Runs the Python solver in the browser through Pyodide (CPython compiled to WebAssembly), fully client-side with no backend.</li>
+                        </ul>
+                        <div class="demo-preview">
+                            <div class="demo-preview-icon" aria-hidden="true">
+                                <svg class="icon" aria-hidden="true"><use href="icons.svg#atom"></use></svg>
+                            </div>
+                            <div>
+                                <strong>Interactive demo on this site</strong>
+                                <p>
+                                    Launch the separate demo page to try the WebAssembly-powered
+                                    oscillator without slowing down the main resume page.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a class="project-link" href="oscillator-demo.html"><svg class="icon" aria-hidden="true"><use href="icons.svg#wave-square"></use></svg> Launch Demo</a>
+                            <a
+                                class="project-link"
+                                href="https://github.com/mothman01/oscillations"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            ><svg class="icon" aria-hidden="true"><use href="icons.svg#github"></use></svg> Repository</a>
+                        </div>
+                    </article>
+                    <article class="project-card hidden">
+                        <div class="project-card-header">
+                            <div>
+                                <h3>Hand-Written C++ Data Structures</h3>
+                                <p class="institution">Personal Project · In progress · No AI-written code</p>
+                            </div>
+                            <span class="stack-label">C++20 · Unit Testing</span>
+                        </div>
+                        <p class="project-summary">
+                            I use AI tools for much of my day-to-day coding, so I implement the classic
+                            data structures myself to keep the fundamentals sharp.
+                        </p>
+                        <ul class="project-points">
+                            <li>Implemented a fixed-capacity array stack, a singly linked list with merge sort, and a B-tree with insert, search, and remove.</li>
+                            <li>Wrote a small <code>TEST</code>/<code>CHECK</code> harness and about 1,900 lines of tests: capacity edges, overflow and underflow, sort stability, random stress, copies, and B-tree structure checks after every change.</li>
+                        </ul>
+                        <!-- Add a Repository link here once mothman01/data-structures-practice is public. -->
+                    </article>
                     <article class="project-card hidden">
                         <div class="project-card-header">
                             <div>
@@ -355,61 +356,21 @@
                                 href="https://threed-printing-website-ej38.onrender.com/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            ><i class="fa-solid fa-globe"></i> Live App</a>
+                            ><svg class="icon" aria-hidden="true"><use href="icons.svg#globe"></use></svg> Live App</a>
                             <a
                                 class="project-link"
                                 href="https://github.com/mothman01/3d_printing-website"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            ><i class="fa-brands fa-github"></i> Repository</a>
+                            ><svg class="icon" aria-hidden="true"><use href="icons.svg#github"></use></svg> Repository</a>
                         </div>
-                        <p class="link-note"><i class="fa-solid fa-clock"></i> Free hosting: the live app can take about 20 seconds to wake up on the first visit.</p>
-                    </article>
-
-                    <article class="project-card hidden">
-                        <div class="project-card-header">
-                            <div>
-                                <h3>Lagrangian Oscillating Systems Simulator</h3>
-                                <p class="institution">Classical Mechanics · Group Project</p>
-                            </div>
-                            <span class="stack-label">Python · Lagrangian Mechanics · Pyodide · SciPy</span>
-                        </div>
-                        <p class="project-summary">
-                            Modeled oscillating systems from a Classical Mechanics course using
-                            Lagrangian methods, then packaged the solver into an interactive
-                            browser demo.
-                        </p>
-                        <ul class="project-points">
-                            <li>Derived equations of motion via the Lagrangian formalism for damped, forced, and driven oscillators.</li>
-                            <li>Runs the Python solver in the browser through Pyodide (CPython compiled to WebAssembly), fully client-side with no backend.</li>
-                        </ul>
-                        <div class="demo-preview">
-                            <div class="demo-preview-icon" aria-hidden="true">
-                                <i class="fa-solid fa-atom"></i>
-                            </div>
-                            <div>
-                                <strong>Interactive demo on this site</strong>
-                                <p>
-                                    Launch the separate demo page to try the WebAssembly-powered
-                                    oscillator without slowing down the main resume page.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="project-actions">
-                            <a class="project-link" href="oscillator-demo.html"><i class="fa-solid fa-wave-square"></i> Launch Demo</a>
-                            <a
-                                class="project-link"
-                                href="https://github.com/mothman01/oscillations"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            ><i class="fa-brands fa-github"></i> Repository</a>
-                        </div>
+                        <p class="link-note"><svg class="icon" aria-hidden="true"><use href="icons.svg#clock"></use></svg> Free hosting: the live app can take about 20 seconds to wake up on the first visit.</p>
                     </article>
                 </div>
             </section>
 
             <section class="resume-block" id="experience">
-                <h2><i class="fa-solid fa-terminal"></i> Experience</h2>
+                <h2><svg class="icon" aria-hidden="true"><use href="icons.svg#terminal"></use></svg> Experience</h2>
 
                 <div class="item hidden">
                     <div class="item-header">
@@ -465,7 +426,7 @@
             </section>
 
             <section class="resume-block" id="opensource">
-                <h2><i class="fa-brands fa-osi"></i> Open Source & Public Code</h2>
+                <h2><svg class="icon" aria-hidden="true"><use href="icons.svg#osi"></use></svg> Open Source & Public Code</h2>
                 <div class="item hidden">
                     <p>
                         My GitHub is the public record of how I build: a hand-written compiler,
@@ -500,6 +461,15 @@
                             <strong>GitHub Profile</strong>
                             <span>Full-stack apps, autonomous AI systems, and C++ learning projects.</span>
                         </a>
+                        <a
+                            class="resource-card"
+                            href="https://github.com/mothman01/hydrogen-atom-simulation"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <strong>Atom Orbital Visualizer</strong>
+                            <span>An AI-assisted C++/OpenGL graphics experiment that renders hydrogen electron clouds on the GPU.</span>
+                        </a>
                         <a class="resource-card" href="oscillator-demo.html">
                             <strong>Oscillator Demo Page</strong>
                             <span>Interactive browser simulation powered by Python running in WebAssembly.</span>
@@ -509,7 +479,7 @@
             </section>
 
             <section class="resume-block" id="education">
-                <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+                <h2><svg class="icon" aria-hidden="true"><use href="icons.svg#graduation-cap"></use></svg> Education</h2>
                 <div class="item hidden">
                     <div class="item-header">
                         <h3>B.S. Electrical & Computer Engineering Technology</h3>
@@ -531,10 +501,10 @@
         <aside class="sidebar sidebar-rest" aria-label="Contact, skills, and certifications">
             <section class="contact-info hidden">
                 <h2>Contact</h2>
-                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:michaelcogan497@gmail.com">michaelcogan497@gmail.com</a></p>
-                <p><i class="fa-solid fa-location-dot"></i> Orlando, FL</p>
+                <p><svg class="icon" aria-hidden="true"><use href="icons.svg#envelope"></use></svg> <a href="mailto:michaelcogan497@gmail.com">michaelcogan497@gmail.com</a></p>
+                <p><svg class="icon" aria-hidden="true"><use href="icons.svg#location-dot"></use></svg> Orlando, FL</p>
                 <p>
-                    <i class="fa-brands fa-linkedin"></i>
+                    <svg class="icon" aria-hidden="true"><use href="icons.svg#linkedin"></use></svg>
                     <a
                         href="https://www.linkedin.com/in/michael-cogan-a852091b8"
                         target="_blank"
@@ -542,7 +512,7 @@
                     >LinkedIn Profile</a>
                 </p>
                 <p>
-                    <i class="fa-brands fa-github"></i>
+                    <svg class="icon" aria-hidden="true"><use href="icons.svg#github"></use></svg>
                     <a
                         href="https://github.com/mothman01"
                         target="_blank"
@@ -590,7 +560,7 @@
                         rel="noopener noreferrer"
                     >
                         <span class="icon-placeholder" aria-hidden="true">
-                            <i class="fa-solid fa-robot fa-lg"></i>
+                            <svg class="icon icon-lg" aria-hidden="true"><use href="icons.svg#robot"></use></svg>
                         </span>
                         <span>Eigen — Live AI Demo</span>
                     </a>
@@ -601,7 +571,7 @@
                         class="internal-link"
                     >
                         <span class="icon-placeholder" aria-hidden="true">
-                            <i class="fa-solid fa-wave-square fa-lg"></i>
+                            <svg class="icon icon-lg" aria-hidden="true"><use href="icons.svg#wave-square"></use></svg>
                         </span>
                         <span>Local Oscillator Demo</span>
                     </a>
@@ -613,7 +583,7 @@
                         rel="noopener noreferrer"
                     >
                         <span class="icon-placeholder" aria-hidden="true">
-                            <i class="fa-solid fa-cube fa-lg"></i>
+                            <svg class="icon icon-lg" aria-hidden="true"><use href="icons.svg#cube"></use></svg>
                         </span>
                         <span>3D Printing Platform <small>(~20 s first load)</small></span>
                     </a>
@@ -636,7 +606,7 @@
 
                 <div class="cert-item">
                     <p>
-                        <i class="fa-solid fa-certificate accent-icon"></i>
+                        <svg class="icon accent-icon" aria-hidden="true"><use href="icons.svg#certificate"></use></svg>
                         <a
                             class="cert-link"
                             href="https://coursera.org/share/a73e8ba24c40abe161b0653544181059"
@@ -649,7 +619,7 @@
 
                 <div class="cert-item">
                     <p>
-                        <i class="fa-solid fa-certificate accent-icon"></i>
+                        <svg class="icon accent-icon" aria-hidden="true"><use href="icons.svg#certificate"></use></svg>
                         <a
                             class="cert-link"
                             href="https://coursera.org/share/4881fcc499ebf91f9b8b87249e6b7a0a"
@@ -661,18 +631,18 @@
                 </div>
 
                 <div class="cert-item">
-                    <p><i class="fa-solid fa-certificate accent-icon"></i> Software Engineer</p>
+                    <p><svg class="icon accent-icon" aria-hidden="true"><use href="icons.svg#certificate"></use></svg> Software Engineer</p>
                     <span class="cert-detail">HackerRank | ID: 7B96F29A8F9B</span>
                 </div>
 
                 <div class="cert-item">
-                    <p><i class="fa-brands fa-python accent-icon"></i> Python (Basic)</p>
+                    <p><svg class="icon accent-icon" aria-hidden="true"><use href="icons.svg#python"></use></svg> Python (Basic)</p>
                     <span class="cert-detail">HackerRank | ID: 16D74456FC3F</span>
                 </div>
             </section>
         </aside>
     </div>
 
-    <script src="main.js?v=7" defer></script>
+    <script src="main.js?v=8" defer></script>
 </body>
 </html>
