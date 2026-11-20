@@ -42,7 +42,35 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Consolas", "Menlo", "Segoe UI", system-ui, sans-serif;
+}
+
+/* Prose uses the platform's own UI sans-serif (fast: no web font to download);
+   headings, labels and code keep a monospace face for the engineering look. */
+:root {
+    --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "Cascadia Code", Consolas, Menlo, "DejaVu Sans Mono", "Liberation Mono", monospace;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+h1,
+h2,
+h3,
+.eyebrow,
+.navbar,
+.theme-toggle,
+.cta-btn,
+.date,
+.tags span,
+.stack-label,
+.pipeline,
+.cred-badges,
+code {
+    font-family: var(--font-mono);
 }
 
 html {
@@ -139,7 +167,6 @@ html {
     align-items: center;
     gap: 6px 4px;
     margin: 4px 0 14px;
-    font-family: "Consolas", "Menlo", monospace;
     font-size: 0.8rem;
 }
 
@@ -173,6 +200,7 @@ body {
         radial-gradient(circle at top, var(--accent-soft), transparent 28%),
         var(--bg-color);
     color: var(--text-main);
+    font-family: var(--font-sans);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -787,7 +815,7 @@ a {
 .project-card code,
 .now-card code,
 .resource-card code {
-    font-family: "Consolas", "Menlo", monospace;
+    font-family: var(--font-mono);
     font-size: 0.9em;
     color: var(--accent-color);
     background: var(--accent-soft);
@@ -984,7 +1012,7 @@ input[type="range"] {
 
 .readout-row {
     margin-bottom: 6px;
-    font-family: monospace;
+    font-family: var(--font-mono);
 }
 
 .btn-group {

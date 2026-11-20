@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Cogan | Electrical & Computer Engineering Technology Student</title>
+    <title>Michael Cogan | Aspiring Embedded Software Engineer (C/C++, Linux)</title>
     <meta
         name="description"
         content="Michael Cogan: U.S. citizen, former Secret clearance holder, and engineering student writing C/C++ for embedded and systems software. Open to aerospace and defense roles."
     >
     <meta name="theme-color" content="#0b0f19">
-    <meta property="og:title" content="Michael Cogan | Electrical & Computer Engineering Technology Student">
+    <meta name="color-scheme" content="dark light">
+    <meta property="og:title" content="Michael Cogan | Aspiring Embedded Software Engineer">
     <meta
         property="og:description"
-        content="Engineering student and Army National Guard veteran writing C/C++ for embedded and systems software: a C compiler from scratch, a merged NumPy fix, and Raspberry Pi sensing."
+        content="Engineering student with six years in the Army National Guard, writing C/C++ for embedded and systems software: a C compiler from scratch, a merged NumPy fix, and Raspberry Pi sensing."
     >
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://resume.heigen.io/">
     <meta property="og:image" content="https://resume.heigen.io/profile.jpg">
+    <meta property="og:image:alt" content="Photo of Michael Cogan">
     <meta name="twitter:card" content="summary">
     <link rel="canonical" href="https://resume.heigen.io/">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -38,7 +40,7 @@
             }
         })();
     </script>
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=9">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -204,7 +206,8 @@
                             <li>Built the full pipeline end to end: gcc preprocessing, a hand-written lexer, a recursive-descent parser, an AST, x86-64 assembly generation, and linking into a native executable.</li>
                             <li>Parser builds a <code>unique_ptr</code>-owned AST with nested unary expressions (<code>-</code>, <code>~</code>) and reports clear errors for missing tokens, early end of file, and trailing junk.</li>
                             <li>Driver flags stop after any stage (<code>--lex</code>, <code>--parse</code>, <code>--codegen</code>, <code>-S</code>) to inspect tokens, the AST, or the generated assembly.</li>
-                            <li>Compiles with <code>-Wall</code> <code>-Wextra</code> <code>-Werror</code> plus AddressSanitizer and UBSan, with a negative test suite of malformed programs that must be rejected.</li>
+                            <li>Tested against the public <a href="https://github.com/nlsandler/writing-a-c-compiler-tests" target="_blank" rel="noopener noreferrer"><cite>Writing a C Compiler</cite> test suite</a>: all Chapter 1 tests pass, and Chapter 2 (unary operators) is in progress. My own negative tests check that malformed programs are rejected.</li>
+                            <li>Compiles with <code>-Wall</code> <code>-Wextra</code> <code>-Werror</code> plus AddressSanitizer and UBSan, so memory bugs fail loudly.</li>
                         </ul>
                         <div class="project-actions">
                             <a
@@ -643,6 +646,6 @@
         </aside>
     </div>
 
-    <script src="main.js?v=8" defer></script>
+    <script src="main.js?v=9" defer></script>
 </body>
 </html>

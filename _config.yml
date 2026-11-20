@@ -1,0 +1,6 @@
+# GitHub Pages build settings. Keep working notes and helper scripts in the repo
+# but off the public site (the PDFs and resume_*.html sources stay published).
+exclude:
+  - resume_glossary.md
+  - qr.py
+  - README.md

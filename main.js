@@ -112,35 +112,6 @@ function initRevealAnimations() {
     hiddenElements.forEach((element) => observer.observe(element));
 }
 
-// Project demo clips play only while on screen, and never auto-play for reduced motion.
-function initProjectMedia() {
-    const videos = document.querySelectorAll("video.project-media");
-    if (!videos.length) {
-        return;
-    }
-
-    if (prefersReducedMotion || typeof IntersectionObserver === "undefined") {
-        videos.forEach((video) => {
-            video.controls = true;
-        });
-        return;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.play().catch(() => {
-                    entry.target.controls = true;
-                });
-            } else {
-                entry.target.pause();
-            }
-        });
-    }, { threshold: 0.25 });
-
-    videos.forEach((video) => observer.observe(video));
-}
-
 // Quick view: a condensed, recruiter-friendly layout. Shareable as ?view=quick.
 function initQuickView() {
     const button = document.getElementById("quick-view-toggle");
@@ -199,17 +170,6 @@ function initActiveNav() {
     sections.forEach((section) => observer.observe(section));
 }
 
-function initPrintButton() {
-    const printButton = document.getElementById("print-resume-btn");
-    if (!printButton) {
-        return;
-    }
-
-    printButton.addEventListener("click", () => {
-        window.print();
-    });
-}
-
 function initHomepageTracker() {
     if (document.body.classList.contains("demo-page")) {
         return;
@@ -261,8 +221,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initTypewriter();
     initRevealAnimations();
     initQuickView();
-    initProjectMedia();
-    initPrintButton();
     initActiveNav();
     initHomepageTracker();
 });
