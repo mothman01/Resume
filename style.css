@@ -482,7 +482,7 @@ a {
 .quick-view .project-media,
 .quick-view .demo-preview,
 .quick-view .now-card,
-.quick-view #opensource,
+.quick-view #opensource > .item > p,
 .quick-view .sidebar-summary,
 .quick-view .profile-photo {
     display: none;
@@ -981,6 +981,9 @@ input[type="range"] {
         --text-main: #111827;
         --text-muted: #475569;
         --border-color: #cbd5e1;
+        --accent-soft: rgba(15, 95, 168, 0.08);
+        --panel-fill: #ffffff;
+        --panel-fill-soft: #ffffff;
     }
 
     body {
@@ -991,17 +994,42 @@ input[type="range"] {
     .navbar,
     .hero-actions,
     .project-actions,
-    .resource-card,
     .now-card,
-    .project-media {
+    .project-media,
+    .demo-preview,
+    .sidebar-links,
+    .sidebar > h3.hidden,
+    #opensource > .item > p {
         display: none !important;
     }
 
-    .container {
+    /* Flex and grid layouts fragment badly across printed pages; print as one column. */
+    .container,
+    .projects-grid {
+        display: block;
         margin: 0;
+        overflow: visible;
         box-shadow: none;
         border: none;
         border-radius: 0;
+    }
+
+    .sidebar,
+    .main-content {
+        width: 100%;
+        padding: 0 0 12px;
+        border: none;
+    }
+
+    .project-card,
+    .resource-card {
+        margin-bottom: 12px;
+    }
+
+    .resource-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
     }
 
     /* Sections not yet scrolled into view would otherwise print blank. */
@@ -1012,6 +1040,8 @@ input[type="range"] {
 
     .hero-card,
     .project-card,
+    .resource-card,
+    .item,
     .oscillator-widget {
         break-inside: avoid;
     }

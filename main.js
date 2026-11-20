@@ -72,7 +72,9 @@ function initTypewriter() {
         return;
     }
 
-    targetElement.innerHTML = '<span id="tw-text"></span><span class="cursor"></span>';
+    // Screen readers get the full text at once instead of the typing animation.
+    targetElement.setAttribute("aria-label", typewriterText);
+    targetElement.innerHTML = '<span id="tw-text" aria-hidden="true"></span><span class="cursor" aria-hidden="true"></span>';
     const textSpan = document.getElementById("tw-text");
     let index = 0;
 
